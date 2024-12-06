@@ -8,6 +8,18 @@ has_children: false
 has_toc: false
 ---
 
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
 # SPAGxE<sub>CCT</sub> method 
 
 **SPAGxE<sub>CCT</sub> is a G×E analysis framework designed for a wide range of complex traits with intricate structures, including time-to-event, ordinal categorical, binary, quantitative, longitudinal, and other complex traits.** The framework involves two main steps:
@@ -18,7 +30,7 @@ has_toc: false
 
 
 
-![plot](https://github.com/YuzhuoMa97/SPAGxECCT/blob/main/workflow/workflow_SPAGxECCT_MYZ.png)
+![plot](https://github.com/YuzhuoMa97/RetroSPAgwas.github.io/blob/main/docs/assets/images/workflow_SPAGxECCT_MYZ.png)
 
 ## Citation
 
