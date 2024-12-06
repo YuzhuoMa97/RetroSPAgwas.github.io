@@ -1,7 +1,7 @@
 ---
 layout: default
 title: UK Biobank RAP
-nav_order: 8
+nav_order: 3
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 has_children: false
 ---
