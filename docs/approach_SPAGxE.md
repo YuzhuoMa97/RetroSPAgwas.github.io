@@ -30,7 +30,9 @@ has_toc: false
 
 
 
-![plot](https://github.com/YuzhuoMa97/RetroSPAgwas.github.io/blob/main/docs/assets/images/workflow_SPAGxECCT_MYZ.png)
+![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAGxECCT_MYZ.png)
+
+
 
 ## Citation
 
