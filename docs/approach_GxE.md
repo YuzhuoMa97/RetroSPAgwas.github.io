@@ -1,22 +1,22 @@
 ---
 layout: default
-title: Genome-wide association studies
-nav_order: 2
+title: Genome-wide gene-environment interaction (GxE) studies
+nav_order: 3
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 has_children: true
 has_toc: true
 ---
 
-# Genome-wide association studies
+# Genome-wide gene-environment interaction (GxE) studies
 
-```GRAB``` package gives a generic framework to analyze a wide variaty of phenotypes. 
+```SPAGxECCT``` package gives a generic framework to analyze a wide variaty of phenotypes. 
 
 ## Quick start-up examples
 
 The below gives an example to use POLMM and POLMM-GENE to analyze ordinal categorical trait. 
 
 ```
-library(GRAB)
+library(SPAGxECCT)
 PhenoFile = system.file("extdata", "simuPHENO.txt", package = "GRAB")
 PhenoData = data.table::fread(PhenoFile, header = T)
 PhenoData = PhenoData %>% mutate(OrdinalPheno = factor(OrdinalPheno, 

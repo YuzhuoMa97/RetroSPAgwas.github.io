@@ -1,21 +1,26 @@
 ---
 layout: default
-title: SAIGE / SAIGE-GENE
+title: SPAGxE<sub>CCT</sub>
 nav_order: 1
-description: "SAIGE approaches: quantitative and binary trait analysis."
-parent: Genome-wide association studies
+description: "SPAGxECCT approaches: quantitative, binary, time-to-event, and ordinal trait analysis."
+parent: Genome-wide gene-environment interaction (GxE) studies
 has_children: false
 has_toc: false
 ---
 
-# SAIGE approach (Supported later)
+# SPAGxE<sub>CCT</sub> method 
 
-SAIGE and SAIGE-GENE are accurate and efficient approaches to analyze quantitative and binary traits. Users can refer to SAIGE package, which is still in continuously updated.
+**SPAGxE<sub>CCT</sub> is a G×E analysis framework designed for a wide range of complex traits with intricate structures, including time-to-event, ordinal categorical, binary, quantitative, longitudinal, and other complex traits.** The framework involves two main steps:
+
+- Step 1: SPAGxE<sub>CCT</sub> fits a covariates-only model to calculate model residuals. These covariates include, but are not limited to, confounding factors such as age, sex, SNP-derived principal components (PCs), and environmental factors. The specifics of the model and residuals vary depending on the trait type. Since the covariates-only model is genotype-independent, it only needs to be fitted once across a genome-wide analysis.
+
+- Step 2: SPAGxE<sub>CCT</sub> identifies genetic variants with marginal G×E effects on the trait of interest. First, marginal genetic effects are tested using score statistics. If the marginal genetic effect is not significant, S<sub>G×E</sub> is used as the test statistic to characterize the marginal G×E effect. If significant, S<sub>G×E</sub> is updated to genotype-adjusted test statistics. To balance computational efficiency and accuracy, SPAGxE<sub>CCT</sub> employs a hybrid strategy combining normal distribution approximation and saddlepoint approximation (SPA) to calculate p-values, as used in previous studies such as [SAIGE](https://saigegit.github.io/SAIGE-doc/) and [SPAGE](https://github.com/WenjianBI/SPAGE). For variants with significant marginal genetic effects, SPAGxE<sub>CCT</sub> additionally calculates p value through Wald test and uses Cauchy combination (CCT) to combine p values from Wald test and the proposed genotype-adjusted test statistics.
+
+
+
+![plot](https://github.com/YuzhuoMa97/SPAGxECCT/blob/main/workflow/workflow_SPAGxECCT_MYZ.png)
 
 ## Citation
 
-- SAIGE: Zhou, Wei, Jonas B. Nielsen, Lars G. Fritsche, Rounak Dey, Maiken E. Gabrielsen, Brooke N. Wolford, Jonathon LeFaive et al. **Efficiently controlling for case-control imbalance and sample relatedness in large-scale genetic association studies.** *Nature genetics* 50, no. 9 (2018): 1335-1341.
+- **A scalable and accurate framework for large-scale genome-wide gene-environment interaction analysis and its application to time-to-event and ordinal categorical traits** (to be updated).
 
-- SAIGE-GENE: Zhou, Wei, Zhangchen Zhao, Jonas B. Nielsen, Lars G. Fritsche, Jonathon LeFaive, Sarah A. Gagliano Taliun, Wenjian Bi et al. **Scalable generalized linear mixed model for region-based association tests in large biobanks and cohorts.** *Nature genetics* 52, no. 6 (2020): 634-639.
-
-- SAIGE-GENE+: Zhou, Wei, Wenjian Bi, Zhangchen Zhao, Kushal K. Dey, Karthik A. Jagadeesh, Konrad J. Karczewski, Mark J. Daly, Benjamin M. Neale, and Seunggeun Lee. **SAIGE-GENE+ improves the efficiency and accuracy of set-based rare variant association tests** *Nature genetics* 54, no. 10 (2022): 1466-1469.
