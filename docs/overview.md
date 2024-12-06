@@ -2,14 +2,14 @@
 layout: default
 title: Overview
 nav_order: 2
-description: "Overview of GRAB package."
+description: "Overview of Restropective saddlepoint approximation (SPA) methods in GWAS."
 has_children: false
 has_toc: false
 ---
 
-# Overview of GRAB package 
+# Overview of Restropective saddlepoint approximation (SPA) methods in GWAS
 
-The ```GRAB``` package is mainly designed to conduct **genome-wide association studies (GWAS)** in terms of both single-variant and set-based analysis. In addition, the package can also be used 
+The ```RetroSPAgwas``` package is mainly designed to conduct **genome-wide association studies (GWAS)** in terms of both single-variant and set-based analysis. In addition, the package can also be used 
 - to simulate genotype/phenotype data, 
 - to calculate sparse GRM, and 
 - to read in genotype data from PLINK/BGEN files.  
@@ -21,7 +21,7 @@ All of these approaches share the same analysis framework including the followin
 - Step 1: Fit a null model using trait, covariates, and GRM (if applied).
 - Step 2: Conduct single-variant or set-based tests to identify marker or marker-set (e.g. gene) significantly associated with the trait of interest.
 
-The ```GRAB``` package supports multiple traits including
+The ```RetroSPAgwas``` package supports multiple traits including
 
 - Ordianl categorical trait (POLMM / POLMM-GENE), and
 - Time-to-event trait (SPACox)
@@ -29,16 +29,16 @@ The ```GRAB``` package supports multiple traits including
 
 For binary/quantitative traits analysis, we plan to incorporate SAIGE/SAIGE-GENE in the ```GRAB``` package in the future. Currently, ```SAIGE``` package is still being continuously updated.
 
-The ```GRAB``` package includes ```SPACox```, ```SPAmix```, and ```SPAGRM``` methods in which model residuals are supported as input. For any type of trait,  users can select an appropriate model to fit the trait to confounding factors and then calculate model residuals. If the sum of the residuals is zero, then it can serve as an input for a GWAS.
+The ```RetroSPAgwas``` package includes ```SPACox```, ```SPAmix```, and ```SPAGRM``` methods in which model residuals are supported as input. For any type of trait,  users can select an appropriate model to fit the trait to confounding factors and then calculate model residuals. If the sum of the residuals is zero, then it can serve as an input for a GWAS.
 
-The ```GRAB``` package supports the below genotype file format for association studies
+The ```RetroSPAgwas``` package supports the below genotype file format for association studies
 
 - ```PLINK``` binary files (.bed, .bim, .fam)
 - ```BGEN``` (.bgen, .bgi, .sample)
 
 ## Preparation before using GRAB package
 
-```GRAB``` package supports using genotype data to adjust for sample relatedness via genetic relationship matrix (GRM). PLINK binary files with high-quality genotyped variants are required for that purpose. In UK Biobank real data analysis, we used the following cutoffs in PLINK to select ~ 340K SNPs for White British subjects.
+```RetroSPAgwas``` package supports using genotype data to adjust for sample relatedness via genetic relationship matrix (GRM). PLINK binary files with high-quality genotyped variants are required for that purpose. In UK Biobank real data analysis, we used the following cutoffs in PLINK to select ~ 340K SNPs for White British subjects.
 
 ```
 --maf 0.05
@@ -55,17 +55,17 @@ Users can customize parameters including ```(minMafGRM, maxMissingGRM, nPartsGRM
 
 ## Other functions in ```GRAB``` package
 
-The ```GRAB``` package provides some additional functions to facilitate users. More details can be seen in the corresponding sections. 
+The ```RetroSPAgwas``` package provides some additional functions to facilitate users. More details can be seen in the corresponding sections. 
 
 ### Data Simulation
 
-The ```GRAB``` package can be used to simulate genotype/phenotype data.
+The ```RetroSPAgwas``` package can be used to simulate genotype/phenotype data.
 
 ### Genetic Relationship Matrix (GRM)
 
-The ```GRAB``` package supports sparse GRM to adjust for family relatedness. Functions ```getTempFilesFullGRM()``` and ```getSparseGRM()``` can be used to generate a sparse GRM using PLINK files.
+The ```RetroSPAgwas``` package supports sparse GRM to adjust for family relatedness. Functions ```getTempFilesFullGRM()``` and ```getSparseGRM()``` can be used to generate a sparse GRM using PLINK files.
 
 ### Read in Genotype Data
 
-The ```GRAB``` package can also be used to read in genotype data to R from ```PLINK``` and ```BGEN``` files.
+The ```RetroSPAgwas``` package can also be used to read in genotype data to R from ```PLINK``` and ```BGEN``` files.
 
