@@ -1,132 +1,29 @@
 ---
 layout: default
-title: POLMM / POLMM-GENE
-nav_order: 2
-description: "POLMM approaches: ordinal categorical trait analysis."
-parent: Genome-wide association studies
+title: SPAGxE<sub>CCT</sub>
+nav_order: 3
+description: "SPAGxE+ approaches: quantitative, binary, time-to-event, and ordinal trait analysis."
+parent: Genome-wide gene-environment interaction (GxE) studies
 has_children: false
 has_toc: false
 ---
 
-# POLMM approaches 
+# SPAGxE+ method 
 
-```POLMM``` and ```POLMM-GENE``` are accurate and efficient approaches to associate an ordinal categorical trait to single-variant and variant-set (e.g. gene), respectively.
+SPAGxE+ is a scalable and accurate G×E analytical framework that controls for sample relatedness and unbalanced phenotypic distribution (e.g., case-control imbalance in binary trait analysis). 
+It is applicable to a wide range of complex traits with intricate structures, including binary, quantitative, time-to-event, ordinal categorical, longitudinal, and other complex traits. The framework involves two main steps:
 
-## Main features
+- Step 1: SPAGxE+ fits a covariates-only model to calculate model residuals. These covariates include, but are not limited to, confounding factors such as age, sex, SNP-derived principal components (PCs), and environmental factors. The specifics of the model and residuals vary depending on the trait type. Since the covariates-only model is genotype-independent, it only needs to be fitted once across a genome-wide analysis. Incorporating random effects to account for sample relatedness in null model fitting is optional, rather than required.
 
-```POLMM``` and ```POLMM-GENE``` are
+- Step 2: SPAGxE+ identifies genetic variants with marginal G×E effects on the trait of interest. First, marginal genetic effects are tested using score statistics. If the marginal genetic effect is not significant, S<sub>G×E</sub> is used as the test statistic to characterize the marginal G×E effect. If significant, S<sub>G×E</sub> is updated to genotype-adjusted test statistics. To balance computational efficiency and accuracy, SPAGxE+ employs a hybrid strategy combining normal distribution approximation and SPA to calculate p-values, as used in SPAGxE<sub>CCT</sub> and previous studies such as [SAIGE](https://saigegit.github.io/SAIGE-doc/) and [SPAGE](https://github.com/WenjianBI/SPAGE). 
 
-- designed for ordinal categorical trait analysis,
-- accurate for unbalanced phenotypic distribution (e.g. sample size proportion in three levels is 30:1:1 ),
-- scalable for a large-scale biobank data analysis (e.g. UK Biobank),
-- support both dense GRM and sparse GRM (recommanded) to adjust for family relatedness,
-- support both single-variant analysis and set-based analysis (Burden tests, SKAT, and SKAT-O).
+![plot](https://github.com/YuzhuoMa97/SPAGxECCT/blob/main/workflow/workflow_SPAGxE_Plus_MYZ.png)
 
-## Important notes prior to analysis
+Currently, there is still a lack of scalable and accurate gene-environmental interaction analytical frameworks that can control for sample relatedness and be applicable to binary, time-to-event, ordinal categorical, or longitudinal trait analysis. It is usually challenging to detect gene-environmental interaction effects efficiently and accurately while adjusting for sample relateness in a large-scale genome-wide analysis. In GWAS for thousands of phenotypes in large biobanks, most binary traits have substantially fewer cases than controls. Existing methods based on logistic mixed model produce inflated type I errors in the presence of unbalanced case-control ratios. 
 
-- For function ```GRAB.NullModel```, the left side of argument ```formula``` should be a factor when fitting a null model in step 1. If function ```factor``` is used to convert phenotype to a factor, we highly recommend specifying argument ```levels``` explicitly.
-
-- We recommend using sparse GRM to adjust for family relatedness due to its high computational efficiency. And generally, we did not observe a power loss compared to using dense GRM.
-
-## Quick Start-up Guide
-
-The below gives an example to demonstrate the usage of POLMM approaches 
-
-### First read in data and convert phenotype to a factor
-
-```
-library(GRAB)
-PhenoFile = system.file("extdata", "simuPHENO.txt", package = "GRAB")
-PhenoData = data.table::fread(PhenoFile, header = T)
-PhenoData = PhenoData %>% mutate(OrdinalPheno = factor(OrdinalPheno, 
-                                                       levels = c(0, 1, 2)))
-```
-
-### Step 1(a): If dense GRM is used in model fitting, please first prepare PLINK files ```GenoFile```
-
-```
-GenoFile = system.file("extdata", "simuPLINK.bed", package = "GRAB")
-obj.POLMM = GRAB.NullModel(factor(OrdinalPheno) ~ AGE + GENDER,
-                           data = PhenoData, 
-                           subjData = PhenoData$IID, 
-                           method = "POLMM", 
-                           traitType = "ordinal",
-                           GenoFile = GenoFile,
-                           control = list(showInfo = FALSE, 
-                                          LOCO = FALSE, 
-                                          tolTau = 0.2, 
-                                          tolBeta = 0.1))
-```
-
-### Step 1(b): If sparse GRM is used in model fitting, please first prepare sparse GRM file ```SparseGRMFile```
-
-```
-SparseGRMFile =  system.file("SparseGRM", "SparseGRM.txt", package = "GRAB")
-GenoFile = system.file("extdata", "simuPLINK.bed", package = "GRAB")
-obj.POLMM = GRAB.NullModel(formula = OrdinalPheno ~ AGE + GENDER,
-                           data = PhenoData, 
-                           subjData = PhenoData$IID, 
-                           method = "POLMM", 
-                           traitType = "ordinal",
-                           GenoFile = GenoFile,
-                           SparseGRMFile =  SparseGRMFile,
-                           control = list(showInfo = FALSE, 
-                                          LOCO = FALSE, 
-                                          tolTau = 0.2, 
-                                          tolBeta = 0.1))
-objPOLMMFile = system.file("results", "objPOLMMFile.RData", package = "GRAB")                                       
-save(obj.POLMM, file = objPOLMMFile)                                        
-```
-
-### Step 2(a): Single-variant tests using POLMM
-
-```
-objPOLMMFile = system.file("results", "objPOLMMFile.RData", package = "GRAB")  
-load(objPOLMMFile)   # read in an R object of "obj.POLMM"
-
-GenoFile = system.file("extdata", "simuPLINK.bed", package = "GRAB")
-OutputDir = system.file("results", package = "GRAB")
-OutputFile = paste0(OutputDir, "/simuMarkerOutput.txt")
-GRAB.Marker(obj.POLMM, GenoFile = GenoFile,
-            OutputFile = OutputFile)
-
-results = data.table::fread(OutputFile)
-hist(results$Pvalue)
-```
-
-### Step 2(b): Set-based tests using POLMM-GENE
-
-```
-objPOLMMFile = system.file("results", "objPOLMMFile.RData", package = "GRAB")  
-load(objPOLMMFile)   # read in an R object of "obj.POLMM"
-
-GenoFile = system.file("extdata", "simuPLINK_RV.bed", package = "GRAB")
-OutputDir = system.file("results", package = "GRAB")
-OutputFile = paste0(OutputDir, "/simuRegionOutput.txt")
-GroupFile = system.file("extdata", "simuPLINK_RV.group", package = "GRAB")
-SparseGRMFile = system.file("SparseGRM", "SparseGRM.txt", package = "GRAB")
-
-## make sure the output files does not exist at first
-file.remove(OutputFile)
-file.remove(paste0(OutputFile, ".markerInfo"))
-file.remove(paste0(OutputFile, ".index"))
-
-GRAB.Region(objNull = obj.POLMM,
-            GenoFile = GenoFile,
-            GenoFileIndex = NULL,
-            OutputFile = OutputFile,
-            OutputFileIndex = NULL,
-            GroupFile = GroupFile,
-            SparseGRMFile = SparseGRMFile,
-            MaxMAFVec = "0.01,0.005")
-
-data.table::fread(OutputFile)
-```
-
+SPAGxE+ is a scalable and accurate G×E analytical framework that uses saddlepoint approximation to calibrate the null distribution of test statistics while controlling for sample relatedness and case-control imbalance. Compared to SPAGxE, a sparse genetic relationship matrix (GRM) is used for characterizing familial structure. SPAGxE+ provides accurate p-values even when case-control ratios are extremely unbalanced (e.g. case:control = 1:100). Additionally, SPAGxE+ is applicable to other complex traits including time-to-event, ordinal categorical, and longitudinal traits, and it maintains highly accurate even when phenotypic distribution is unbalanced.
 
 ## Citation
 
-- POLMM: Bi, Wenjian, Wei Zhou, Rounak Dey, Bhramar Mukherjee, Joshua N. Sampson, and Seunggeun Lee. **Efficient mixed model approach for large-scale genome-wide association studies of ordinal categorical phenotypes.** *The American Journal of Human Genetics* 108, no. 5 (2021): 825-839.
-
-- POLMM-GENE: Bi, Wenjian, Wei Zhou, Peipei Zhang, Yaoyao Sun, Weihua Yue, and Seunggeun Lee. **Scalable mixed model approaches for set-based association studies on large-scale categorical data analysis and its application to 450k exome sequencing data in UK Biobank.** To be submitted.
+- **A scalable and accurate framework for large-scale genome-wide gene-environment interaction analysis and its application to time-to-event and ordinal categorical traits** (to be updated).
 
