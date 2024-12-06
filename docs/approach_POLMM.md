@@ -1,7 +1,7 @@
 ---
 layout: default
 title: POLMM / POLMM-GENE
-nav_order: 2
+nav_order: 3
 description: "POLMM approaches: ordinal categorical trait analysis."
 parent: Genome-wide association studies
 has_children: false
