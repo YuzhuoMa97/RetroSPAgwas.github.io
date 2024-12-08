@@ -55,6 +55,7 @@ The below gives examples to demonstrate the usage of ```SPAmix```.
 library(GRAB)
 PhenoFile = system.file("extdata", "simuPHENO.txt", package = "GRAB")
 PhenoData = data.table::fread(PhenoFile, header = T)
+```
 
 ```SPAmix``` method also support both original trait or model residuals as input. For ```SPAmix```, the confounding factors of SNP-derived PCs are required and should be specified in ```control```.
 
