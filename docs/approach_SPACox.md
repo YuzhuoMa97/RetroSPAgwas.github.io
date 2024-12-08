@@ -12,9 +12,9 @@ has_toc: false
 
 ## Main features
 
-```SPAmix```, ```SPAGRM```, and ```SPAmix+``` are accurate and efficient approaches to associating complex traits (including but not limited to time-to-event traits) to single-variant.
+```SPAmix``` and ```SPAmix+``` are accurate and efficient approaches to associating complex traits (including but not limited to quantitative, binary, time-to-event, ordinal, and longitudinal traits) to single-variant.
 
-The three methods use empirical SPA approaches and share the below features.
+The three methods use restropective saddlepoint approximation (SPA) approaches and share the below features.
 
 - Model residuals (whose sum is zero) are needed as input. Users can select appropriate statistical models depending on the type of traits in analysis.
 - High computational efficiency to analyze large-scale biobank data with millions of individuals
