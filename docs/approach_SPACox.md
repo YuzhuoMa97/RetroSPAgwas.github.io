@@ -26,6 +26,12 @@ The two methods are different in terms of
 
 - ```SPAmix+``` is a scalable, accurate, and universal analysis framework to control for population structure and family relatedness. The method is valid to analyze heterogeneous or admixed populations with falily relatedness.
 
+| Method                 |Account for population structure|Account for local ancestry|Account for family relatedness|
+|:----------------------:|:------------------------------:|:------------------------:|:----------------------------:|
+| SPAmix                 | YES                            | YES                      |  NO                          |
+| SPAGRM                 | NO                             | NO                       |  YES                          |
+| SPAmix+                | YES                            | YES                      |  YES                         |
+
 # The SPAmix paper and the SPAmix+ paper are two distinct papers
 
 **Please note that the SPAmix paper and the SPAmix+ paper are two distinct papers. Unfortunately, although the SPAmix algorithm was completed in 2021, its submission was delayed for some reasons. Consequently, the SPAmix+ algorithm will be presented in a separate paper rather than within the SPAmix paper.** 
