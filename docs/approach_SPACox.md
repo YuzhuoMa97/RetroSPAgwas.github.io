@@ -8,7 +8,7 @@ has_children: false
 has_toc: false
 ---
 
-# SPACox / SPAmix / SPAGRM approaches
+# SPAmix and SPSmix+ methods
 
 ## Main features
 
