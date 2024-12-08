@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Introduction of retrospective saddlepoint approximation (SPA) approaches in genome-wide association studies (GWAS)
+title: Introduction of retrospective SPA approaches in GWAS
 nav_order: 2
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 has_children: true
