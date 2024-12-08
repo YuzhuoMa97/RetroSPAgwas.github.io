@@ -82,11 +82,12 @@ For different types of traits and methods, the step 2 is the same as below.
 ```
 GenoFile = system.file("extdata", "simuPLINK.bed", package = "GRAB")
 OutputDir = system.file("results", package = "GRAB")
-
 # step 2 for SPAmix method
 OutputFile = paste0(OutputDir, "/Results_SPAmix.txt")
 GRAB.Marker(obj.SPAmix, GenoFile = GenoFile, OutputFile = OutputFile)
 ```
+
+
 
 ## Citation
 
