@@ -1,7 +1,7 @@
 ---
 layout: default
-title: SPACox / SPAmix / SPAGRM
-nav_order: 3
+title: SPAmix / SPAGRM / SPAmix+
+nav_order: 1
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 parent: Genome-wide association studies
 has_children: false
