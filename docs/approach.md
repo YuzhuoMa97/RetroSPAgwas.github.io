@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Genome-wide association studies
-nav_order: 2
+nav_order: 3
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 has_children: true
 has_toc: true
