@@ -12,7 +12,7 @@ has_toc: false
 
 ## Main features
 
-```SPAmix``` and ```SPAmix+``` are accurate and efficient approaches to associating complex traits (including but not limited to quantitative, binary, time-to-event, ordinal, and longitudinal traits) to single-variant.
+```SPAmix``` and ```SPAmix+``` are accurate and efficient approaches to associating complex traits (including but not limited to quantitative, binary, time-to-event, ordinal, and longitudinal traits) to single variant.
 
 The two methods use restropective saddlepoint approximation (SPA) approaches and share the below features.
 
