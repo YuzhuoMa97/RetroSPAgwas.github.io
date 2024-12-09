@@ -8,7 +8,7 @@ has_children: false
 has_toc: false
 ---
 
-# SPAmix and SPSmix+ methods
+# SPAmix and SPAmix+ methods
 
 ## Main features
 
