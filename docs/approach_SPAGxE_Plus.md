@@ -37,6 +37,48 @@ Currently, there is still a lack of scalable and accurate gene-environmental int
 
 SPAGxE+ is a scalable and accurate G×E analytical framework that uses saddlepoint approximation to calibrate the null distribution of test statistics while controlling for sample relatedness and case-control imbalance. Compared to SPAGxE, a sparse genetic relationship matrix (GRM) is used for characterizing familial structure. SPAGxE+ provides accurate p-values even when case-control ratios are extremely unbalanced (e.g. case:control = 1:100). Additionally, SPAGxE+ is applicable to other complex traits including time-to-event, ordinal categorical, and longitudinal traits, and it maintains highly accurate even when phenotypic distribution is unbalanced.
 
+
+## Quick start-up examples
+
+The below gives an example to use SPAGxE+ to analyze ordinal binary trait. 
+
+```
+library(SPAGxECCT)
+
+# example 1  binary phenotype
+# load in binary phenotype, genotype, and sparseGRM
+
+data("Phen.mtx.SPAGxEPlus.binary")
+data("sparseGRM.SPAGxEPlus")
+data("GenoMat.SPAGxEPlus")
+
+E = Phen.mtx.SPAGxEPlus.binary$E                               # environmental factor
+Cova.mtx = Phen.mtx.SPAGxEPlus.binary[,c("Cov1","Cov2")]       # Covariate matrix excluding environmental factor
+
+# Step 1: fit a null model
+obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
+                                                  Y~Cov1+Cov2+E,family=binomial(link="logit"),
+                                                  data=Phen.mtx.SPAGxEPlus.binary,
+                                                  pIDs=Phen.mtx.SPAGxEPlus.binary$IID,
+                                                  gIDs=rownames(GenoMat.SPAGxEPlus),
+                                                  sparseGRM = sparseGRM.SPAGxEPlus,
+                                                  E = E)
+
+# Step 2: conduct a marker-level association study
+binary.res = SPAGxE_Plus(Geno.mtx = GenoMat.SPAGxEPlus,
+                         E = E,
+                         Phen.mtx = Phen.mtx.SPAGxEPlus.binary,
+                         Cova.mtx = Cova.mtx,
+                         obj.SPAGxE_Plus_Nullmodel = obj.SPAGxE_Plus_Nullmodel)
+
+binary.res = as.data.frame(binary.res)
+
+# we recommand using column of 'p.value.spaGxE.plus' as p-values testing for marginal GxE effect
+head(binary.res)
+```
+
+
+
 ## Citation
 
 - **A scalable and accurate framework for large-scale genome-wide gene-environment interaction analysis and its application to time-to-event and ordinal categorical traits** (to be updated).
