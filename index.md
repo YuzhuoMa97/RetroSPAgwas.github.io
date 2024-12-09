@@ -31,7 +31,7 @@ All retrospective-SPA-based GxE approaches share the same analysis framework inc
 # Restropective SPA Project Timeline
 
 ```markdown
-# Timeline of My Academic and Technical Adventures
+# Timeline of Restropective SPA Project
 
 ## March 2021
 - The idea of a retrospective saddlepoint approximation (SPA) was conceived.
@@ -43,8 +43,9 @@ All retrospective-SPA-based GxE approaches share the same analysis framework inc
 - Work on the SPAGxE algorithm was initiated.
 
 ## May 2022
-- Master's thesis 'Research on Empirical Saddlepoint Approximation Methods and Their Applications in Genome-Wide Association Studies' was completed.
+- Master's thesis 'Research on Empirical Saddlepoint Approximation Methods and Their Applications in Genome-Wide Association Studies' (DOI:10.27272/d.cnki.gshdu.2022.002946) was completed.
 ```
+
 
 
 
