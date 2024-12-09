@@ -9,9 +9,9 @@ has_toc: true
 
 # Genome-wide gene-environment interaction (GxE) studies
 
-[```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) package gives a generic framework to analyze a wide variaty of phenotypes. 
+[```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) package gives generic GxE analytical frameworks to analyze a wide variaty of phenotypes. 
 
-```SPAGxECCT``` package has been tested under linux and windows systems and will soon be rewritten using Rcpp code to support genotype data in PLINK format!
+[```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) package has been tested under linux and windows systems and will soon be rewritten using Rcpp code to support genotype data in PLINK format!
 
 
 ##  Summary and comparison of main features for efficient G×E analysis methods.
@@ -35,7 +35,6 @@ The below gives an example to use SPAGxE<sub>CCT</sub> to analyze ordinal binary
 
 ```
 library(SPAGxECCT)
-# example 2  binary phenotype
 # Simulation phenotype and genotype
 N = 10000
 Phen.mtx = data.frame(ID = paste0("IID-",1:N),
