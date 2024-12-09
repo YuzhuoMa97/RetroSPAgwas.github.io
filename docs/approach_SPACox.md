@@ -33,12 +33,12 @@ The two methods are different in terms of
 | SPAmix+                | YES                            | YES                      |  YES                         |
 
 
-# Workflow of SPAmix 
+## Workflow of SPAmix 
 
 ![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAmix_MYZ.png)
 
 
-# The SPAmix paper and the SPAmix+ paper are two distinct papers
+## The SPAmix paper and the SPAmix+ paper are two distinct papers
 
 **Please note that the SPAmix paper and the SPAmix+ paper are two distinct papers. Unfortunately, although the SPAmix algorithm was completed in 2021, its submission was delayed for some reasons. Consequently, the SPAmix+ algorithm will be presented in a separate paper rather than within the SPAmix paper.** 
 
@@ -46,7 +46,7 @@ SPAmix has been implemented in R package GRAB.
 
 The package of SPAmix+ is in preparation.
 
-## Important notes about function ```GRAB.NullModel```
+## Important notes about SPAmix in function ```GRAB.NullModel```
 
 - If the left side of argument ```formula``` is model residual, please specify the argument ```traitType = "Residuals"```. Otherwise, the argument ```traitType``` can be specified based on the type of trait in analysis.
 
