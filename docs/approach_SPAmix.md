@@ -29,7 +29,7 @@ The two methods are different in terms of
 | Method                 |Account for population structure|Account for local ancestry|Account for family relatedness|
 |:----------------------:|:------------------------------:|:------------------------:|:----------------------------:|
 | SPAmix                 | YES                            | YES                      |  NO                          |
-| SPA<sup>GRM</sup>                 | NO                             | NO                       |  YES                          |
+| SPA<sub>GRM</sub>                 | NO                             | NO                       |  YES                          |
 | SPAmix+                | YES                            | YES                      |  YES                         |
 
 
