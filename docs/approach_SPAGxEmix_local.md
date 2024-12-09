@@ -2,7 +2,7 @@
 layout: default
 title: SPAGxEmix<sub>CCT-local</sub>
 nav_order: 3
-description: "SPAGxEmix<sub>CCT-local</sub> approaches: quantitative, binary, time-to-event, and ordinal trait analysis."
+description: "SPAGxEmix<sub>CCT-local</sub> approaches: quantitative, binary, time-to-event, ordinal categorical, and longitidunal trait analysis."
 parent: Genome-wide gene-environment interaction (GxE) studies
 has_children: false
 has_toc: false
