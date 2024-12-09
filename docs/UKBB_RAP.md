@@ -12,4 +12,4 @@ UK Biobank Research Analyses Platform (RAP) enables researchers working with UK 
 
 ## Notes prior to analysis
 
-We complete null model fitting in local service and conduct set-based analysis in UK Biobank RAP. Please ensure the subjects in null model fitting are also in genotype files.
+We complete null model fitting in local service and conduct single-variant analysis in UK Biobank RAP. Please ensure the individuals in null model fitting are also in genotype files.
