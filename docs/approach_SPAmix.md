@@ -42,9 +42,9 @@ The two methods are different in terms of
 
 **Please note that the SPAmix paper and the SPAmix+ paper are two distinct papers. Unfortunately, although the SPAmix algorithm was completed in 2021, its submission was delayed for some reasons. Consequently, the SPAmix+ algorithm will be presented in a separate paper rather than within the SPAmix paper.** 
 
-SPAmix has been implemented in R package GRAB.
+- SPAmix has been implemented in R package GRAB.
 
-The package of SPAmix+ is in preparation.
+- The package of SPAmix+ is in preparation.
 
 ## Important notes about SPAmix in function ```GRAB.NullModel```
 
