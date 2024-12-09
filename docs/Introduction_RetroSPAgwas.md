@@ -21,7 +21,7 @@ Retrospective saddlepoint approximation (Retrospective SPA) methods were first p
 
 - **DOI:10.27272/d.cnki.gshdu.2022.002946**
 
-Based on the idea in the above master's thesis, we have applied retrospective saddlepoint approximation to several methods including ```SPAmix``` (since 2020), ```SPAmix+``` (based on SPAmix since 2024), ```SPAGxE``` (based on ```SPAmix``` since 2021), and ```SPAGxEmix+``` (based on ```SPAmix``` since 2024). 
+Based on the idea from the authors of the above master's thesis, we have applied retrospective saddlepoint approximation to several methods including ```SPAmix``` (since 2020), ```SPAmix+``` (based on SPAmix since 2024), ```SPAGxE``` (based on ```SPAmix``` since 2021), and ```SPAGxEmix+``` (based on ```SPAmix``` since 2024). 
 
 **If you utilized the retrospective saddlepoint approximation method in your proposed methods or tools, please acknowledge and respect the original ideas presented in the two works (```SPAGxE``` and ```SPAmix```). Additionally, kindly cite the original papers (```SPAGxE``` and ```SPAmix```) or the master's thesis:**
 
