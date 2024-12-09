@@ -30,43 +30,20 @@ All retrospective-SPA-based GxE approaches share the same analysis framework inc
 
 # RetroSPAgwas Project Timeline
 
-## Detailed Timeline
-
-### March 2021
-- **Event**: Came up with the idea of retrospective SPA.
-- **Description**: This concept laid the foundation for future projects.
-
-### October 2021
-- **Event**: Design of SPAmix algorithm completed.
-- **Description**: After months of effort, the SPAmix algorithm was finally completed, marking an important milestone in the research.
-
-### October 2021 - February 2022
-- **Event**: Design of SPAGxE algorithm started.
-- **Description**: During this period, you and your team began exploring and designing the SPAGxE algorithm, a complex task that ultimately led to significant achievements.
-
-### May 2022
-- **Event**: Master's thesis completed.
-- **Description**: After a long period of research and writing, your master's thesis was finally completed in May 2022, marking an important milestone in your academic journey.
-
-
-
-
-
-
 ```markdown
 # Timeline of My Academic and Technical Adventures
 
 ## March 2021
-- I had the inspiration to think about a retrospective Single Page Application (SPA).
+- The idea of a retrospective saddlepoint approximation (SPA) was conceived.
 
 ## October 2021
-- I successfully designed the SPAmix algorithm.
+- The SPAmix algorithm was successfully designed.
 
 ## October 2021 - February 2022
-- I began working on the SPAGxE algorithm.
+- Work on the SPAGxE algorithm was initiated.
 
 ## May 2022
-- I completed my Master's thesis.
+- My Master's thesis was completed.
 ```
 
 
