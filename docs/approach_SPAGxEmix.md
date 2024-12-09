@@ -41,6 +41,77 @@ Admixed populations are routinely excluded from genomic studies due to concerns 
 - SPAGxEmix<sub>CCT</sub> is not sensitive to model misspecification (e.g. missed or biased confounder-trait associations) and trait-based ascertainment.
 
 
+## Quick start-up examples
+
+The below gives an example to use SPAGxE+ to analyze time-to-event trait. 
+
+```
+library(SPAGxECCT)
+
+# example 1  time-to-event phenotype
+# Simulation phenotype and genotype
+N = 10000
+N.population1 = N/2
+N.population2 = N/2
+
+nSNP = 100
+MAF.population1 = 0.1
+MAF.population2 = 0.3
+
+Geno.mtx.population1 = matrix(rbinom(N.population1*nSNP,2,MAF.population1),N.population1,nSNP)
+Geno.mtx.population2 = matrix(rbinom(N.population2*nSNP,2,MAF.population2),N.population2,nSNP)
+Geno.mtx = rbind(Geno.mtx.population1, Geno.mtx.population2)
+
+# NOTE: The row and column names of genotype matrix are required.
+rownames(Geno.mtx) = paste0("IID-",1:N)
+colnames(Geno.mtx) = paste0("SNP-",1:nSNP)
+
+Phen.mtx.population1 = data.frame(ID = paste0("IID-",1:N.population1),
+                                  event=rbinom(N.population1,1,0.5),
+                                  surv.time=runif(N.population1),
+                                  Cov1=rnorm(N.population1),
+                                  Cov2=rbinom(N.population1,1,0.5),
+                                  E = rnorm(N.population1),
+                                  PC1 = 1)
+
+Phen.mtx.population2 = data.frame(ID = paste0("IID-",(N.population1+1):N),
+                                  event=rbinom(N.population2,1,0.5),
+                                  surv.time=runif(N.population2),
+                                  Cov1=rnorm(N.population2),
+                                  Cov2=rbinom(N.population2,1,0.5),
+                                  E = rnorm(N.population2),
+                                  PC1 = 0)
+
+Phen.mtx = rbind.data.frame(Phen.mtx.population1,
+                            Phen.mtx.population2)   # phenotype dataframe
+
+E = Phen.mtx$E                                      # environmental factor
+Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding environmental factor
+
+# Step 1: fit a null model
+# Attach the survival package so that we can use its function Surv()
+library(survival)
+
+R = SPA_G_Get_Resid("survival",
+                   Surv(surv.time,event)~Cov1+Cov2+PC1+E,
+                   data=Phen.mtx,
+                   pIDs=Phen.mtx$ID,
+                   gIDs=paste0("IID-",1:N))
+
+# Step 2: conduct a marker-level association study
+survival.res = SPAGxEmix_CCT(traits = "survival",                    # trait type
+                            Geno.mtx = Geno.mtx,                     # genotype vector
+                            R = R,                                   # residuals from genotype-independent model 
+                            E = E,                                   # environmental factor
+                            Phen.mtx = Phen.mtx,                     # phenotype dataframe
+                            Cova.mtx = Cova.mtx,                     # Covariate matrix excluding environmental factor
+                            topPCs = Cova.mtx[,"PC1"])               # SNP-derived top PCs 
+
+# we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with time-to-event phenotypes
+head(survival.res)
+```
+
+
 ## Citation
 
 - **A scalable and accurate framework for large-scale genome-wide gene-environment interaction analysis and its application to time-to-event and ordinal categorical traits** (to be updated).
