@@ -33,6 +33,8 @@ The two methods are different in terms of
 | SPAmix+                | YES                            | YES                      |  YES                         |
 
 
+# Workflow of SPAmix 
+
 ![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAmix_MYZ.png)
 
 
