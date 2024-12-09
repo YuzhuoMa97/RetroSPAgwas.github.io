@@ -26,11 +26,12 @@ The two methods are different in terms of
 
 - [```SPAmix+```](https://github.com/YuzhuoMa97/SPAmixPlus) is a scalable, accurate, and universal analysis framework to control for population structure and family relatedness. The method is valid to analyze heterogeneous or admixed populations with falily relatedness.
 
-| Method                 |Account for population structure|Account for local ancestry|Account for family relatedness|
-|:----------------------:|:------------------------------:|:------------------------:|:----------------------------:|
-| SPAmix                 | YES                            | YES                      |  NO                          |
-| SPA<sub>GRM</sub>                 | NO                             | NO                       |  YES                          |
-| SPAmix+                | YES                            | YES                      |  YES                         |
+| Method         |Account for population structure|Account for local ancestry|Account for family relatedness| Prospective/Retrospective   |
+|:----------------------:|:------------------------------:|:------------------------:|:----------------------------:|:---------------------:|
+| SPACox                 | No              | No          |  NO            | Prospective   |
+| SPAmix                 | YES             | YES          |  NO           | Retrospective |
+| SPA<sub>GRM</sub>      | NO              | NO           |  YES          | Retrospective |
+| SPAmix+                | YES             | YES          |  YES          | Retrospective |
 
 
 ## Workflow of SPAmix 
