@@ -11,14 +11,19 @@ has_toc: true
 
 ```SPAGxECCT``` package gives a generic framework to analyze a wide variaty of phenotypes. 
 
-## Quick start-up examples
+##  Summary and comparison of main features for efficient G×E analysis methods.
 
-| Method   | Trait | Prospective/Retrospective  |Account for population structure|Account for local ancestry|Account for family relatedness| Account for unbalanced phenotypic distribution  |
+| Method   | Trait | Prospective/Retrospective  |Account for population admixture|Account for local ancestry|Account for family relatedness| Account for unbalanced phenotypic distribution  |
 |:----------------------:|:------------------------------:|:------------------------:|:----------------------------:|:---------------------:|:---------------------:|:---------------------:|
-| SPACox                 | NO              | NO           |  NO           | Prospective   |
-| SPAmix                 | YES             | YES          |  NO           | Retrospective |
-| SPAGxE<sub>Wald</sub>  |Quantitative/Binary/Survival/Ordinal/Others|Retrospective|    |   |      | YES |
-| SPAmix+                | YES             | YES          |  YES          | Retrospective |
+| SPAGE                  | Binary              | Prospective           |             |    |   |  YES  |
+| SPAGxE                 |Quantitative/Binary/Survival/Ordinal/Others|Retrospective|     |      |      | YES |
+| SPAGxE<sub>Wald</sub>  |Quantitative/Binary/Survival/Ordinal/Others|Retrospective|     |      |      | YES |
+| SPAGxE<sub>CCT</sub>   |Quantitative/Binary/Survival/Ordinal/Others|Retrospective|     |      |      | YES |
+| SPAGxE+                |Quantitative/Binary/Survival/Ordinal/Others|Retrospective|     |      |  YES | YES |
+| SPAGxEmix<sub>CCT</sub>|Quantitative/Binary/Survival/Ordinal/Others|Retrospective| YES    |      |      | YES |
+| SPAGxEmix<sub>CCT-local</sub>|Quantitative/Binary/Survival/Ordinal/Others|Retrospective| YES    |   YES   |      | YES |
+| SPAGxEmix<sub>CCT-local-global</sub>|Quantitative/Binary/Survival/Ordinal/Others|Retrospective| YES    |   YES   |      | YES |
+
 
 
 ## Quick start-up examples
