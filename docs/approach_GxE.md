@@ -11,6 +11,9 @@ has_toc: true
 
 ```SPAGxECCT``` package gives a generic framework to analyze a wide variaty of phenotypes. 
 
+```SPAGxECCT``` has been tested under linux and windows systems. (The R package will soon be rewritten using Rcpp code to support genotype data in PLINK format!)
+
+
 ##  Summary and comparison of main features for efficient G×E analysis methods.
 
 | Method   | Trait | Prospective/Retrospective  |Account for population admixture|Account for local ancestry|Account for family relatedness| Account for unbalanced phenotypic distribution  |
@@ -28,85 +31,60 @@ has_toc: true
 
 ## Quick start-up examples
 
-The below gives an example to use POLMM and POLMM-GENE to analyze ordinal categorical trait. 
+The below gives an example to use SPAGxE<sub>CCT</sub> to analyze ordinal binary trait. 
 
 ```
 library(SPAGxECCT)
-PhenoFile = system.file("extdata", "simuPHENO.txt", package = "GRAB")
-PhenoData = data.table::fread(PhenoFile, header = T)
-PhenoData = PhenoData %>% mutate(OrdinalPheno = factor(OrdinalPheno, 
-                                                       levels = c(0, 1, 2)))
+# example 2  binary phenotype
+# Simulation phenotype and genotype
+N = 10000
+Phen.mtx = data.frame(ID = paste0("IID-",1:N),
+                      Y=rbinom(N,1,0.5),
+                      Cov1=rnorm(N),
+                      Cov2=rbinom(N,1,0.5),
+                      E = rnorm(N))
+
+Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E
+
+E = Phen.mtx$E
 
 # Step 1: fit a null model
-SparseGRMFile =  system.file("SparseGRM", "SparseGRM.txt", package = "GRAB")
-GenoFile = system.file("extdata", "simuPLINK.bed", package = "GRAB")
-obj.POLMM = GRAB.NullModel(formula = OrdinalPheno ~ AGE + GENDER,
-                           data = PhenoData, 
-                           subjData = PhenoData$IID, 
-                           method = "POLMM", 
-                           traitType = "ordinal",
-                           GenoFile = GenoFile,
-                           SparseGRMFile =  SparseGRMFile,
-                           control = list(showInfo = FALSE, 
-                                          LOCO = FALSE, 
-                                          tolTau = 0.2, 
-                                          tolBeta = 0.1))                                                       
+R = SPA_G_Get_Resid("binary",
+                    glm(formula = Y ~ Cov1+Cov2+E, data = Phen.mtx, family = "binomial"),
+                    data=Phen.mtx,
+                    pIDs=Phen.mtx$ID,
+                    gIDs=paste0("IID-",1:N))
 
 # Step 2(a): conduct a marker-level association study
-GenoFile = system.file("extdata", "simuPLINK.bed", package = "GRAB")
-OutputDir = system.file("results", package = "GRAB")
-OutputFile = paste0(OutputDir, "/simuMarkerOutput.txt")
-GRAB.Marker(obj.POLMM, GenoFile = GenoFile,
-            OutputFile = OutputFile)
+nSNP = 100
+MAF = 0.1
+Geno.mtx = matrix(rbinom(N*nSNP,2,MAF),N,nSNP)
+# NOTE: The row and column names of genotype matrix are required.
+rownames(Geno.mtx) = paste0("IID-",1:N)
+colnames(Geno.mtx) = paste0("SNP-",1:nSNP)
 
-results = data.table::fread(OutputFile)
-hist(results$Pvalue)
+binary.res = SPAGxE_CCT("binary",
+                        Geno.mtx,                     # genotype vector
+                        R,                            # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
+                        E,                            # environmental factor
+                        Phen.mtx,                     # phenotype dataframe
+                        Cova.mtx)                     # covariates dataframe excluding environmental factor E
 
-# Step 2(b): conduct a set-based association study
-GenoFile = system.file("extdata", "simuPLINK_RV.bed", package = "GRAB")
-OutputDir = system.file("results", package = "GRAB")
-OutputFile = paste0(OutputDir, "/simuRegionOutput.txt")
-GroupFile = system.file("extdata", "simuPLINK_RV.group", package = "GRAB")
-SparseGRMFile = system.file("SparseGRM", "SparseGRM.txt", package = "GRAB")
-
-GRAB.Region(objNull = obj.POLMM,
-            GenoFile = GenoFile,
-            GenoFileIndex = NULL,
-            OutputFile = OutputFile,
-            OutputFileIndex = NULL,
-            GroupFile = GroupFile,
-            SparseGRMFile = SparseGRMFile,
-            MaxMAFVec = "0.01,0.005")
-
-data.table::fread(OutputFile)
+# we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with binary phenotypes
+head(binary.res)
 ```
 
-## Step 1: choose ```traitType``` and ```method```
+## Note: choose ```traits``` 
 
-Arguments ```traitType``` and ```method``` are to specify the type of phenotype data and the analysis approach. Currently, ```GRAB``` package supports the below combinations
+Argument ```traits``` is to specify the type of phenotype data. Currently, ```SPAGxECCT``` package supports the below combinations
 
-| phenotype                 | ```traitType``` |```method```| Related subjects |
-|:-------------------------:|:---------------:|:----------:|:----------------:|
-| binary trait              | "binary"        | "SAIGE"    |  YES             |
-| quantitative trait        | "quantitative"  | "SAIGE"    |  YES             |
-| ordinal categorical trait | "ordinal"       | "POLMM"    |  YES             |
-| time-to-event trait       | "time-to-event" | "SPACox"   |  NO              |
-
-## Step 2: choose Dense GRM or Sparse GRM
-
-Both dense GRM and sparse GRM are supported in ```GRAB``` package to adjust for family relatedness, which can avoid inflated type I error rates.
-
-| Which GRM   | Pros.    | Cons       | Required arguments  |
-|:-----------:|:----------:|:--------:|:-------------------:|
-| Dense GRM   | More powerful | Slow  | ```SparseGRMFile``` |
-| Sparse GRM  | Fast  | Less powerful | ```GenoFile```      |
-
-NOTE: Extensive simulation results suggests that, for binary and ordinal categorical data analysis, using dense and sparse GRM perform similarly in terms of both type I error rates and powers.
-
-## Note: about argument ```control``` 
-
-Argument ```control``` is to specify a list of parameters for controlling the fitting and association testing process. 
-
+| phenotype                 | ```traits``` | 
+|:-------------------------:|:---------------:|
+| binary trait              | "binary"        |
+| quantitative trait        | "quantitative"  | 
+| ordinal categorical trait | "categorical"   | 
+| time-to-event trait       | "time-to-event" |
+| Other trait(e.g. longitudinal)       | "Resid" |
 
 
 
