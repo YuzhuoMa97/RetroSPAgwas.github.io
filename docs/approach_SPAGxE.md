@@ -64,7 +64,7 @@ R = SPA_G_Get_Resid("binary",
                     gIDs=paste0("IID-",1:N))
 ```
 
-# Step 2. Conduct a marker-level association study
+### Step 2. Conduct a marker-level association study
 
 ```
 binary.res = SPAGxE_CCT("binary",
