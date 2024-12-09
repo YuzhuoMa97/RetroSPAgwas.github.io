@@ -34,6 +34,83 @@ SPAGxEmix<sub>CCT-local</sub> extends SPAGxEmix<sub>CCT</sub> by integrating loc
 
 ![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAGxEmixCCT_MYZ.png)
 
+## Quick start-up examples
+
+The below gives an example to use SPAGxEmix<sub>CCT-local</sub> to analyze binary trait. 
+
+```
+library(SPAGxECCT)
+
+# example 1  binary phenotype
+# load in phenotype and genotype
+
+data("Pheno.mtx")
+data("Geno.mtx")
+data("Geno.mtx.ance1")
+data("Geno.mtx.ance2")
+data("haplo.mtx.ance1")
+data("haplo.mtx.ance2")
+
+Cova.mtx = Pheno.mtx[,c("PC1", "PC2", "PC3", "PC4", "Cov1", "Cov2")]
+E = Pheno.mtx$E
+
+### Cova.haplo.mtx.list
+
+Cova.haplo.mtx.list = list(haplo.mtx.ance1 = haplo.mtx.ance1,
+                           haplo.mtx.ance2 = haplo.mtx.ance2) # local ancestry count of ancestry 1 and 2
+
+# Step 1: fit a null model
+resid  = SPA_G_Get_Resid(traits = "binary",
+                         y ~ Cov1 + Cov2  + E + PC1 + PC2 + PC3 + PC4,family=binomial(link="logit"),
+                         data=Pheno.mtx,
+                         pIDs=Pheno.mtx$IID,
+                         gIDs=rownames(Geno.mtx))
+
+# Step 2: conduct a marker-level association study
+### calculate p values for ancestry 1
+
+binary_res_ance1 = SPAGxEmixCCT_localance(traits = "binary",
+                                          Geno.mtx = Geno.mtx.ance1,
+                                          R = resid,
+                                          haplo.mtx = haplo.mtx.ance1,
+                                          E = E,
+                                          Phen.mtx = Pheno.mtx,
+                                          Cova.mtx = Cova.mtx,
+                                          Cova.haplo.mtx.list = Cova.haplo.mtx.list)
+
+
+colnames(binary_res_ance1) = c("Marker", "MAF.ance1","missing.rate.ance1",
+                               "Pvalue.spaGxE.ance1","Pvalue.spaGxE.Wald.ance1", "Pvalue.spaGxE.CCT.Wald.ance1",
+                               "Pvalue.normGxE.ance1", "Pvalue.betaG.ance1",
+                               "Stat.betaG.ance1","Var.betaG.ance1","z.betaG.ance1")
+
+### calculate p values for ancestry 2
+
+binary_res_ance2 = SPAGxEmixCCT_localance(traits = "binary",
+                                          Geno.mtx = Geno.mtx.ance2,
+                                          R = resid,
+                                          haplo.mtx = haplo.mtx.ance2,
+                                          E = E,
+                                          Phen.mtx = Pheno.mtx,
+                                          Cova.mtx = Cova.mtx,
+                                          Cova.haplo.mtx.list = Cova.haplo.mtx.list)
+
+
+colnames(binary_res_ance2) = c("Marker", "MAF.ance2","missing.rate.ance2",
+                               "Pvalue.spaGxE.ance2","Pvalue.spaGxE.Wald.ance2", "Pvalue.spaGxE.CCT.Wald.ance2",
+                               "Pvalue.normGxE.ance2", "Pvalue.betaG.ance2",
+                               "Stat.betaG.ance2","Var.betaG.ance2","z.betaG.ance2")
+
+### merge data frame
+binary.res = merge(binary_res_ance1, binary_res_ance2)
+
+# we recommand using column of 'p.value.spaGxE.CCT.Wald.index.ance' to associate genotype with phenotypes
+head(binary.res)
+```
+
+
+
+
 **Compared to conventional standard statistical testing methods that account for local ancestry, SPAGxEmix<sub>CCT-local</sub> offers much greater computational efficiency.** 
 - SPAGxEmix<sub>CCT-local</sub> leverages local ancestry information to estimate the distribution of ancestry-specific genotypes and the null distribution of test statistics.
 - For most tests (ancestry-specific genetic main effect p-values > 0.001) in a genome-wide G×E analysis, SPAGxEmix<sub>CCT-local</sub> utilizes residuals from a genotype-independent model (fitted only once across the genome-wide analysis) to construct test statistics.
