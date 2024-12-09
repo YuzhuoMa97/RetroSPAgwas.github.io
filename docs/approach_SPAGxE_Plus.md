@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SPAGxE+
-nav_order: 3
+nav_order: 4
 description: "SPAGxE+ approach: quantitative, binary, time-to-event, and ordinal trait analysis."
 parent: Genome-wide gene-environment interaction (GxE) studies
 has_children: false
