@@ -133,3 +133,21 @@ This is the timeline of key milestones in the RetroSPAgwas project.
 - **Description**: After a long period of research and writing, your master's thesis was finally completed in May 2022, marking an important milestone in your academic journey.
 
 
+
+
+
+
+```markdown
+# Timeline of My Academic and Technical Adventures
+
+## March 2021
+- I had the inspiration to think about a retrospective Single Page Application (SPA).
+
+## October 2021
+- I successfully designed the SPAmix algorithm.
+
+## October 2021 - February 2022
+- I began working on the SPAGxE algorithm.
+
+## May 2022
+- I completed my Master's thesis.
