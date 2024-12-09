@@ -84,7 +84,7 @@ Argument ```traits``` is to specify the type of phenotype data. Currently, ```SP
 | quantitative trait        | "quantitative"  | 
 | ordinal categorical trait | "categorical"   | 
 | time-to-event trait       | "time-to-event" |
-| Other trait(e.g. longitudinal)       | "Resid" |
+| Other trait (e.g. longitudinal trait)       | "Resid" |
 
 
 
