@@ -7,4 +7,4 @@ has_children: false
 has_toc: false
 ---
 
-If you have any question about restropective SPA methods, please contact **yuzhuoma@stu.pku.edu.cn**
+If you have any questions about restropective SPA methods, please contact **yuzhuoma@stu.pku.edu.cn**. Suggestions or comments are also welcome.
