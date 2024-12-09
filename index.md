@@ -47,7 +47,7 @@ All retrospective-SPA-based GxE approaches share the same analysis framework inc
 ```
 
 
-
+![RetroSPA_timeline](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/RetroSPA_timeline.png)
 
 
 

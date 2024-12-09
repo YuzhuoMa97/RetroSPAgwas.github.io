@@ -74,3 +74,9 @@ have not yet been published--despite the retrospective saddlepoint approximation
 ## May 2022
 - Master's thesis 'Research on Empirical Saddlepoint Approximation Methods and Their Applications in Genome-Wide Association Studies' (DOI:10.27272/d.cnki.gshdu.2022.002946) was completed.
 ```
+
+![RetroSPA_timeline](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/RetroSPA_timeline.png)
+
+
+
+```
