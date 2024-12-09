@@ -42,12 +42,12 @@ SPAGxE+ is a scalable and accurate G×E analytical framework that uses saddlepoi
 
 The below gives an example to use SPAGxE+ to analyze binary trait. 
 
+### Step 1. Read in data and fit a genotype-independent model
+
 ```
 library(SPAGxECCT)
-
 # example 1  binary phenotype
 # load in binary phenotype, genotype, and sparseGRM
-
 data("Phen.mtx.SPAGxEPlus.binary")
 data("sparseGRM.SPAGxEPlus")
 data("GenoMat.SPAGxEPlus")
@@ -55,7 +55,7 @@ data("GenoMat.SPAGxEPlus")
 E = Phen.mtx.SPAGxEPlus.binary$E                               # environmental factor
 Cova.mtx = Phen.mtx.SPAGxEPlus.binary[,c("Cov1","Cov2")]       # Covariate matrix excluding environmental factor
 
-# Step 1: fit a null model
+# fit a null model
 obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
                                                   Y~Cov1+Cov2+E,family=binomial(link="logit"),
                                                   data=Phen.mtx.SPAGxEPlus.binary,
@@ -63,8 +63,11 @@ obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
                                                   gIDs=rownames(GenoMat.SPAGxEPlus),
                                                   sparseGRM = sparseGRM.SPAGxEPlus,
                                                   E = E)
+```
 
-# Step 2: conduct a marker-level association study
+### Step 2. Conduct a marker-level association study
+
+```
 binary.res = SPAGxE_Plus(Geno.mtx = GenoMat.SPAGxEPlus,
                          E = E,
                          Phen.mtx = Phen.mtx.SPAGxEPlus.binary,
