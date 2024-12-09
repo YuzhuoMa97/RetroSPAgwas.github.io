@@ -111,7 +111,7 @@ head(binary.res)
 
 
 
-**Compared to conventional standard statistical testing methods that account for local ancestry, SPAGxEmix<sub>CCT-local</sub> offers much greater computational efficiency.** 
+## Compared to conventional standard statistical testing methods that account for local ancestry, SPAGxEmix<sub>CCT-local</sub> offers much greater computational efficiency.
 - SPAGxEmix<sub>CCT-local</sub> leverages local ancestry information to estimate the distribution of ancestry-specific genotypes and the null distribution of test statistics.
 - For most tests (ancestry-specific genetic main effect p-values > 0.001) in a genome-wide G×E analysis, SPAGxEmix<sub>CCT-local</sub> utilizes residuals from a genotype-independent model (fitted only once across the genome-wide analysis) to construct test statistics.
 - Conventional methods have to incorporate local ancestry as covariates and fit a separate model for each variant, which is computationally burdensome for genome-wide analyses.
