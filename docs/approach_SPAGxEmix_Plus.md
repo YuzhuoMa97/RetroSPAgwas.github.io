@@ -39,7 +39,7 @@ SPAGxEmix<sub>CCT</sub>+ comprises three main steps:
 
 - Step 2: SPAGxEmix<sub>CCT</sub>+ identifies genetic variants with marginal G×E effects on the trait of interest. It first estimates the individual-level allele frequencies of the tested variants using SNP-derived PCs (from Step 0) and raw genotypes. Next, SPAGxEmix<sub>CCT</sub>+ evaluates marginal genetic effects using score statistics. If the marginal genetic effect is not significant, S<sub>G×E(mix)</sub>+ is used as the test statistic to characterize the marginal G×E effect. If significant, S<sub>G×E(mix)</sub>+ is updated with genotype-adjusted test statistics. The hybrid strategy to balance computational efficiency and accuracy follows SPAGxE<sub>CCT</sub>.
 
-### Main features of SPAGxEmix<sub>CCT</sub>+
+## Main features of SPAGxEmix<sub>CCT</sub>+
 
 - The Genetic Relationship Matrix (GRM) contains information on both ancestry and familial relatedness. As introduced in the PC-Relate paper, the empirical GRM has been widely used for inferring population structure (distant genetic relatedness) in samples without close relatives, as well as for estimating recent kinship and heritability of complex traits in single-population studies. However, in multi-ancestry or admixed population studies, a thresholded GRM cannot be sparsified effectively. To address this, we employ PC-AiR and PC-Relate (implemented in the GENESIS R package) to obtain principal components (representing distant genetic relatedness) and sparse kinship coefficients (representing recent genetic relatedness).
 
