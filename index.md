@@ -151,3 +151,29 @@ This is the timeline of key milestones in the RetroSPAgwas project.
 
 ## May 2022
 - I completed my Master's thesis.
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Project Overview</title>
+</head>
+<body>
+
+<h1>Project Overview</h1>
+
+<!-- Embed the timeline -->
+<iframe src="timeline.html" style="width:100%; height:500px; border:none;"></iframe>
+
+</body>
+</html>
+
