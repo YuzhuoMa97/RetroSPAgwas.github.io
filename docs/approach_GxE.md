@@ -13,6 +13,16 @@ has_toc: true
 
 ## Quick start-up examples
 
+| Method   | Trait | Prospective/Retrospective  |Account for population structure|Account for local ancestry|Account for family relatedness| Account for unbalanced phenotypic distribution  |
+|:----------------------:|:------------------------------:|:------------------------:|:----------------------------:|:---------------------:|:---------------------:|:---------------------:|
+| SPACox                 | NO              | NO           |  NO           | Prospective   |
+| SPAmix                 | YES             | YES          |  NO           | Retrospective |
+| SPAGxE<sub>Wald</sub>  |Quantitative/Binary/Survival/Ordinal/Others|Retrospective|    |   |      | YES |
+| SPAmix+                | YES             | YES          |  YES          | Retrospective |
+
+
+## Quick start-up examples
+
 The below gives an example to use POLMM and POLMM-GENE to analyze ordinal categorical trait. 
 
 ```
