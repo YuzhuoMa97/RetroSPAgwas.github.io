@@ -32,6 +32,10 @@ The two methods are different in terms of
 | SPAGRM                 | NO                             | NO                       |  YES                          |
 | SPAmix+                | YES                            | YES                      |  YES                         |
 
+
+![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAmix_MYZ.png)
+
+
 # The SPAmix paper and the SPAmix+ paper are two distinct papers
 
 **Please note that the SPAmix paper and the SPAmix+ paper are two distinct papers. Unfortunately, although the SPAmix algorithm was completed in 2021, its submission was delayed for some reasons. Consequently, the SPAmix+ algorithm will be presented in a separate paper rather than within the SPAmix paper.** 
