@@ -43,7 +43,7 @@ Admixed populations are routinely excluded from genomic studies due to concerns 
 
 ## Quick start-up examples
 
-The below gives an example to use SPAGxE+ to analyze time-to-event trait. 
+The below gives an example to use SPAGxEmix<sub>CCT</sub> to analyze time-to-event trait. 
 
 ```
 library(SPAGxECCT)
