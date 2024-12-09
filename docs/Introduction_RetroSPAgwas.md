@@ -12,8 +12,8 @@ has_toc: true
 ## What is retrospective SPA?
 
 **Retrospective saddlepoint approximation (Retrospective SPA)** is a method applied in GWAS. For a score statistic (S=G<sup>T</sup>R), retrospective SPA strategy
-- considers genotypes as random variables. 
-- uses saddlepoint approximation (SPA) to accurately approximate the null distribution of score statistics conditional on phenotype and covariates.
+- (1) considers genotypes as random variables. 
+- (2) uses saddlepoint approximation (SPA) to accurately approximate the null distribution of score statistics conditional on phenotype and covariates.
 
 ## Main features of GWAS methods based on retrospective SPA
 
