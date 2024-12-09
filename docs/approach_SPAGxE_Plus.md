@@ -40,7 +40,7 @@ SPAGxE+ is a scalable and accurate G×E analytical framework that uses saddlepoi
 
 ## Quick start-up examples
 
-The below gives an example to use SPAGxE+ to analyze ordinal binary trait. 
+The below gives an example to use SPAGxE+ to analyze binary trait. 
 
 ```
 library(SPAGxECCT)
