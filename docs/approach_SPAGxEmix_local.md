@@ -22,7 +22,7 @@ has_toc: false
 
 # SPAGxEmix<sub>CCT-local</sub> method 
 
-## Introduction of SPAGxEmix<sub>CCT</sub>
+## Introduction of SPAGxEmix<sub>CCT-local</sub>
 
 SPAGxEmix<sub>CCT-local</sub> is a scalable and accurate G×E analysis framework that allows tests for ancestry-specific effects by incorporating local ancestry in multi-way admixed populations.
 
