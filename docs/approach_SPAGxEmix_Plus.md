@@ -1,99 +1,56 @@
 ---
 layout: default
-title: SPACox / SPAmix / SPAGRM
-nav_order: 3
-description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
-parent: Genome-wide association studies
+title: SPAGxEmix<sub>CCT</sub>+
+nav_order: 4
+description: "SPAGxEmix<sub>CCT</sub>+ approaches: quantitative, binary, time-to-event, and ordinal trait analysis."
+parent: Genome-wide gene-environment interaction (GxE) studies
 has_children: false
 has_toc: false
 ---
 
-# SPACox / SPAmix / SPAGRM approaches
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
 
-## Main features
+# SPAGxEmix<sub>CCT</sub>+ method 
 
-```SPACox```, ```SPAmix```, and ```SPAGRM``` are accurate and efficient approaches to associating complex traits (including but not limited to time-to-event traits) to single-variant.
+## Introduction of SPAGxEmix<sub>CCT</sub>+
 
-The three methods use empirical SPA approaches and share the below features.
+As an extension of SPAGxEmix<sub>CCT</sub>, SPAGxEmix<sub>CCT</sub>+ accommodates individuals from multiple ancestries or multi-way admixed populations while controlling for both population structure and familial relatedness. Admixed individuals can be analyzed within a cohort alone or alongside homogeneous groups using this framework.
 
-- Model residuals (whose sum is zero) are needed as input. Users can select appropriate statistical models depending on the type of traits in analysis.
-- High computational efficiency to analyze large-scale biobank data with millions of individuals
-- High accuracy to analyze common, low-frequency, and rare variants, even if the phenotypic distribution (or residual distribution) is highly unbalanced.
 
-The three methods are different in terms of
+SPAGxEmix<sub>CCT</sub>+ comprises three main steps:
 
-- ```SPACox``` is the basic function to analyze unrelated subjects in a homozygous population.
+- Step 0 (a): SPAGxEmix<sub>CCT</sub>+ employs PC-AiR (Conomos et al., 2015, Gen Epi) to compute ancestry-representative principal components (PCs) that capture distant genetic relatedness, such as population structure.
+  
+- Step 0 (b): SPAGxEmix<sub>CCT</sub>+utilizes PC-Relate (Conomos et al., 2016, AJHG) to estimate an ancestry-adjusted sparse GRM or sparse kinship coefficient matrix, representing recent genetic relatedness.
+  
+- Step 0 (c): Iterations of Step 0 (a) and Step 0 (b) refine the inference of both population structure (via PC-AiR) and recent genetic relatedness (via PC-Relate).
 
-- ```SPAmix``` extends ```SPACox``` to analyze an admixture population or multiple populations. The method is still only valid to analyze unrelated subjects.
+- Step 1: SPAGxEmix<sub>CCT</sub>+ fits a genotype-independent (covariates-only) model and computes residuals, as detailed in Step 1 of SPAGxE<sub>CCT</sub>. Incorporating random effects to account for sample relatedness during null model fitting is optional.
 
-- ```SPAGRM``` extends ```SPACox``` to analyze a study cohort in which subjects can be genetically related to each other. The method is still only valid to analyze a homozygous population.
+- Step 2: SPAGxEmix<sub>CCT</sub>+ identifies genetic variants with marginal G×E effects on the trait of interest. It first estimates the individual-level allele frequencies of the tested variants using SNP-derived PCs (from Step 0) and raw genotypes. Next, SPAGxEmix<sub>CCT</sub>+ evaluates marginal genetic effects using score statistics. If the marginal genetic effect is not significant, S<sub>G×E(mix)</sub>+ is used as the test statistic to characterize the marginal G×E effect. If significant, S<sub>G×E(mix)</sub>+ is updated with genotype-adjusted test statistics. The hybrid strategy to balance computational efficiency and accuracy follows SPAGxE<sub>CCT</sub>.
 
-## Important notes about function ```GRAB.NullModel```
 
-- If the left side of argument ```formula``` is model residual, please specify the argument ```traitType = "Residuals"```. Otherwise, the argument ```traitType``` can be specified based on the type of trait in analysis.
+The Genetic Relationship Matrix (GRM) contains information on both ancestry and familial relatedness. As introduced in the PC-Relate paper, the empirical GRM has been widely used for inferring population structure (distant genetic relatedness) in samples without close relatives, as well as for estimating recent kinship and heritability of complex traits in single-population studies. However, in multi-ancestry or admixed population studies, a thresholded GRM cannot be sparsified effectively. To address this, we employ PC-AiR and PC-Relate (implemented in the GENESIS R package) to obtain principal components (representing distant genetic relatedness) and sparse kinship coefficients (representing recent genetic relatedness).
 
-- For method ```SPAmix```, the top SNP-derived PC and related information is required in the arguments ```formula``` and ```control```.
+PC-AiR is specifically designed for robust inference of population structure in the presence of recent genetic relatedness—whether known or cryptic—among sampled individuals. It performs Principal Component Analysis (PCA) on genome-wide SNP data to detect population structure, while accounting for relatedness to avoid confounding ancestry inference with familial relationships. Unlike standard PCA, PC-AiR adjusts for relatedness, allowing accurate estimation of ancestry that is unaffected by family structure. PC-Relate, on the other hand, uses ancestry-representative principal components to adjust for population structure/ancestry and provide precise estimates of recent genetic relatedness.
 
-- For method ```SPAGRM```, arguments ```GenoFile```, ```GenoFileIndex```, and ```SparseGRMFile``` are required to characterize the family relatedness.
+To analyze individuals from multi-ancestry or multi-way admixed populations with familial relatedness, SPAGxEmix<sub>CCT</sub>+ first uses PC-AiR to obtain principal components representing population structure. It then applies PC-Relate to regress out the PCs from the genotypes, yielding ancestry-adjusted genotypes and kinship estimates to assess family structure (i.e., recent genetic relatedness). The PC-Relate paper demonstrates that an iterative process alternating between PC-AiR and PC-Relate can enhance inference for both population structure (via PC-AiR) and recent genetic relatedness (via PC-Relate). Typically, two iterations are sufficient to produce accurate ancestry-adjusted principal components and a sparse GRM.
 
-## Quick Start-up Guide
-The below gives examples to demonstrate the usage of ```SPACox```, ```SPAmix```, and ```SPAGRM``` approaches.
+Steps 1 and 2 of the SPAGxEmix<sub>CCT</sub>+ analysis are similar to those in SPAGxEmix<sub>CCT</sub>. In Step 2, the ancestry-adjusted sparse GRM is crucial for characterizing familial structure, and SPA is used to calibrate p-values.
 
-### Step 1. Read in data and fit a null model
-
-```
-library(GRAB)
-PhenoFile = system.file("extdata", "simuPHENO.txt", package = "GRAB")
-PhenoData = data.table::fread(PhenoFile, header = T)
-obj.SPACox = GRAB.NullModel(Surv(SurvTime, SurvEvent)~AGE+GENDER, data = PhenoData, subjData = IID, method = "SPACox", traitType = "time-to-event")
-```
-
-```SPACox``` method can also support model residuals as input. The above codes are the same as below.
-
-```
-obj.coxph = coxph(Surv(SurvTime, SurvEvent)~AGE+GENDER, data = PhenoData)
-obj.SPACox = GRAB.NullModel(obj.coxph$residuals~AGE+GENDER, data = PhenoData, subjData = IID, method = "SPACox", traitType = "Residual")
-```
-
-```SPAmix``` method also support both original trait or model residuals as input. For ```SPAmix```, the confounding factors of SNP-derived PCs are required and should be specified in ```control```.
-
-```
-library(GRAB)
-PhenoFile = system.file("extdata", "simuPHENO.txt", package = "GRAB")
-PhenoData = data.table::fread(PhenoFile, header = T)
-N = nrow(PhenoData)
-PhenoData = PhenoData %>% mutate(PC1 = rnorm(N), PC2 = rnorm(N))  # add two PCs
-obj.SPAmix = GRAB.NullModel(Surv(SurvTime, SurvEvent)~AGE+GENDER+PC1+PC2, data = PhenoData, subjData = IID, method = "SPAmix", traitType = "time-to-event", control = list(PC_columns = "PC1,PC2"))
-```
-
-The same results can be obtained via using model residuals
-
-```
-obj.coxph = coxph(Surv(SurvTime, SurvEvent)~AGE+GENDER+PC1+PC2, data = PhenoData)
-obj.SPACox = GRAB.NullModel(obj.coxph$residuals~AGE+GENDER+PC1+PC2, data = PhenoData, subjData = IID, method = "SPAmix", traitType = "Residual", control = list(PC_columns = "PC1,PC2"))
-```
-
-### Step 2. Conduct genome-wide association studies
-
-For different types of traits and methods, the step 2 is the same as below.
-
-```
-GenoFile = system.file("extdata", "simuPLINK.bed", package = "GRAB")
-OutputDir = system.file("results", package = "GRAB")
-# step 2 for SPACox method
-OutputFile = paste0(OutputDir, "/Results_SPACox.txt")
-GRAB.Marker(obj.SPACox, GenoFile = GenoFile, OutputFile = OutputFile)
-# step 2 for SPAmix method
-OutputFile = paste0(OutputDir, "/Results_SPAmix.txt")
-GRAB.Marker(obj.SPAmix, GenoFile = GenoFile, OutputFile = OutputFile)
-```
-
-Detailed documentation about how to use SPAGRM is available at [SPAGRM online tutorial](https://fantasy-xuhe.github.io/SPAGRM.github.io/).
+**SPAGxEmix<sub>CCT</sub>+ is a scalable and accurate G×E analytical framework designed to control for both population structure and familial relatedness across diverse population and family structures. It is especially suited for cohorts that include individuals from multi-ancestry or multi-way admixed populations, effectively handling ancestry-specific minor allele frequencies (MAFs) and ancestry-specific case-control ratios (or other ancestry-specific phenotypic distribution such as event rates for time-to-event traits).**
 
 ## Citation
 
-- SPACox: Bi, Wenjian, Lars G. Fritsche, Bhramar Mukherjee, Sehee Kim, and Seunggeun Lee. **A fast and accurate method for genome-wide time-to-event data analysis and its application to UK Biobank.** *The American Journal of Human Genetics* 107, no. 2 (2020): 222-233.
+- to be submitted
 
-- SPAmix: to be submitted.
-
-- SPAGRM: to be submitted.
