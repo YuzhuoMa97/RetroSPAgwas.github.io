@@ -28,7 +28,7 @@ All retrospective-SPA-based GxE approaches share the same analysis framework inc
 
 
 
-# RetroSPAgwas Project Timeline
+# Restropective SPA Project Timeline
 
 ```markdown
 # Timeline of My Academic and Technical Adventures
