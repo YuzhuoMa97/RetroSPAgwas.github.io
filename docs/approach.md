@@ -27,7 +27,7 @@ Based on the idea from the authors of the above master's thesis, we have applied
 - [```SPAGxE```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```SPAmix``` since 2021)
 - [```SPAGxE+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```SPAmix``` since 2021)
 - [```SPAGxEmixCCT```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```SPAmix``` since 2021)
-- [```SPAGxEmixCCT+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```SPAmix``` since 2024). 
+- [```SPAGxEmix+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```SPAmix``` since 2024). 
 
 **If you utilized the retrospective saddlepoint approximation method in your proposed methods or tools, please acknowledge and respect the original ideas presented in the two works (```SPAmix``` and ```SPAGxE```). Additionally, kindly cite the original papers (```SPAmix``` and ```SPAGxE```) or the master's thesis:**
 
