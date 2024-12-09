@@ -9,9 +9,9 @@ has_toc: true
 
 # Genome-wide gene-environment interaction (GxE) studies
 
-```SPAGxECCT``` package gives a generic framework to analyze a wide variaty of phenotypes. 
+[```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) package gives a generic framework to analyze a wide variaty of phenotypes. 
 
-```SPAGxECCT``` has been tested under linux and windows systems. (The R package will soon be rewritten using Rcpp code to support genotype data in PLINK format!)
+```SPAGxECCT``` package has been tested under linux and windows systems and will soon be rewritten using Rcpp code to support genotype data in PLINK format!
 
 
 ##  Summary and comparison of main features for efficient G×E analysis methods.
