@@ -45,15 +45,15 @@ Admixed populations are routinely excluded from genomic studies due to concerns 
 
 The below gives an example to use SPAGxEmix<sub>CCT</sub> to analyze time-to-event trait. 
 
+### Step 1. Read in data and fit a genotype-independent model
+
 ```
 library(SPAGxECCT)
-
 # example 1  time-to-event phenotype
 # Simulation phenotype and genotype
 N = 10000
 N.population1 = N/2
 N.population2 = N/2
-
 nSNP = 100
 MAF.population1 = 0.1
 MAF.population2 = 0.3
@@ -61,7 +61,6 @@ MAF.population2 = 0.3
 Geno.mtx.population1 = matrix(rbinom(N.population1*nSNP,2,MAF.population1),N.population1,nSNP)
 Geno.mtx.population2 = matrix(rbinom(N.population2*nSNP,2,MAF.population2),N.population2,nSNP)
 Geno.mtx = rbind(Geno.mtx.population1, Geno.mtx.population2)
-
 # NOTE: The row and column names of genotype matrix are required.
 rownames(Geno.mtx) = paste0("IID-",1:N)
 colnames(Geno.mtx) = paste0("SNP-",1:nSNP)
@@ -88,7 +87,7 @@ Phen.mtx = rbind.data.frame(Phen.mtx.population1,
 E = Phen.mtx$E                                      # environmental factor
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding environmental factor
 
-# Step 1: fit a null model
+# fit a null model
 # Attach the survival package so that we can use its function Surv()
 library(survival)
 
@@ -97,8 +96,11 @@ R = SPA_G_Get_Resid("survival",
                    data=Phen.mtx,
                    pIDs=Phen.mtx$ID,
                    gIDs=paste0("IID-",1:N))
+```
 
-# Step 2: conduct a marker-level association study
+### Step 2. Conduct a marker-level association study
+
+```
 survival.res = SPAGxEmix_CCT(traits = "survival",                    # trait type
                             Geno.mtx = Geno.mtx,                     # genotype vector
                             R = R,                                   # residuals from genotype-independent model 
