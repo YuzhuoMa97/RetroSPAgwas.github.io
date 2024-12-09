@@ -61,23 +61,22 @@ have not yet been published--despite the retrospective saddlepoint approximation
 
 
 
-## Restropective SPA Project Timeline
 
-```markdown
-# Timeline of Restropective SPA Project
 
-## March 2021
-- The idea of a retrospective saddlepoint approximation (SPA) was conceived.
+## Timeline of Restropective SPA Project
 
-## October 2021
-- The SPAmix algorithm was successfully designed.
+### March 2021
+- **Event**: The idea of a retrospective saddlepoint approximation (SPA) was conceived.
 
-## October 2021 - February 2022
-- Work on the SPAGxE algorithm was initiated.
+### October 2021
+- **Event**: The SPAmix algorithm was successfully designed.
 
-## May 2022
-- Master's thesis (DOI:10.27272/d.cnki.gshdu.2022.002946),  which was the first to propose the concept of retrospective SPA, was completed.
-```
+### October 2021 - February 2022
+- **Event**: Work on the SPAGxE algorithm was initiated.
+
+### May 2022
+- **Event**: Master's thesis (DOI:10.27272/d.cnki.gshdu.2022.002946),  which was the first to propose the concept of retrospective SPA, was completed.
+
 
 ![RetroSPA_timeline](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/RetroSPA_timeline.png)
 
