@@ -12,7 +12,7 @@ has_toc: false
 
 ## Main features
 
-```SPAmix``` and ```SPAmix+``` are accurate and efficient approaches to associating complex traits (including but not limited to quantitative, binary, time-to-event, ordinal, and longitudinal traits) to single variant.
+[```SPAmix```](https://github.com/YuzhuoMa97/SPAmix) and [```SPAmix+```](https://github.com/YuzhuoMa97/SPAmixPlus) are accurate and efficient approaches to associating complex traits (including but not limited to quantitative, binary, time-to-event, ordinal, and longitudinal traits) to single variant.
 
 The two methods use restropective saddlepoint approximation (SPA) approaches and share the below features.
 
@@ -22,9 +22,9 @@ The two methods use restropective saddlepoint approximation (SPA) approaches and
 
 The two methods are different in terms of
 
-- ```SPAmix``` is designed to analyze an admixture population or multiple populations and can incorporate local ancestry information into analyses. The method is still only valid to analyze unrelated subjects. 
+- [```SPAmix```](https://github.com/YuzhuoMa97/SPAmix) is designed to analyze an admixture population or multiple populations and can incorporate local ancestry information into analyses. The method is still only valid to analyze unrelated subjects. 
 
-- ```SPAmix+``` is a scalable, accurate, and universal analysis framework to control for population structure and family relatedness. The method is valid to analyze heterogeneous or admixed populations with falily relatedness.
+- [```SPAmix+```](https://github.com/YuzhuoMa97/SPAmixPlus) is a scalable, accurate, and universal analysis framework to control for population structure and family relatedness. The method is valid to analyze heterogeneous or admixed populations with falily relatedness.
 
 | Method                 |Account for population structure|Account for local ancestry|Account for family relatedness|
 |:----------------------:|:------------------------------:|:------------------------:|:----------------------------:|
