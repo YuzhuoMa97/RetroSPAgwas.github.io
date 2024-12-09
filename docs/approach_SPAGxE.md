@@ -22,7 +22,9 @@ has_toc: false
 
 # SPAGxE<sub>CCT</sub> method 
 
-## SPAGxE<sub>CCT</sub> is a scalable and accurate G×E analytical framework that accounts for unbalanced phenotypic distribution
+## Introduction of SPAGxE<sub>CCT</sub>
+
+### SPAGxE<sub>CCT</sub> is a scalable and accurate G×E analytical framework that accounts for unbalanced phenotypic distribution
 
 **SPAGxE<sub>CCT</sub> is applicable to a wide range of complex traits with intricate structures, including time-to-event, ordinal categorical, binary, quantitative, longitudinal, and other complex traits.** The framework involves two main steps:
 
