@@ -44,15 +44,18 @@ library(SPAGxECCT)
 N = 10000
 nSNP = 100
 MAF = 0.1
+
 Geno.mtx = matrix(rbinom(N*nSNP,2,MAF),N,nSNP)
 # NOTE: The row and column names of genotype matrix are required.
 rownames(Geno.mtx) = paste0("IID-",1:N)
 colnames(Geno.mtx) = paste0("SNP-",1:nSNP)
+
 Phen.mtx = data.frame(ID = paste0("IID-",1:N),
                       Y=rbinom(N,1,0.5),
                       Cov1=rnorm(N),
                       Cov2=rbinom(N,1,0.5),
                       E = rnorm(N))
+
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E  
 E = Phen.mtx$E                            # environmental factor E
 
@@ -73,6 +76,7 @@ binary.res = SPAGxE_CCT("binary",
                         E,                            # environmental factor
                         Phen.mtx,                     # phenotype dataframe
                         Cova.mtx)                     # covariates dataframe excluding environmental factor E
+
 # we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with binary phenotypes
 head(binary.res)
 ```
