@@ -36,6 +36,16 @@ SPAGxE+ is applicable to a wide range of complex traits with intricate structure
 ![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAGxE_Plus_MYZ.png)
 
 
+## Main features of SPAGxE+
+
+Currently, there is still a lack of scalable and accurate gene-environmental interaction analytical frameworks that can control for sample relatedness and be applicable to binary, time-to-event, ordinal categorical, or longitudinal trait analysis. It is usually challenging to detect gene-environmental interaction effects efficiently and accurately while adjusting for sample relateness in a large-scale genome-wide analysis. In GWAS for thousands of phenotypes in large biobanks, most binary traits have substantially fewer cases than controls. Existing methods based on logistic mixed model produce inflated type I errors in the presence of unbalanced case-control ratios. 
+
+SPAGxE+ is a scalable and accurate G×E analytical framework that uses saddlepoint approximation to calibrate the null distribution of test statistics while controlling for sample relatedness and case-control imbalance. 
+- Compared to SPAGxE, a sparse genetic relationship matrix (GRM) is used for characterizing familial structure.
+- SPAGxE+ provides accurate p-values even when case-control ratios are extremely unbalanced (e.g. case:control = 1:100).
+- SPAGxE+ is applicable to other complex traits including time-to-event, ordinal categorical, and longitudinal traits, and it maintains highly accuracy even when phenotypic distribution is unbalanced.
+
+
 ## Quick start-up examples
 
 The below gives an example to use SPAGxE+ to analyze binary trait. 
@@ -78,14 +88,7 @@ binary.res = as.data.frame(binary.res)
 head(binary.res)
 ```
 
-## Main features of SPAGxE+
 
-Currently, there is still a lack of scalable and accurate gene-environmental interaction analytical frameworks that can control for sample relatedness and be applicable to binary, time-to-event, ordinal categorical, or longitudinal trait analysis. It is usually challenging to detect gene-environmental interaction effects efficiently and accurately while adjusting for sample relateness in a large-scale genome-wide analysis. In GWAS for thousands of phenotypes in large biobanks, most binary traits have substantially fewer cases than controls. Existing methods based on logistic mixed model produce inflated type I errors in the presence of unbalanced case-control ratios. 
-
-SPAGxE+ is a scalable and accurate G×E analytical framework that uses saddlepoint approximation to calibrate the null distribution of test statistics while controlling for sample relatedness and case-control imbalance. 
-- Compared to SPAGxE, a sparse genetic relationship matrix (GRM) is used for characterizing familial structure.
-- SPAGxE+ provides accurate p-values even when case-control ratios are extremely unbalanced (e.g. case:control = 1:100).
-- SPAGxE+ is applicable to other complex traits including time-to-event, ordinal categorical, and longitudinal traits, and it maintains highly accuracy even when phenotypic distribution is unbalanced.
 
 
 ## Citation
