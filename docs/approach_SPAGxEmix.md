@@ -34,12 +34,13 @@ SPAGxEmix<sub>CCT</sub> allows for different allele frequencies for genotypes. S
 
 ![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAGxEmixCCT_MYZ.png)
 
+## Main features of SPAGxEmix<sub>CCT</sub>
+
 Admixed populations are routinely excluded from genomic studies due to concerns over population structure. The admixed population analysis is technically challenging as it requires addressing the complicated patterns of genetic and phenotypic diversities that arise from distinct genetic backgrounds and environmental exposures. As the genetic ancestries are increasingly recognized as continuous rather than discrete, **SPAGxEmix<sub>CCT</sub> estimates individual-level allele frequencies to characterize the individual-level genetic ancestries using information from the SNP-derived PCs and raw genotype data in a model-free approach.**
 
 - SPAGxEmix<sub>CCT</sub> does not necessitate accurate specification of and the availability of appropriate reference population panels for the ancestries contributing to the individual, which might be unknown or not well defined.
 
 - SPAGxEmix<sub>CCT</sub> is not sensitive to model misspecification (e.g. missed or biased confounder-trait associations) and trait-based ascertainment.
-
 
 ## Quick start-up examples
 
@@ -92,22 +93,22 @@ Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding
 library(survival)
 
 R = SPA_G_Get_Resid("survival",
-                   Surv(surv.time,event)~Cov1+Cov2+PC1+E,
-                   data=Phen.mtx,
-                   pIDs=Phen.mtx$ID,
-                   gIDs=paste0("IID-",1:N))
+                    Surv(surv.time,event)~Cov1+Cov2+PC1+E,
+                    data=Phen.mtx,
+                    pIDs=Phen.mtx$ID,
+                    gIDs=paste0("IID-",1:N))
 ```
 
 ### Step 2. Conduct a marker-level association study
 
 ```
 survival.res = SPAGxEmix_CCT(traits = "survival",                    # trait type
-                            Geno.mtx = Geno.mtx,                     # genotype vector
-                            R = R,                                   # residuals from genotype-independent model 
-                            E = E,                                   # environmental factor
-                            Phen.mtx = Phen.mtx,                     # phenotype dataframe
-                            Cova.mtx = Cova.mtx,                     # Covariate matrix excluding environmental factor
-                            topPCs = Cova.mtx[,"PC1"])               # SNP-derived top PCs 
+                             Geno.mtx = Geno.mtx,                     # genotype vector
+                             R = R,                                   # residuals from genotype-independent model 
+                             E = E,                                   # environmental factor
+                             Phen.mtx = Phen.mtx,                     # phenotype dataframe
+                             Cova.mtx = Cova.mtx,                     # Covariate matrix excluding environmental factor
+                             topPCs = Cova.mtx[,"PC1"])               # SNP-derived top PCs 
 
 # we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with time-to-event phenotypes
 head(survival.res)
