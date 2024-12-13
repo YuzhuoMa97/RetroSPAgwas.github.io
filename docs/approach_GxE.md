@@ -86,7 +86,7 @@ Argument ```traits``` is to specify the type of phenotype data. Currently, ```SP
 | Other trait (e.g. longitudinal trait)       | "Resid" |
 
 
-## The computational efficiency and statictical power can be enhanced through incorporating polygenic scores (PGSs) as covariates with fixed effects.
+## The computational efficiency and statictical power can be enhanced through incorporating polygenic scores (PGSs) as covariates with fixed effects (Optional)
 
 Recent studies have demonstrated that adjusting for polygenic scores (PGSs) can account for polygenic effects and enhance statistical power. In SPAGxE<sub>CCT</sub>, SPAGxE+, SPAGxEmix<sub>CCT</sub>, and SPAGxEmix<sub>CCT-local</sub>, incorporating PGSs as fixed-effect covariates significantly improves computational efficiency. When accurate PGSs are available, a genotype-independent model can be used for genome-wide analyses, enabling the application of regular score statistics followed by a hybrid test employing normal approximation and SPA. By including PGSs as covariates, we eliminate the need to construct statistics through matrix projection or linear regression with genotype data, further optimizing computational efficiency. Additionally, PGS adjustment boosts statistical power by accounting for polygenic effects, complementing the reduced power typically associated with sparse-GRM methods.
 
@@ -106,7 +106,7 @@ This strategy not only improves computational efficiency but also enhances stati
 
 
 
-## Rank-based inverse normal transformation to enhance statistical power
+## Rank-based inverse normal transformation to enhance statistical power (Optional)
 
 Model residuals from a fitted null model can be highly unbalanced, especially for longitudinal phenotypes. In such cases, we find that applying a rank-based inverse normal transformation (INT) to the residuals significantly improves empirical power. We propose SPAGxE<sub>CCT(INT)</sub>, SPAGxE+(INT), SPAGxEmix<sub>CCT(INT)</sub>, and SPAGxEmix<sub>CCT-local(INT)</sub>, where the inverse normal transformed residuals are used as input. The p-values from SPAGxE<sub>CCT(INT)</sub>, SPAGxE+(INT), SPAGxEmix<sub>CCT(INT)</sub>, or SPAGxEmix<sub>CCT-local(INT)</sub> can then be combined with those from their untransformed counterparts (SPAGxE<sub>CCT</sub>, SPAGxE+, SPAGxEmix<sub>CCT</sub>, or SPAGxEmix<sub>CCT-local</sub>) using the Cauchy Combination Test (CCT).
 
