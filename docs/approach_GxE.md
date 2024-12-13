@@ -54,7 +54,7 @@ R = SPA_G_Get_Resid("binary",
                     pIDs=Phen.mtx$ID,
                     gIDs=paste0("IID-",1:N))
 
-# Step 2(a): conduct a marker-level association study
+# Step 2: conduct a marker-level association study
 nSNP = 100
 MAF = 0.1
 Geno.mtx = matrix(rbinom(N*nSNP,2,MAF),N,nSNP)
