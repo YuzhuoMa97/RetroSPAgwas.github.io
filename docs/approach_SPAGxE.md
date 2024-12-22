@@ -119,12 +119,12 @@ R = SPA_G_Get_Resid("binary",
 ### Step 2. Conduct a marker-level association study
 
 ```
-survival.res = SPAGxE_CCT(traits = "binary",                     # trait type
-                          GenoFile = GenoFile,                     # a character of genotype file
-                          R = R,                                   # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
-                          E = E,                                   # environmental factor
-                          Phen.mtx = Phen.mtx,                     # phenotype dataframe
-                          Cova.mtx = Cova.mtx)                     # a covariate matrix excluding the environmental factor E
+binary.res = SPAGxE_CCT(traits = "binary",                       # trait type
+                        GenoFile = GenoFile,                     # a character of genotype file
+                        R = R,                                   # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
+                        E = E,                                   # environmental factor
+                        Phen.mtx = Phen.mtx,                     # phenotype dataframe
+                        Cova.mtx = Cova.mtx)                     # a covariate matrix excluding the environmental factor E
 
 
 # we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with binary phenotypes
