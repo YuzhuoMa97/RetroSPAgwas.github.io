@@ -11,7 +11,12 @@ has_toc: true
 
 [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) package gives generic GxE analytical frameworks to analyze a wide variaty of phenotypes. 
 
-[```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) package has been tested under linux and windows systems and will soon be rewritten using Rcpp code to support genotype data in PLINK format!
+[```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) package has been thoroughly examined and validated within both the Linux and Windows operating systems. 
+
+- At present, this R package is capable of accommodating three distinct formats for genotype input, namely the R matrix, **PLINK**, and **BGEN** formats.
+
+- In the near future, the R package is slated to undergo a rewrite using Rcpp code to enhance its performance and efficiency. 
+
 
 
 ##  Summary and comparison of main features for efficient G×E analysis methods.
