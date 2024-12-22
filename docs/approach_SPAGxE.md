@@ -36,7 +36,7 @@ has_toc: false
 
 ![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAGxECCT_MYZ.png)
 
-## Quick start-up examples
+## Quick start-up examples 
 
 The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
 
@@ -80,6 +80,52 @@ binary.res = SPAGxE_CCT("binary",
                         E,                            # environmental factor
                         Phen.mtx,                     # phenotype dataframe
                         Cova.mtx)                     # covariates dataframe excluding environmental factor E
+
+# we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with binary phenotypes
+head(binary.res)
+```
+
+
+## Quick start-up examples  (Genotype Input Using PLINK File Format)
+
+The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
+
+### Step 1. Read in data and fit a genotype-independent model
+
+```
+library(SPAGxECCT)
+# Simulation phenotype and genotype
+N = 10000
+
+GenoFile = system.file("", "GenoMat_SPAGxE.bed", package = "SPAGxECCT")
+
+Phen.mtx = data.frame(ID = paste0("IID-",1:N),
+                      Y=rbinom(N,1,0.5),
+                      Cov1=rnorm(N),
+                      Cov2=rbinom(N,1,0.5),
+                      E = rnorm(N))
+
+Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E  
+E = Phen.mtx$E                            # environmental factor E
+
+# fit a null model
+R = SPA_G_Get_Resid("binary",
+                    glm(formula = Y ~ Cov1+Cov2+E, data = Phen.mtx, family = "binomial"),
+                    data=Phen.mtx,
+                    pIDs=Phen.mtx$ID,
+                    gIDs=paste0("IID-",1:N))
+```
+
+### Step 2. Conduct a marker-level association study
+
+```
+survival.res = SPAGxE_CCT(traits = "binary",                     # trait type
+                          GenoFile = GenoFile,                     # a character of genotype file
+                          R = R,                                   # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
+                          E = E,                                   # environmental factor
+                          Phen.mtx = Phen.mtx,                     # phenotype dataframe
+                          Cova.mtx = Cova.mtx)                     # a covariate matrix excluding the environmental factor E
+
 
 # we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with binary phenotypes
 head(binary.res)
