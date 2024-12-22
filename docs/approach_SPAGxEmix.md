@@ -115,6 +115,154 @@ head(survival.res)
 ```
 
 
+
+## Quick start-up examples (Genotype Input Using PLINK File Format)
+
+The below gives an example to use SPAGxEmix<sub>CCT</sub> to analyze time-to-event trait. 
+
+### Step 1. Read in data and fit a genotype-independent model
+
+```
+library(SPAGxECCT)
+# example 1  time-to-event phenotype
+# Simulation phenotype and genotype
+N = 10000
+N.population1 = N/2
+N.population2 = N/2
+nSNP = 100
+MAF.population1 = 0.1
+MAF.population2 = 0.3
+
+# PLINK format
+GenoFile = system.file("", "GenoMat_SPAGxEmix.bed", package = "SPAGxECCT")
+
+Phen.mtx.population1 = data.frame(ID = paste0("IID-",1:N.population1),
+                                  event=rbinom(N.population1,1,0.5),
+                                  surv.time=runif(N.population1),
+                                  Cov1=rnorm(N.population1),
+                                  Cov2=rbinom(N.population1,1,0.5),
+                                  E = rnorm(N.population1),
+                                  PC1 = 1)
+
+Phen.mtx.population2 = data.frame(ID = paste0("IID-",(N.population1+1):N),
+                                  event=rbinom(N.population2,1,0.5),
+                                  surv.time=runif(N.population2),
+                                  Cov1=rnorm(N.population2),
+                                  Cov2=rbinom(N.population2,1,0.5),
+                                  E = rnorm(N.population2),
+                                  PC1 = 0)
+
+Phen.mtx = rbind.data.frame(Phen.mtx.population1,
+                            Phen.mtx.population2)   # phenotype dataframe
+
+E = Phen.mtx$E                                      # environmental factor
+Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding environmental factor
+
+# fit a null model
+# Attach the survival package so that we can use its function Surv()
+library(survival)
+
+R = SPA_G_Get_Resid("survival",
+                    Surv(surv.time,event)~Cov1+Cov2+PC1+E,
+                    data=Phen.mtx,
+                    pIDs=Phen.mtx$ID,
+                    gIDs=paste0("IID-",1:N))
+```
+
+### Step 2. Conduct a marker-level association study 
+
+```
+survival.res = SPAGxEmix_CCT(traits = "survival",                     # trait type
+                             GenoFile = GenoFile,                     # a character of genotype file
+                             R = R,                                   # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
+                             E = E,                                   # environmental factor
+                             Phen.mtx = Phen.mtx,                     # phenotype dataframe
+                             Cova.mtx = Cova.mtx,                     # a covariate matrix excluding the environmental factor E
+                             topPCs = Cova.mtx[,"PC1"])               # PCs
+
+# we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with time-to-event phenotypes
+head(survival.res)
+```
+
+## Quick start-up examples (Genotype Input Using BGEN File Format)
+
+The below gives an example to use SPAGxEmix<sub>CCT</sub> to analyze time-to-event trait. 
+
+### Step 1. Read in data and fit a genotype-independent model
+
+```
+library(SPAGxECCT)
+# example 1  time-to-event phenotype
+# Simulation phenotype and genotype
+N = 10000
+N.population1 = N/2
+N.population2 = N/2
+nSNP = 100
+MAF.population1 = 0.1
+MAF.population2 = 0.3
+
+# BGEN format
+GenoFile = system.file("", "GenoMat_SPAGxEmix.bgen", package = "SPAGxECCT")
+GenoFileIndex = c(system.file("", "GenoMat_SPAGxEmix.bgen.bgi", package = "SPAGxECCT"),
+                  system.file("", "GenoMat_SPAGxEmix.sample", package = "SPAGxECCT"))
+
+Phen.mtx.population1 = data.frame(ID = paste0("IID-",1:N.population1),
+                                  event=rbinom(N.population1,1,0.5),
+                                  surv.time=runif(N.population1),
+                                  Cov1=rnorm(N.population1),
+                                  Cov2=rbinom(N.population1,1,0.5),
+                                  E = rnorm(N.population1),
+                                  PC1 = 1)
+
+Phen.mtx.population2 = data.frame(ID = paste0("IID-",(N.population1+1):N),
+                                  event=rbinom(N.population2,1,0.5),
+                                  surv.time=runif(N.population2),
+                                  Cov1=rnorm(N.population2),
+                                  Cov2=rbinom(N.population2,1,0.5),
+                                  E = rnorm(N.population2),
+                                  PC1 = 0)
+
+Phen.mtx = rbind.data.frame(Phen.mtx.population1,
+                            Phen.mtx.population2)   # phenotype dataframe
+
+E = Phen.mtx$E                                      # environmental factor
+Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding environmental factor
+
+# fit a null model
+# Attach the survival package so that we can use its function Surv()
+library(survival)
+
+R = SPA_G_Get_Resid("survival",
+                    Surv(surv.time,event)~Cov1+Cov2+PC1+E,
+                    data=Phen.mtx,
+                    pIDs=Phen.mtx$ID,
+                    gIDs=paste0("IID-",1:N))
+```
+
+### Step 2. Conduct a marker-level association study 
+
+```
+survival.res = SPAGxEmix_CCT(traits = "survival",                     # trait type
+                             GenoFile = GenoFile,                     # genotype file
+                             GenoFileIndex = GenoFileIndex,           # additional index file(s) corresponding to GenoFile.
+                             R = R,                                   # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
+                             E = E,                                   # environmental factor
+                             Phen.mtx = Phen.mtx,                     # phenotype dataframe
+                             Cova.mtx = Cova.mtx,                     # a covariate matrix excluding the environmental factor E
+                             topPCs = Cova.mtx[,"PC1"])               # PCs
+
+# we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with time-to-event phenotypes
+head(survival.res)
+```
+
+
+
+
+
+
+
+
+
 ## Citation
 
 - **A scalable and accurate framework for large-scale genome-wide gene-environment interaction analysis and its application to time-to-event and ordinal categorical traits** (to be updated).
