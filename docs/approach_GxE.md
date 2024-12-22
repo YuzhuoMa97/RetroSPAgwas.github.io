@@ -31,7 +31,7 @@ has_toc: true
 
 ## Quick start-up examples
 
-The below gives an example to use SPAGxE<sub>CCT</sub> to analyze ordinal binary trait. 
+The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
 
 ```
 library(SPAGxECCT)
