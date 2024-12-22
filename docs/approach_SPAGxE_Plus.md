@@ -90,6 +90,105 @@ head(binary.res)
 
 
 
+## Quick start-up examples (Genotype Input Using PLINK File Format)
+
+The below gives an example to use SPAGxE+ to analyze binary trait. 
+
+### Step 1. Read in data and fit a genotype-independent model
+
+```
+library(SPAGxECCT)
+# example 1  binary phenotype
+# load in binary phenotype, genotype, and sparseGRM
+data("Phen.mtx.SPAGxEPlus.binary")
+data("sparseGRM.SPAGxEPlus")
+GenoFile = system.file("", "GenoMat_SPAGxE_Plus.bed", package = "SPAGxECCT")
+
+E = Phen.mtx.SPAGxEPlus.binary$E                               # environmental factor
+Cova.mtx = Phen.mtx.SPAGxEPlus.binary[,c("Cov1","Cov2")]       # Covariate matrix excluding environmental factor
+
+# fit a null model
+obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
+                                                  Y~Cov1+Cov2+E,family=binomial(link="logit"),
+                                                  data=Phen.mtx.SPAGxEPlus.binary,
+                                                  pIDs=Phen.mtx.SPAGxEPlus.binary$IID,
+                                                  gIDs=rownames(GenoMat.SPAGxEPlus),
+                                                  sparseGRM = sparseGRM.SPAGxEPlus,
+                                                  E = E)
+```
+
+### Step 2. Conduct a marker-level association study
+
+```
+binary.res = SPAGxE_Plus(GenoFile = GenoFile,
+                         E = E,
+                         Phen.mtx = Phen.mtx,
+                         Cova.mtx = Cova.mtx,
+                         obj.SPAGxE_Plus_Nullmodel = obj.SPAGxE_Plus_Nullmodel)
+
+binary.res = as.data.frame(binary.res)
+
+binary.res = as.data.frame(binary.res)
+
+# we recommand using column of 'p.value.spaGxE.plus' as p-values testing for marginal GxE effect
+head(binary.res)
+```
+
+
+
+## Quick start-up examples (Genotype Input Using BGEN File Format)
+
+The below gives an example to use SPAGxE+ to analyze binary trait. 
+
+### Step 1. Read in data and fit a genotype-independent model
+
+```
+library(SPAGxECCT)
+# example 1  binary phenotype
+# load in binary phenotype, genotype, and sparseGRM
+data("Phen.mtx.SPAGxEPlus.binary")
+data("sparseGRM.SPAGxEPlus")
+
+# BGEN format
+GenoFile = system.file("", "GenoMat_SPAGxE_Plus.bgen", package = "SPAGxECCT")
+GenoFileIndex = c(system.file("", "GenoMat_SPAGxE_Plus.bgen.bgi", package = "SPAGxECCT"),
+                  system.file("", "GenoMat_SPAGxE_Plus.sample", package = "SPAGxECCT"))
+
+
+E = Phen.mtx.SPAGxEPlus.binary$E                               # environmental factor
+Cova.mtx = Phen.mtx.SPAGxEPlus.binary[,c("Cov1","Cov2")]       # Covariate matrix excluding environmental factor
+
+# fit a null model
+obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
+                                                  Y~Cov1+Cov2+E,family=binomial(link="logit"),
+                                                  data=Phen.mtx.SPAGxEPlus.binary,
+                                                  pIDs=Phen.mtx.SPAGxEPlus.binary$IID,
+                                                  gIDs=rownames(GenoMat.SPAGxEPlus),
+                                                  sparseGRM = sparseGRM.SPAGxEPlus,
+                                                  E = E)
+```
+
+### Step 2. Conduct a marker-level association study
+
+```
+binary.res = SPAGxE_Plus(GenoFile = GenoFile,
+                         GenoFileIndex = GenoFileIndex,
+                         E = E,
+                         Phen.mtx = Phen.mtx,
+                         Cova.mtx = Cova.mtx,
+                         obj.SPAGxE_Plus_Nullmodel = obj.SPAGxE_Plus_Nullmodel)
+
+binary.res = as.data.frame(binary.res)
+
+binary.res = as.data.frame(binary.res)
+
+# we recommand using column of 'p.value.spaGxE.plus' as p-values testing for marginal GxE effect
+head(binary.res)
+```
+
+
+
+
 
 ## Citation
 
