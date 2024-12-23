@@ -56,7 +56,6 @@ The following example illustrates how to use SPAGxE+ to analyze a binary trait, 
 ```
 library(SPAGxECCT)
 # load in binary phenotype, genotype, and sparseGRM
-
 data("Phen.mtx.SPAGxEPlus.binary")
 data("sparseGRM.SPAGxEPlus")
 data("GenoMat.SPAGxEPlus")
@@ -78,6 +77,7 @@ obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
 ### Step 2. Conduct a marker-level association study
 
 ```
+# calculate p values
 binary.res = SPAGxE_Plus(Geno.mtx = GenoMat.SPAGxEPlus,
                          E = E,
                          Phen.mtx = Phen.mtx,
@@ -122,6 +122,7 @@ obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
 ### Step 2. Conduct a marker-level association study
 
 ```
+# calculate p values
 binary.res = SPAGxE_Plus(GenoFile = GenoFile,
                          E = E,
                          Phen.mtx = Phen.mtx,
@@ -170,6 +171,7 @@ obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
 ### Step 2. Conduct a marker-level association study
 
 ```
+# calculate p values
 binary.res = SPAGxE_Plus(GenoFile = GenoFile,
                          GenoFileIndex = GenoFileIndex,
                          E = E,
