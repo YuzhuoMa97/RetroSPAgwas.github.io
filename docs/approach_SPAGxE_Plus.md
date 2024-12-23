@@ -49,7 +49,7 @@ SPAGxE+ is a scalable and accurate G×E analytical framework that uses saddlepoi
 
 ## Quick start-up examples
 
-The below gives an example to use SPAGxE+ to analyze binary trait. 
+The following example illustrates how to use SPAGxE+ to analyze a binary trait, with genotype data input provided in the R matrix format.
 
 ### Step 1. Read in data and fit a genotype-independent model
 
