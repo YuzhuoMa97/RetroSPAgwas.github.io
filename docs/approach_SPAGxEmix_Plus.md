@@ -49,7 +49,8 @@ SPAGxEmix+ comprises three main steps:
 
 - Steps 1 and 2 of the SPAGxEmix+ analysis are similar to those in SPAGxEmix<sub>CCT</sub>. In Step 2, the ancestry-adjusted sparse GRM is crucial for characterizing familial structure, and SPA is used to calibrate p-values.
 
-- **SPAGxEmix+ is a scalable and accurate G×E analytical framework designed to control for both population structure and familial relatedness across diverse population and family structures. It is especially suited for cohorts that include individuals from multi-ancestry or multi-way admixed populations, effectively handling ancestry-specific minor allele frequencies (MAFs) and ancestry-specific case-control ratios (or other ancestry-specific phenotypic distribution such as event rates for time-to-event traits).**
+
+**SPAGxEmix+ is a scalable and accurate G×E analytical framework designed to control for both (1) population structure and (2) familial relatedness across diverse population and family structures. It is especially suited for cohorts that include individuals from multi-ancestry or multi-way admixed populations, effectively handling ancestry-specific minor allele frequencies (MAFs) and ancestry-specific case-control ratios (or other ancestry-specific phenotypic distribution such as event rates for time-to-event traits).**
 
 ## Citation
 
