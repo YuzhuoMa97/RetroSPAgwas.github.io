@@ -2,7 +2,7 @@
 layout: default
 title: SPAGxEmix<sub>CCT</sub>+
 nav_order: 5
-description: "SPAGxEmix<sub>CCT</sub>+ approaches: quantitative, binary, time-to-event, and ordinal trait analysis."
+description: "SPAGxEmix+ approaches: quantitative, binary, time-to-event, and ordinal trait analysis."
 parent: Genome-wide gene-environment interaction (GxE) studies
 has_children: false
 has_toc: false
@@ -24,18 +24,18 @@ has_toc: false
 
 As an extension of SPAGxEmix<sub>CCT</sub>, SPAGxEmix<sub>CCT</sub>+ accommodates individuals from multiple ancestries or multi-way admixed populations while controlling for both population structure and familial relatedness. Admixed individuals can be analyzed within a cohort alone or alongside homogeneous groups using this framework.
 
-## Introduction of SPAGxEmix<sub>CCT</sub>+
+## Introduction of SPAGxEmix+
 
 
-SPAGxEmix<sub>CCT</sub>+ comprises three main steps:
+SPAGxEmix+ comprises three main steps:
 
-- Step 0 (a): SPAGxEmix<sub>CCT</sub>+ employs PC-AiR (Conomos et al., 2015, Gen Epi) to compute ancestry-representative principal components (PCs) that capture distant genetic relatedness, such as population structure.
+- Step 0 (a): SPAGxEmix+ employs PC-AiR (Conomos et al., 2015, Gen Epi) to compute ancestry-representative principal components (PCs) that capture distant genetic relatedness, such as population structure.
   
-- Step 0 (b): SPAGxEmix<sub>CCT</sub>+utilizes PC-Relate (Conomos et al., 2016, AJHG) to estimate an ancestry-adjusted sparse GRM or sparse kinship coefficient matrix, representing recent genetic relatedness.
+- Step 0 (b): SPAGxEmix+ utilizes PC-Relate (Conomos et al., 2016, AJHG) to estimate an ancestry-adjusted sparse GRM or sparse kinship coefficient matrix, representing recent genetic relatedness.
   
 - Step 0 (c): Iterations of Step 0 (a) and Step 0 (b) refine the inference of both population structure (via PC-AiR) and recent genetic relatedness (via PC-Relate).
 
-- Step 1: SPAGxEmix<sub>CCT</sub>+ fits a genotype-independent (covariates-only) model and computes residuals, as detailed in Step 1 of SPAGxE<sub>CCT</sub>. Incorporating random effects to account for sample relatedness during null model fitting is optional.
+- Step 1: SPAGxEmix+ fits a genotype-independent (covariates-only) model and computes residuals, as detailed in Step 1 of SPAGxE<sub>CCT</sub>. Incorporating random effects to account for sample relatedness during null model fitting is optional.
 
 - Step 2: SPAGxEmix+ identifies genetic variants with marginal G×E effects on the trait of interest. It first estimates the individual-level allele frequencies of the tested variants using SNP-derived PCs (from Step 0) and raw genotypes. Next, SPAGxEmix<sub>CCT</sub>+ evaluates marginal genetic effects using score statistics. If the marginal genetic effect is not significant, S<sub>G×E(mix)</sub>+ is used as the test statistic to characterize the marginal G×E effect. If significant, S<sub>G×E(mix)</sub>+ is updated with genotype-adjusted test statistics. The hybrid strategy to balance computational efficiency and accuracy follows SPAGxE<sub>CCT</sub>.
 
