@@ -2,7 +2,7 @@
 layout: default
 title: Genome-wide gene-environment interaction (GxE) studies
 nav_order: 3
-description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
+description: "Genome-wide gene-environment interaction (GxE) studies using retrospective methods"
 has_children: true
 has_toc: true
 ---
@@ -77,7 +77,7 @@ binary.res = SPAGxE_CCT("binary",
 head(binary.res)
 ```
 
-## Quick start-up examples  (Genotype Input Using PLINK File Format)
+## Quick start-up examples  (genotype input using PLINK file format)
 
 The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
 
@@ -85,11 +85,13 @@ The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait.
 
 ```
 library(SPAGxECCT)
-# Simulation phenotype and genotype
-N = 10000
+# Simulate phenotype and genotype
+N = 10000 # sample size
 
+# PLINK format for genotype data
 GenoFile = system.file("", "GenoMat_SPAGxE.bed", package = "SPAGxECCT")
 
+# phenotype data
 Phen.mtx = data.frame(ID = paste0("IID-",1:N),
                       Y=rbinom(N,1,0.5),
                       Cov1=rnorm(N),
@@ -99,7 +101,7 @@ Phen.mtx = data.frame(ID = paste0("IID-",1:N),
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E  
 E = Phen.mtx$E                            # environmental factor E
 
-# fit a null model
+# fit a genotype-independent model
 R = SPA_G_Get_Resid("binary",
                     glm(formula = Y ~ Cov1+Cov2+E, data = Phen.mtx, family = "binomial"),
                     data=Phen.mtx,
@@ -123,7 +125,7 @@ head(binary.res)
 ```
 
 
-## Quick start-up examples  (Genotype Input Using BGEN File Format)
+## Quick start-up examples  (genotype input using BGEN file format)
 
 The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
 
@@ -131,13 +133,15 @@ The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait.
 
 ```
 library(SPAGxECCT)
-# Simulation phenotype and genotype
+# Simulate phenotype and genotype
 N = 10000
 
+# BGEN format for genotype data
 GenoFile = system.file("", "GenoMat_SPAGxE.bgen", package = "SPAGxECCT")
 GenoFileIndex = c(system.file("", "GenoMat_SPAGxE.bgen.bgi", package = "SPAGxECCT"),
                   system.file("", "GenoMat_SPAGxE.sample", package = "SPAGxECCT"))
 
+# phenotype data
 Phen.mtx = data.frame(ID = paste0("IID-",1:N),
                       Y=rbinom(N,1,0.5),
                       Cov1=rnorm(N),
@@ -147,7 +151,7 @@ Phen.mtx = data.frame(ID = paste0("IID-",1:N),
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E  
 E = Phen.mtx$E                            # environmental factor E
 
-# fit a null model
+# fit a genotype-independent model
 R = SPA_G_Get_Resid("binary",
                     glm(formula = Y ~ Cov1+Cov2+E, data = Phen.mtx, family = "binomial"),
                     data=Phen.mtx,
