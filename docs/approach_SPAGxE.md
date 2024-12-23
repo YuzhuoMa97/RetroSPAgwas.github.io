@@ -55,7 +55,7 @@ Phen.mtx = data.frame(ID = paste0("IID-",1:N),
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E
 E = Phen.mtx$E                            # environmental factor E
 
-# Step 1: fit a null model
+# Step 1: fit a genotype-independent model
 R = SPA_G_Get_Resid("binary",
                     glm(formula = Y ~ Cov1+Cov2+E, data = Phen.mtx, family = "binomial"),
                     data=Phen.mtx,
