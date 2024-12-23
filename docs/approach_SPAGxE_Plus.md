@@ -47,7 +47,7 @@ SPAGxE+ is a scalable and accurate G×E analytical framework that uses saddlepoi
 - SPAGxE+ is applicable to other complex traits including time-to-event, ordinal categorical, and longitudinal traits, and it maintains highly accuracy even when phenotypic distribution is unbalanced.
 
 
-## Quick start-up examples
+## Quick start-up examples (genotype input using R matrix format)
 
 The following example illustrates how to use SPAGxE+ to analyze a binary trait, with genotype data input provided in the R matrix format.
 
