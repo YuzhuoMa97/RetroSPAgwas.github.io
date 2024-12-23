@@ -1,15 +1,30 @@
 ---
 layout: default
-title: UK Biobank RAP
-nav_order: 5
-description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
+title: Additional strategies 
+nav_order: 6
+description: "Additional strategies to enhance performance"
+parent: Genome-wide gene-environment interaction (GxE) studies
 has_children: false
+has_toc: false
 ---
 
-# UK Biobank Research Analyses Platform (RAP)
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
 
-UK Biobank Research Analyses Platform (RAP) enables researchers working with UK Biobank's large-scale biomedical database and research resource, to access it in the cloud from anywhere in the world. It has been designed to accommodate the vast and increasing scale of the UK Biobank resource.
+# Additional strategies to enhance performance
 
-## Notes prior to analysis
 
-We complete null model fitting in local service and conduct single-variant analysis in UK Biobank RAP. Please ensure the individuals in null model fitting are also in genotype files.
+
+## Citation
+
+- to be submitted
+
