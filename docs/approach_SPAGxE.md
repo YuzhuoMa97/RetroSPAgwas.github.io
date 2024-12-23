@@ -36,47 +36,46 @@ SPAGxE<sub>CCT</sub> is applicable to a wide range of complex traits with intric
 
 ![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAGxECCT_MYZ.png)
 
-## Quick start-up examples 
+## Quick start-up examples
 
 The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
 
-### Step 1. Read in data and fit a genotype-independent model
-
 ```
 library(SPAGxECCT)
-# Simulation phenotype and genotype
-N = 10000
-nSNP = 100
-MAF = 0.1
+# Simulate phenotype and genotype
+N = 10000 # sample size
 
-Geno.mtx = matrix(rbinom(N*nSNP,2,MAF),N,nSNP)
-# NOTE: The row and column names of genotype matrix are required.
-rownames(Geno.mtx) = paste0("IID-",1:N)
-colnames(Geno.mtx) = paste0("SNP-",1:nSNP)
-
+# phenotype data
 Phen.mtx = data.frame(ID = paste0("IID-",1:N),
                       Y=rbinom(N,1,0.5),
                       Cov1=rnorm(N),
                       Cov2=rbinom(N,1,0.5),
                       E = rnorm(N))
 
-Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E  
+Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E
 E = Phen.mtx$E                            # environmental factor E
 
-# fit a null model
+# Step 1: fit a null model
 R = SPA_G_Get_Resid("binary",
                     glm(formula = Y ~ Cov1+Cov2+E, data = Phen.mtx, family = "binomial"),
                     data=Phen.mtx,
                     pIDs=Phen.mtx$ID,
                     gIDs=paste0("IID-",1:N))
-```
 
-### Step 2. Conduct a marker-level association study
 
-```
+nSNP = 100                                       # number of SNPs
+MAF = 0.1                                        # minor allele frequency
+Geno.mtx = matrix(rbinom(N*nSNP,2,MAF),N,nSNP)   # genotype matrix
+# NOTE: The row and column names of genotype matrix are required.
+rownames(Geno.mtx) = paste0("IID-",1:N)
+colnames(Geno.mtx) = paste0("SNP-",1:nSNP)
+
+
+# Step 2: conduct a marker-level association study
+
 binary.res = SPAGxE_CCT("binary",
                         Geno.mtx,                     # genotype vector
-                        R,                            # residuals from genotype-independent model 
+                        R,                            # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
                         E,                            # environmental factor
                         Phen.mtx,                     # phenotype dataframe
                         Cova.mtx)                     # covariates dataframe excluding environmental factor E
@@ -85,20 +84,21 @@ binary.res = SPAGxE_CCT("binary",
 head(binary.res)
 ```
 
+## Quick start-up examples (genotype input using PLINK file format)
 
-## Quick start-up examples  (Genotype Input Using PLINK File Format)
-
-The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
+The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait (with genotype input using PLINK file format). 
 
 ### Step 1. Read in data and fit a genotype-independent model
 
 ```
 library(SPAGxECCT)
-# Simulation phenotype and genotype
-N = 10000
+# Simulate phenotype and genotype
+N = 10000 # sample size
 
+# PLINK format for genotype data
 GenoFile = system.file("", "GenoMat_SPAGxE.bed", package = "SPAGxECCT")
 
+# phenotype data
 Phen.mtx = data.frame(ID = paste0("IID-",1:N),
                       Y=rbinom(N,1,0.5),
                       Cov1=rnorm(N),
@@ -108,7 +108,7 @@ Phen.mtx = data.frame(ID = paste0("IID-",1:N),
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E  
 E = Phen.mtx$E                            # environmental factor E
 
-# fit a null model
+# fit a genotype-independent model
 R = SPA_G_Get_Resid("binary",
                     glm(formula = Y ~ Cov1+Cov2+E, data = Phen.mtx, family = "binomial"),
                     data=Phen.mtx,
@@ -132,21 +132,23 @@ head(binary.res)
 ```
 
 
-## Quick start-up examples  (Genotype Input Using BGEN File Format)
+## Quick start-up examples (genotype input using BGEN file format)
 
-The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
+The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait (with genotype input using BGEN file format). 
 
 ### Step 1. Read in data and fit a genotype-independent model
 
 ```
 library(SPAGxECCT)
-# Simulation phenotype and genotype
+# Simulate phenotype and genotype
 N = 10000
 
+# BGEN format for genotype data
 GenoFile = system.file("", "GenoMat_SPAGxE.bgen", package = "SPAGxECCT")
 GenoFileIndex = c(system.file("", "GenoMat_SPAGxE.bgen.bgi", package = "SPAGxECCT"),
                   system.file("", "GenoMat_SPAGxE.sample", package = "SPAGxECCT"))
 
+# phenotype data
 Phen.mtx = data.frame(ID = paste0("IID-",1:N),
                       Y=rbinom(N,1,0.5),
                       Cov1=rnorm(N),
@@ -156,7 +158,7 @@ Phen.mtx = data.frame(ID = paste0("IID-",1:N),
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E  
 E = Phen.mtx$E                            # environmental factor E
 
-# fit a null model
+# fit a genotype-independent model
 R = SPA_G_Get_Resid("binary",
                     glm(formula = Y ~ Cov1+Cov2+E, data = Phen.mtx, family = "binomial"),
                     data=Phen.mtx,
@@ -179,7 +181,6 @@ binary.res = SPAGxE_CCT(traits = "binary",                       # trait type
 # we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with binary phenotypes
 head(binary.res)
 ```
-
 
 ## Citation
 
