@@ -89,7 +89,7 @@ Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding
 # Attach the survival package so that we can use its function Surv()
 library(survival)
 
-### fit a genotype-independent model for the SPAGxEmix<sub>CCT</sub> analysis
+### fit a genotype-independent model for the SPAGxEmix_CCT analysis
 R = SPA_G_Get_Resid("survival",
                     Surv(surv.time,event)~Cov1+Cov2+PC1+E,
                     data=Phen.mtx,
@@ -158,7 +158,7 @@ Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding
 # Attach the survival package so that we can use its function Surv()
 library(survival)
 
-### fit a genotype-independent model for the SPAGxEmix<sub>CCT</sub> analysis
+### fit a genotype-independent model for the SPAGxEmix_CCT analysis
 R = SPA_G_Get_Resid("survival",
                     Surv(surv.time,event)~Cov1+Cov2+PC1+E,
                     data=Phen.mtx,
@@ -227,7 +227,7 @@ Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding
 # Attach the survival package so that we can use its function Surv()
 library(survival)
 
-### fit a genotype-independent model for the SPAGxEmix<sub>CCT</sub> analysis
+### fit a genotype-independent model for the SPAGxEmix_CCT analysis
 R = SPA_G_Get_Resid("survival",
                     Surv(surv.time,event)~Cov1+Cov2+PC1+E,
                     data=Phen.mtx,
