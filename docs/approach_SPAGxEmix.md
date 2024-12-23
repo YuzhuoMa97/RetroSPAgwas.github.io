@@ -44,14 +44,13 @@ Admixed populations are routinely excluded from genomic studies due to concerns 
 
 ## Quick start-up examples
 
-The below gives an example to use SPAGxEmix<sub>CCT</sub> to analyze time-to-event trait. 
+The following example illustrates how to use SPAGxEmix<sub>CCT</sub> to analyze a time-to-event trait, with genotype data input provided in the R matrix format. 
 
 ### Step 1. Read in data and fit a genotype-independent model
 
 ```
 library(SPAGxECCT)
-# example 1  time-to-event phenotype
-# Simulation phenotype and genotype
+# Simulate phenotype and genotype
 N = 10000
 N.population1 = N/2
 N.population2 = N/2
@@ -67,31 +66,30 @@ rownames(Geno.mtx) = paste0("IID-",1:N)
 colnames(Geno.mtx) = paste0("SNP-",1:nSNP)
 
 Phen.mtx.population1 = data.frame(ID = paste0("IID-",1:N.population1),
-                                  event=rbinom(N.population1,1,0.5),
-                                  surv.time=runif(N.population1),
-                                  Cov1=rnorm(N.population1),
-                                  Cov2=rbinom(N.population1,1,0.5),
+                                  event = rbinom(N.population1,1,0.5),
+                                  surv.time = runif(N.population1),
+                                  Cov1 = rnorm(N.population1),
+                                  Cov2 = rbinom(N.population1,1,0.5),
                                   E = rnorm(N.population1),
                                   PC1 = 1)
 
 Phen.mtx.population2 = data.frame(ID = paste0("IID-",(N.population1+1):N),
-                                  event=rbinom(N.population2,1,0.5),
-                                  surv.time=runif(N.population2),
-                                  Cov1=rnorm(N.population2),
-                                  Cov2=rbinom(N.population2,1,0.5),
+                                  event = rbinom(N.population2,1,0.5),
+                                  surv.time = runif(N.population2),
+                                  Cov1 = rnorm(N.population2),
+                                  Cov2 = rbinom(N.population2,1,0.5),
                                   E = rnorm(N.population2),
                                   PC1 = 0)
 
 Phen.mtx = rbind.data.frame(Phen.mtx.population1,
                             Phen.mtx.population2)   # phenotype dataframe
-
 E = Phen.mtx$E                                      # environmental factor
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding environmental factor
 
-# fit a null model
 # Attach the survival package so that we can use its function Surv()
 library(survival)
 
+### fit a genotype-independent model for the SPAGxEmix<sub>CCT</sub> analysis
 R = SPA_G_Get_Resid("survival",
                     Surv(surv.time,event)~Cov1+Cov2+PC1+E,
                     data=Phen.mtx,
@@ -102,7 +100,7 @@ R = SPA_G_Get_Resid("survival",
 ### Step 2. Conduct a marker-level association study
 
 ```
-survival.res = SPAGxEmix_CCT(traits = "survival",                    # trait type
+survival.res = SPAGxEmix_CCT(traits = "survival",                     # trait type
                              Geno.mtx = Geno.mtx,                     # genotype vector
                              R = R,                                   # residuals from genotype-independent model 
                              E = E,                                   # environmental factor
@@ -116,16 +114,15 @@ head(survival.res)
 
 
 
-## Quick start-up examples (Genotype Input Using PLINK File Format)
+## Quick start-up examples (genotype input using PLINK file format)
 
-The below gives an example to use SPAGxEmix<sub>CCT</sub> to analyze time-to-event trait. 
+The following example illustrates how to use SPAGxEmix<sub>CCT</sub> to analyze a time-to-event trait, with genotype data input provided in PLINK file format.
 
 ### Step 1. Read in data and fit a genotype-independent model
 
 ```
 library(SPAGxECCT)
-# example 1  time-to-event phenotype
-# Simulation phenotype and genotype
+# Simulate phenotype and genotype
 N = 10000
 N.population1 = N/2
 N.population2 = N/2
@@ -133,35 +130,34 @@ nSNP = 100
 MAF.population1 = 0.1
 MAF.population2 = 0.3
 
-# PLINK format
+# PLINK format for genotype data
 GenoFile = system.file("", "GenoMat_SPAGxEmix.bed", package = "SPAGxECCT")
 
 Phen.mtx.population1 = data.frame(ID = paste0("IID-",1:N.population1),
-                                  event=rbinom(N.population1,1,0.5),
-                                  surv.time=runif(N.population1),
-                                  Cov1=rnorm(N.population1),
-                                  Cov2=rbinom(N.population1,1,0.5),
+                                  event = rbinom(N.population1,1,0.5),
+                                  surv.time = runif(N.population1),
+                                  Cov1 = rnorm(N.population1),
+                                  Cov2 = rbinom(N.population1,1,0.5),
                                   E = rnorm(N.population1),
                                   PC1 = 1)
 
 Phen.mtx.population2 = data.frame(ID = paste0("IID-",(N.population1+1):N),
-                                  event=rbinom(N.population2,1,0.5),
-                                  surv.time=runif(N.population2),
-                                  Cov1=rnorm(N.population2),
-                                  Cov2=rbinom(N.population2,1,0.5),
+                                  event = rbinom(N.population2,1,0.5),
+                                  surv.time = runif(N.population2),
+                                  Cov1 = rnorm(N.population2),
+                                  Cov2 = rbinom(N.population2,1,0.5),
                                   E = rnorm(N.population2),
                                   PC1 = 0)
 
 Phen.mtx = rbind.data.frame(Phen.mtx.population1,
                             Phen.mtx.population2)   # phenotype dataframe
-
 E = Phen.mtx$E                                      # environmental factor
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding environmental factor
 
-# fit a null model
 # Attach the survival package so that we can use its function Surv()
 library(survival)
 
+### fit a genotype-independent model for the SPAGxEmix<sub>CCT</sub> analysis
 R = SPA_G_Get_Resid("survival",
                     Surv(surv.time,event)~Cov1+Cov2+PC1+E,
                     data=Phen.mtx,
@@ -184,16 +180,15 @@ survival.res = SPAGxEmix_CCT(traits = "survival",                     # trait ty
 head(survival.res)
 ```
 
-## Quick start-up examples (Genotype Input Using BGEN File Format)
+## Quick start-up examples (genotype input using BGEN file format)
 
-The below gives an example to use SPAGxEmix<sub>CCT</sub> to analyze time-to-event trait. 
+The following example illustrates how to use SPAGxEmix<sub>CCT</sub> to analyze a time-to-event trait, with genotype data input provided in BGEN file format.
 
 ### Step 1. Read in data and fit a genotype-independent model
 
 ```
 library(SPAGxECCT)
-# example 1  time-to-event phenotype
-# Simulation phenotype and genotype
+# Simulate phenotype and genotype
 N = 10000
 N.population1 = N/2
 N.population2 = N/2
@@ -201,37 +196,36 @@ nSNP = 100
 MAF.population1 = 0.1
 MAF.population2 = 0.3
 
-# BGEN format
+# BGEN format for genotype data
 GenoFile = system.file("", "GenoMat_SPAGxEmix.bgen", package = "SPAGxECCT")
 GenoFileIndex = c(system.file("", "GenoMat_SPAGxEmix.bgen.bgi", package = "SPAGxECCT"),
                   system.file("", "GenoMat_SPAGxEmix.sample", package = "SPAGxECCT"))
 
 Phen.mtx.population1 = data.frame(ID = paste0("IID-",1:N.population1),
-                                  event=rbinom(N.population1,1,0.5),
-                                  surv.time=runif(N.population1),
-                                  Cov1=rnorm(N.population1),
-                                  Cov2=rbinom(N.population1,1,0.5),
+                                  event = rbinom(N.population1,1,0.5),
+                                  surv.time = runif(N.population1),
+                                  Cov1 = rnorm(N.population1),
+                                  Cov2 = rbinom(N.population1,1,0.5),
                                   E = rnorm(N.population1),
                                   PC1 = 1)
 
 Phen.mtx.population2 = data.frame(ID = paste0("IID-",(N.population1+1):N),
-                                  event=rbinom(N.population2,1,0.5),
-                                  surv.time=runif(N.population2),
-                                  Cov1=rnorm(N.population2),
-                                  Cov2=rbinom(N.population2,1,0.5),
+                                  event = rbinom(N.population2,1,0.5),
+                                  surv.time = runif(N.population2),
+                                  Cov1 = rnorm(N.population2),
+                                  Cov2 = rbinom(N.population2,1,0.5),
                                   E = rnorm(N.population2),
                                   PC1 = 0)
 
 Phen.mtx = rbind.data.frame(Phen.mtx.population1,
                             Phen.mtx.population2)   # phenotype dataframe
-
 E = Phen.mtx$E                                      # environmental factor
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2", "PC1")]       # Covariate matrix excluding environmental factor
 
-# fit a null model
 # Attach the survival package so that we can use its function Surv()
 library(survival)
 
+### fit a genotype-independent model for the SPAGxEmix<sub>CCT</sub> analysis
 R = SPA_G_Get_Resid("survival",
                     Surv(surv.time,event)~Cov1+Cov2+PC1+E,
                     data=Phen.mtx,
@@ -244,7 +238,7 @@ R = SPA_G_Get_Resid("survival",
 ```
 survival.res = SPAGxEmix_CCT(traits = "survival",                     # trait type
                              GenoFile = GenoFile,                     # genotype file
-                             GenoFileIndex = GenoFileIndex,           # additional index file(s) corresponding to GenoFile.
+                             GenoFileIndex = GenoFileIndex,           # additional index file(s) corresponding to GenoFile
                              R = R,                                   # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
                              E = E,                                   # environmental factor
                              Phen.mtx = Phen.mtx,                     # phenotype dataframe
