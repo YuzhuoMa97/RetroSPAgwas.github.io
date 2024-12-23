@@ -11,11 +11,22 @@ has_toc: true
 
 [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) package gives generic GxE analytical frameworks to analyze a wide variaty of phenotypes. 
 
+
+## Software dependencies and operating systems
 [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) has been thoroughly examined and validated on both Linux and Windows operating systems.
 
 - Currently, R package [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) supports three formats for genotype input: the R matrix (Rdata) format, the **PLINK** format, and the **BGEN** format.
 
 - In the near future, R package [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) is planned to be rewritten using Rcpp code to improve its performance and efficiency.
+
+## How to install and load this package
+```
+library(devtools)  # author version: 2.4.5
+install_github("YuzhuoMa97/SPAGxECCT")
+library(SPAGxECCT)
+?SPAGxECCT  # manual of SPAGxECCT package
+```
+- Current version is 1.1.0. For older version and version update information, plesase refer to OldVersions.
 
 
 ##  Summary and comparison of main features for efficient G×E analysis methods.
