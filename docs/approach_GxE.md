@@ -29,7 +29,7 @@ library(SPAGxECCT)
 - Current version is 1.1.0. For older version and version update information, plesase refer to OldVersions.
 
 
-##  Summary and comparison of main features for efficient G×E analysis methods.
+##  Summary and comparison of main features for efficient G×E analysis methods
 
 | Method   | Trait | Prospective/Retrospective  |Account for population admixture|Account for local ancestry|Account for family relatedness| Account for unbalanced phenotypic distribution  |
 |:----------------------:|:------------------------------:|:------------------------:|:----------------------------:|:---------------------:|:---------------------:|:---------------------:|
