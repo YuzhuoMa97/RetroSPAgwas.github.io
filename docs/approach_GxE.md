@@ -41,7 +41,7 @@ library(SPAGxECCT)
 | SPAGxEmix<sub>CCT</sub>|Quantitative/Binary/Survival/Ordinal/Others|Retrospective| YES    |      |      | YES |
 | SPAGxEmix<sub>CCT-local</sub>|Quantitative/Binary/Survival/Ordinal/Others|Retrospective| YES    |   YES   |      | YES |
 | SPAGxEmix<sub>CCT-local-global</sub>|Quantitative/Binary/Survival/Ordinal/Others|Retrospective| YES    |   YES   |      | YES |
-
+| SPAGxEmix+|Quantitative/Binary/Survival/Ordinal/Others|Retrospective| YES    |  YES    |   YES   | YES |
 
 
 ## Quick start-up examples (genotype input using R matrix format)
