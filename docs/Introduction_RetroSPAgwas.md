@@ -17,7 +17,7 @@ has_toc: true
 
 ## Main features of GWAS methods based on retrospective SPA
 
-- Applicable to a wide range of trait types (binary, time-to-event, ordinal, longitudinal, and other traits).
+- Applicable to a wide range of trait types (binary, quantitative, time-to-event, ordinal, longitudinal, and other traits).
 
 - Maintain high accuracy when testing low-frequency or rare variants, even when the phenotypic distribution is unbalanced (e.g. case-control imbalance in case-control studies).
 
