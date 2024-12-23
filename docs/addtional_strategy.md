@@ -48,7 +48,5 @@ Model residuals from a fitted null model can be highly unbalanced, especially fo
 
 
 
-## Citation
 
-- to be submitted
 
