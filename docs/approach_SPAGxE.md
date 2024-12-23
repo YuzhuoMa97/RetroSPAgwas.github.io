@@ -38,7 +38,7 @@ SPAGxE<sub>CCT</sub> is applicable to a wide range of complex traits with intric
 
 ## Quick start-up examples
 
-The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
+The following example illustrates how to use SPAGxE<sub>CCT</sub> to analyze a binary trait, with genotype data input provided in the R matrix format.
 
 ```
 library(SPAGxECCT)
@@ -86,7 +86,7 @@ head(binary.res)
 
 ## Quick start-up examples (genotype input using PLINK file format)
 
-The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait (with genotype input using PLINK file format). 
+The following example illustrates how to use SPAGxE<sub>CCT</sub> to analyze a binary trait, with genotype data input provided in PLINK file format.
 
 ### Step 1. Read in data and fit a genotype-independent model
 
@@ -134,7 +134,7 @@ head(binary.res)
 
 ## Quick start-up examples (genotype input using BGEN file format)
 
-The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait (with genotype input using BGEN file format). 
+The following example illustrates how to use SPAGxE<sub>CCT</sub> to analyze a binary trait, with genotype data input provided in BGEN file format.
 
 ### Step 1. Read in data and fit a genotype-independent model
 
