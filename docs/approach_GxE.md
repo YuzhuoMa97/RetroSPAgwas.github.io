@@ -19,7 +19,7 @@ has_toc: true
 
 - In the near future, R package [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) is planned to be rewritten using Rcpp code to improve its performance and efficiency.
 
-## How to install and load this package
+## How to install and load R package SPAGxECCT
 ```
 library(devtools)  # author version: 2.4.5
 install_github("YuzhuoMa97/SPAGxECCT")
