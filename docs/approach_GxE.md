@@ -35,7 +35,7 @@ has_toc: true
 
 ## Quick start-up examples
 
-The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
+The following example illustrates how to use SPAGxE<sub>CCT</sub> to analyze a binary trait, with genotype data input provided in the R matrix format.
 
 ```
 library(SPAGxECCT)
@@ -81,9 +81,9 @@ binary.res = SPAGxE_CCT("binary",
 head(binary.res)
 ```
 
-## Quick start-up examples  (genotype input using PLINK file format)
+## Quick start-up examples (genotype input using PLINK file format)
 
-The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
+The following example illustrates how to use SPAGxE<sub>CCT</sub> to analyze a binary trait, with genotype data input provided in PLINK file format.
 
 ### Step 1. Read in data and fit a genotype-independent model
 
@@ -129,9 +129,9 @@ head(binary.res)
 ```
 
 
-## Quick start-up examples  (genotype input using BGEN file format)
+## Quick start-up examples (genotype input using BGEN file format)
 
-The below gives an example to use SPAGxE<sub>CCT</sub> to analyze binary trait. 
+The following example illustrates how to use SPAGxE<sub>CCT</sub> to analyze a binary trait, with genotype data input provided in BGEN file format.
 
 ### Step 1. Read in data and fit a genotype-independent model
 
@@ -178,6 +178,7 @@ binary.res = SPAGxE_CCT(traits = "binary",                       # trait type
 # we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with binary phenotypes
 head(binary.res)
 ```
+
 
 
 ## Note: choose ```traits``` 
