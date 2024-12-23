@@ -20,7 +20,7 @@ has_toc: false
     </script>
 </head>
 
-# SPAGxEmix<sub>CCT</sub> method 
+# SPAGxEmix<sub>CCT</sub>  
 
 ## Introduction of SPAGxEmix<sub>CCT</sub>
 
