@@ -64,7 +64,7 @@ E = Pheno.mtx$E                                                        # environ
 Cova.haplo.mtx.list = list(haplo.mtx.ance1 = haplo.mtx.ance1,
                            haplo.mtx.ance2 = haplo.mtx.ance2) # local ancestry counts of ancestry 1 and 2
 
-### fit a genotype-independent model for the SPAGxEmix<sub>CCT-local</sub> analysis
+### fit a genotype-independent model for the SPAGxEmix_CCT_local analysis
 resid  = SPA_G_Get_Resid(traits = "binary",
                          y ~ Cov1 + Cov2  + E + PC1 + PC2 + PC3 + PC4,family=binomial(link="logit"),
                          data = Pheno.mtx,
