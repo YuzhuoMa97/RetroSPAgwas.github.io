@@ -73,6 +73,7 @@ R = SPA_G_Get_Resid("binary",
 ### Step 2. Conduct a marker-level association study
 
 ```
+# calculate p values
 binary.res = SPAGxE_CCT(traits = "binary",                       # trait type
                         Geno.mtx = Geno.mtx,                     # genotype matrix
                         R = R,                                   # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
@@ -119,6 +120,7 @@ R = SPA_G_Get_Resid("binary",
 ### Step 2. Conduct a marker-level association study
 
 ```
+# calculate p values
 binary.res = SPAGxE_CCT(traits = "binary",                       # trait type
                         GenoFile = GenoFile,                     # a character of genotype file
                         R = R,                                   # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
@@ -169,6 +171,7 @@ R = SPA_G_Get_Resid("binary",
 ### Step 2. Conduct a marker-level association study
 
 ```
+# calculate p values
 binary.res = SPAGxE_CCT(traits = "binary",                       # trait type
                         GenoFile = GenoFile,                     # a character of genotype file
                         GenoFileIndex = GenoFileIndex,           # additional index file(s) corresponding to GenoFile
