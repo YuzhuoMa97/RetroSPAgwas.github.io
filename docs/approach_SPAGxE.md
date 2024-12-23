@@ -36,7 +36,7 @@ SPAGxE<sub>CCT</sub> is applicable to a wide range of complex traits with intric
 
 ![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAGxECCT_MYZ.png)
 
-## Quick start-up examples  (genotype input using R matrix format)
+## Quick start-up examples (genotype input using R matrix format)
 
 The following example illustrates how to use SPAGxE<sub>CCT</sub> to analyze a binary trait, with genotype data input provided in the R matrix format.
 
