@@ -21,7 +21,7 @@ has_toc: false
 </head>
 
 
-# SPAGxE+ method 
+# SPAGxE+  
 
 ## Introduction of SPAGxE+
 
