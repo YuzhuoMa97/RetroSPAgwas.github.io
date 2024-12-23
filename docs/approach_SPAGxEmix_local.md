@@ -43,13 +43,12 @@ SPAGxEmix<sub>CCT-local</sub> extends SPAGxEmix<sub>CCT</sub> by integrating loc
 
 ## Quick start-up examples
 
-The below gives an example to use SPAGxEmix<sub>CCT-local</sub> to analyze binary trait. 
+The following example illustrates how to use SPAGxEmix<sub>CCT-local</sub> to analyze a binary trait. 
 
 ### Step 1. Read in data and fit a genotype-independent model
 
 ```
 library(SPAGxECCT)
-# example 1  binary phenotype
 # load in phenotype and genotype
 data("Pheno.mtx")
 data("Geno.mtx")
@@ -65,12 +64,12 @@ E = Pheno.mtx$E
 Cova.haplo.mtx.list = list(haplo.mtx.ance1 = haplo.mtx.ance1,
                            haplo.mtx.ance2 = haplo.mtx.ance2) # local ancestry count of ancestry 1 and 2
 
-# fit a null model
+### fit a genotype-independent model for the SPAGxEmix<sub>CCT-local</sub> analysis
 resid  = SPA_G_Get_Resid(traits = "binary",
                          y ~ Cov1 + Cov2  + E + PC1 + PC2 + PC3 + PC4,family=binomial(link="logit"),
-                         data=Pheno.mtx,
-                         pIDs=Pheno.mtx$IID,
-                         gIDs=rownames(Geno.mtx))
+                         data = Pheno.mtx,
+                         pIDs = Pheno.mtx$IID,
+                         gIDs = rownames(Geno.mtx))
 ```
 
 ### Step 2. Conduct a marker-level association study
