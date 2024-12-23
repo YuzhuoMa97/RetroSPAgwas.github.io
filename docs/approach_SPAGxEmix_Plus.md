@@ -22,9 +22,9 @@ has_toc: false
 
 # SPAGxEmix<sub>CCT</sub>+  
 
-## Introduction of SPAGxEmix<sub>CCT</sub>+
-
 As an extension of SPAGxEmix<sub>CCT</sub>, SPAGxEmix<sub>CCT</sub>+ accommodates individuals from multiple ancestries or multi-way admixed populations while controlling for both population structure and familial relatedness. Admixed individuals can be analyzed within a cohort alone or alongside homogeneous groups using this framework.
+
+## Introduction of SPAGxEmix<sub>CCT</sub>+
 
 
 SPAGxEmix<sub>CCT</sub>+ comprises three main steps:
