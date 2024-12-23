@@ -15,7 +15,7 @@ has_toc: true
 ## Software dependencies and operating systems
 [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) has been thoroughly examined and validated on both Linux and Windows operating systems.
 
-- Currently, R package [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) supports three formats for genotype input: the R matrix (Rdata) format, the **PLINK** format, and the **BGEN** format.
+- Currently, R package [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) supports three formats for genotype input: the R matrix (Rdata) format, the [**PLINK**](https://www.cog-genomics.org/plink2/) format, and the **BGEN** format.
 
 - In the near future, R package [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) is planned to be rewritten using Rcpp code to improve its performance and efficiency.
 
