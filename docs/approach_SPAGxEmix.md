@@ -100,6 +100,7 @@ R = SPA_G_Get_Resid("survival",
 ### Step 2. Conduct a marker-level association study
 
 ```
+# calculate p values
 survival.res = SPAGxEmix_CCT(traits = "survival",                     # trait type
                              Geno.mtx = Geno.mtx,                     # genotype vector
                              R = R,                                   # residuals from genotype-independent model 
@@ -168,6 +169,7 @@ R = SPA_G_Get_Resid("survival",
 ### Step 2. Conduct a marker-level association study 
 
 ```
+# calculate p values
 survival.res = SPAGxEmix_CCT(traits = "survival",                     # trait type
                              GenoFile = GenoFile,                     # a character of genotype file
                              R = R,                                   # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
@@ -236,6 +238,7 @@ R = SPA_G_Get_Resid("survival",
 ### Step 2. Conduct a marker-level association study 
 
 ```
+# calculate p values
 survival.res = SPAGxEmix_CCT(traits = "survival",                     # trait type
                              GenoFile = GenoFile,                     # genotype file
                              GenoFileIndex = GenoFileIndex,           # additional index file(s) corresponding to GenoFile
