@@ -68,15 +68,11 @@ R = SPA_G_Get_Resid("binary",
                     data=Phen.mtx,
                     pIDs=Phen.mtx$ID,
                     gIDs=paste0("IID-",1:N))
-
-
-
 ```
 
 ### Step 2. Conduct a marker-level association study
 
 ```
-
 binary.res = SPAGxE_CCT("binary",
                         Geno.mtx,                     # genotype vector
                         R,                            # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
