@@ -49,20 +49,20 @@ The following example illustrates how to use SPAGxEmix<sub>CCT-local</sub> to an
 
 ```
 library(SPAGxECCT)
-# load in phenotype and genotype
-data("Pheno.mtx")
-data("Geno.mtx")
-data("Geno.mtx.ance1")
-data("Geno.mtx.ance2")
-data("haplo.mtx.ance1")
-data("haplo.mtx.ance2")
+# load in phenotype, genotype, and local ancestry counts for two ancestries
+data("Pheno.mtx")           # phenotype data
+data("Geno.mtx")            # genotype data
+data("Geno.mtx.ance1")      # ancestry-specific genotype data for ancestry 1
+data("Geno.mtx.ance2")      # ancestry-specific genotype data for ancestry 2
+data("haplo.mtx.ance1")     # local ancestry counts for ancestry 1
+data("haplo.mtx.ance2")     # local ancestry counts for ancestry 2
 
-Cova.mtx = Pheno.mtx[,c("PC1", "PC2", "PC3", "PC4", "Cov1", "Cov2")]
-E = Pheno.mtx$E
+Cova.mtx = Pheno.mtx[,c("PC1", "PC2", "PC3", "PC4", "Cov1", "Cov2")]   # Covariate matrix excluding environmental factor
+E = Pheno.mtx$E                                                        # environmental factor
 
 ### Cova.haplo.mtx.list
 Cova.haplo.mtx.list = list(haplo.mtx.ance1 = haplo.mtx.ance1,
-                           haplo.mtx.ance2 = haplo.mtx.ance2) # local ancestry count of ancestry 1 and 2
+                           haplo.mtx.ance2 = haplo.mtx.ance2) # local ancestry counts of ancestry 1 and 2
 
 ### fit a genotype-independent model for the SPAGxEmix<sub>CCT-local</sub> analysis
 resid  = SPA_G_Get_Resid(traits = "binary",
@@ -75,7 +75,7 @@ resid  = SPA_G_Get_Resid(traits = "binary",
 ### Step 2. Conduct a marker-level association study
 
 ```
-### calculate p values for ancestry 1
+### calculate p values for ancestry-specific GxE effects of ancestry 1
 binary_res_ance1 = SPAGxEmixCCT_localance(traits = "binary",
                                           Geno.mtx = Geno.mtx.ance1,
                                           R = resid,
@@ -90,7 +90,7 @@ colnames(binary_res_ance1) = c("Marker", "MAF.ance1","missing.rate.ance1",
                                "Pvalue.normGxE.ance1", "Pvalue.betaG.ance1",
                                "Stat.betaG.ance1","Var.betaG.ance1","z.betaG.ance1")
 
-### calculate p values for ancestry 2
+### calculate p values for ancestry-specific GxE effects of ancestry 2
 binary_res_ance2 = SPAGxEmixCCT_localance(traits = "binary",
                                           Geno.mtx = Geno.mtx.ance2,
                                           R = resid,
