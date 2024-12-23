@@ -55,27 +55,24 @@ The following example illustrates how to use SPAGxE+ to analyze a binary trait, 
 
 ```
 library(SPAGxECCT)
-# example 1  binary phenotype
 # load in binary phenotype, genotype, and sparseGRM
 
 data("Phen.mtx.SPAGxEPlus.binary")
 data("sparseGRM.SPAGxEPlus")
 data("GenoMat.SPAGxEPlus")
 
-Phen.mtx = Phen.mtx.SPAGxEPlus.binary
+Phen.mtx = Phen.mtx.SPAGxEPlus.binary    # phenotype data
+E = Phen.mtx$E                           # environmental factor
+Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]   # Covariate matrix excluding environmental factor
 
-E = Phen.mtx$E        # environmental factor
-Cova.mtx = Phen.mtx[,c("Cov1","Cov2")] # Covariate matrix excluding environmental factor
-
-### fit null model for SPAGxEPlus
-
+### fit a genotype-independent model for SPAGxEPlus analysis
 obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
-                                                 Y~Cov1+Cov2+E,family=binomial(link="logit"),
-                                                 data=Phen.mtx,
-                                                 pIDs=Phen.mtx$IID,
-                                                 gIDs=rownames(GenoMat.SPAGxEPlus),
-                                                 sparseGRM = sparseGRM.SPAGxEPlus,
-                                                 E = E)
+                                                  Y ~ Cov1+Cov2+E,family=binomial(link="logit"),
+                                                  data = Phen.mtx,
+                                                  pIDs = Phen.mtx$IID,
+                                                  gIDs = rownames(GenoMat.SPAGxEPlus),
+                                                  sparseGRM = sparseGRM.SPAGxEPlus,
+                                                  E = E)
 ```
 
 ### Step 2. Conduct a marker-level association study
@@ -97,30 +94,27 @@ head(binary.res)
 
 ## Quick start-up examples (Genotype Input Using PLINK File Format)
 
-The below gives an example to use SPAGxE+ to analyze binary trait. 
+The following example illustrates how to use SPAGxE+ to analyze a binary trait, with genotype data input provided in PLINK file format.
 
 ### Step 1. Read in data and fit a genotype-independent model
 
 ```
 library(SPAGxECCT)
-# example 2  analysis of binary phenotype utilizing genotype data from PLINK file
 # load in binary phenotype, genotype, and sparseGRM
-
 data("Phen.mtx.SPAGxEPlus.binary")
 data("sparseGRM.SPAGxEPlus")
-Phen.mtx = Phen.mtx.SPAGxEPlus.binary
-GenoFile = system.file("", "GenoMat_SPAGxE_Plus.bed", package = "SPAGxECCT")
 
-E = Phen.mtx$E        # environmental factor
-Cova.mtx = Phen.mtx[,c("Cov1","Cov2")] # Covariate matrix excluding environmental factor
+Phen.mtx = Phen.mtx.SPAGxEPlus.binary                                         # phenotype data
+E = Phen.mtx$E                                                                # environmental factor
+Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]                                        # Covariate matrix excluding environmental factor
+GenoFile = system.file("", "GenoMat_SPAGxE_Plus.bed", package = "SPAGxECCT")  # PLINK format for genotype data
 
-### fit null model for SPAGxEPlus
-
+### fit a genotype-independent model for SPAGxEPlus analysis
 obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
-                                                  Y~Cov1+Cov2+E,family=binomial(link="logit"),
-                                                  data=Phen.mtx,
-                                                  pIDs=Phen.mtx$IID,
-                                                  gIDs=rownames(GenoMat.SPAGxEPlus),
+                                                  Y ~ Cov1+Cov2+E,family=binomial(link="logit"),
+                                                  data = Phen.mtx,
+                                                  pIDs = Phen.mtx$IID,
+                                                  gIDs = rownames(GenoMat.SPAGxEPlus),
                                                   sparseGRM = sparseGRM.SPAGxEPlus,
                                                   E = E)
 ```
@@ -144,34 +138,31 @@ head(binary.res)
 
 ## Quick start-up examples (Genotype Input Using BGEN File Format)
 
-The below gives an example to use SPAGxE+ to analyze binary trait. 
+The following example illustrates how to use SPAGxE+ to analyze a binary trait, with genotype data input provided in BGEN file format.
 
 ### Step 1. Read in data and fit a genotype-independent model
 
 ```
 library(SPAGxECCT)
-# example 3  analysis of binary phenotype utilizing genotype data from BGEN file
 # load in binary phenotype, genotype, and sparseGRM
-
 data("Phen.mtx.SPAGxEPlus.binary")
 data("sparseGRM.SPAGxEPlus")
-Phen.mtx = Phen.mtx.SPAGxEPlus.binary
 
-# BGEN format
+Phen.mtx = Phen.mtx.SPAGxEPlus.binary         # phenotype data
+E = Phen.mtx$E                                # environmental factor
+Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]        # Covariate matrix excluding environmental factor
+
+# BGEN format for genotype data
 GenoFile = system.file("", "GenoMat_SPAGxE_Plus.bgen", package = "SPAGxECCT")
 GenoFileIndex = c(system.file("", "GenoMat_SPAGxE_Plus.bgen.bgi", package = "SPAGxECCT"),
                   system.file("", "GenoMat_SPAGxE_Plus.sample", package = "SPAGxECCT"))
 
-E = Phen.mtx$E        # environmental factor
-Cova.mtx = Phen.mtx[,c("Cov1","Cov2")] # Covariate matrix excluding environmental factor
-
-### fit null model for SPAGxEPlus
-
+### fit a genotype-independent model for SPAGxEPlus analysis
 obj.SPAGxE_Plus_Nullmodel = SPAGxE_Plus_Nullmodel(traits = "binary",
-                                                  Y~Cov1+Cov2+E,family=binomial(link="logit"),
-                                                  data=Phen.mtx,
-                                                  pIDs=Phen.mtx$IID,
-                                                  gIDs=rownames(GenoMat.SPAGxEPlus),
+                                                  Y ~ Cov1+Cov2+E,family=binomial(link="logit"),
+                                                  data = Phen.mtx,
+                                                  pIDs = Phen.mtx$IID,
+                                                  gIDs = rownames(GenoMat.SPAGxEPlus),
                                                   sparseGRM = sparseGRM.SPAGxEPlus,
                                                   E = E)
 ```
