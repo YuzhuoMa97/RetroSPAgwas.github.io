@@ -42,7 +42,7 @@ Admixed populations are routinely excluded from genomic studies due to concerns 
 
 - SPAGxEmix<sub>CCT</sub> is not sensitive to model misspecification (e.g. missed or biased confounder-trait associations) and trait-based ascertainment.
 
-## Quick start-up examples
+## Quick start-up examples (genotype input using R matrix format)
 
 The following example illustrates how to use SPAGxEmix<sub>CCT</sub> to analyze a time-to-event trait, with genotype data input provided in the R matrix format. 
 
