@@ -36,7 +36,7 @@ SPAGxE<sub>CCT</sub> is applicable to a wide range of complex traits with intric
 
 ![plot](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/workflow_SPAGxECCT_MYZ.png)
 
-## Quick start-up examples
+## Quick start-up examples  (genotype input using R matrix format)
 
 The following example illustrates how to use SPAGxE<sub>CCT</sub> to analyze a binary trait, with genotype data input provided in the R matrix format.
 
@@ -73,12 +73,12 @@ R = SPA_G_Get_Resid("binary",
 ### Step 2. Conduct a marker-level association study
 
 ```
-binary.res = SPAGxE_CCT("binary",
-                        Geno.mtx,                     # genotype vector
-                        R,                            # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
-                        E,                            # environmental factor
-                        Phen.mtx,                     # phenotype dataframe
-                        Cova.mtx)                     # covariates dataframe excluding environmental factor E
+binary.res = SPAGxE_CCT(traits = "binary",                       # trait type
+                        Geno.mtx = Geno.mtx,                     # genotype matrix
+                        R = R,                                   # residuals from genotype-independent model (null model in which marginal genetic effect and GxE effect are 0)
+                        E = E,                                   # environmental factor
+                        Phen.mtx = Phen.mtx,                     # phenotype dataframe
+                        Cova.mtx = Cova.mtx)                     # covariates dataframe excluding environmental factor E
 
 # we recommand using column of 'p.value.spaGxE.CCT.Wald' to associate genotype with binary phenotypes
 head(binary.res)
