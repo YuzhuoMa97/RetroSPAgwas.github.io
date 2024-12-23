@@ -40,10 +40,17 @@ SPAGxE<sub>CCT</sub> is applicable to a wide range of complex traits with intric
 
 The following example illustrates how to use SPAGxE<sub>CCT</sub> to analyze a binary trait, with genotype data input provided in the R matrix format.
 
+### Step 1. Read in data and fit a genotype-independent model
 ```
 library(SPAGxECCT)
 # Simulate phenotype and genotype
-N = 10000 # sample size
+N = 10000                                        # sample size
+nSNP = 100                                       # number of SNPs
+MAF = 0.1                                        # minor allele frequency
+Geno.mtx = matrix(rbinom(N*nSNP,2,MAF),N,nSNP)   # genotype matrix
+# NOTE: The row and column names of genotype matrix are required.
+rownames(Geno.mtx) = paste0("IID-",1:N)
+colnames(Geno.mtx) = paste0("SNP-",1:nSNP)
 
 # phenotype data
 Phen.mtx = data.frame(ID = paste0("IID-",1:N),
@@ -55,7 +62,7 @@ Phen.mtx = data.frame(ID = paste0("IID-",1:N),
 Cova.mtx = Phen.mtx[,c("Cov1","Cov2")]    # covariates dataframe excluding environmental factor E
 E = Phen.mtx$E                            # environmental factor E
 
-# Step 1: fit a genotype-independent model
+# fit a genotype-independent model
 R = SPA_G_Get_Resid("binary",
                     glm(formula = Y ~ Cov1+Cov2+E, data = Phen.mtx, family = "binomial"),
                     data=Phen.mtx,
@@ -63,15 +70,12 @@ R = SPA_G_Get_Resid("binary",
                     gIDs=paste0("IID-",1:N))
 
 
-nSNP = 100                                       # number of SNPs
-MAF = 0.1                                        # minor allele frequency
-Geno.mtx = matrix(rbinom(N*nSNP,2,MAF),N,nSNP)   # genotype matrix
-# NOTE: The row and column names of genotype matrix are required.
-rownames(Geno.mtx) = paste0("IID-",1:N)
-colnames(Geno.mtx) = paste0("SNP-",1:nSNP)
 
+```
 
-# Step 2: conduct a marker-level association study
+### Step 2. Conduct a marker-level association study
+
+```
 
 binary.res = SPAGxE_CCT("binary",
                         Geno.mtx,                     # genotype vector
