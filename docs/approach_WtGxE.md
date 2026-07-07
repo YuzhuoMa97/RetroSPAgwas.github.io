@@ -1,8 +1,8 @@
 ---
 layout: default
 title: WtGxE
-nav_order: 8 
-description: "WtGxE: leveraging external allele frequency to boost G×E study power."
+nav_order: 7
+description: "Efficiently leveraging external allele frequency to boost powers of genome-wide gene-environmental interaction studies."
 parent: Genome-wide gene-environment interaction (GxE) studies
 has_children: false
 has_toc: false
