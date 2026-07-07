@@ -48,7 +48,7 @@ WtGxE extends the SPAGxE pipeline with the following innovations:
    Publicly available AF estimates (e.g., from gnomAD, UK10K, or other large reference panels) are used to refine the variant-specific weights in the score test. This is especially beneficial for rare variants or when the study cohort has a limited sample size.
 
 2. **Retrospective Analysis Framework**  
-   Following the original framework (([Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)); Ma et al., 2025), WtGxE models the genotype distribution conditional on phenotype, environment, and covariates. This retrospective perspective avoids fitting a full model for each variant and enables straightforward handling of complex trait types.
+   Following the original framework of retrospective–SPA ([Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)) and SPAGxE ([Ma et al., 2025](https://doi.org/10.1038/s41467-025-57887-3)), WtGxE models the genotype distribution conditional on phenotype, environment, and covariates. This retrospective perspective avoids fitting a full model for each variant and enables straightforward handling of complex trait types.
 
 3. **Saddlepoint Approximation (SPA)**  
    SPA is employed to accurately approximate the null distribution of the test statistic, ensuring valid type I error control even for low-frequency variants and unbalanced case–control ratios.
