@@ -22,61 +22,79 @@ has_toc: false
 
 # WtGxE  
 
-WtGxE is an extension of the **SPAGxE** series (e.g., SPAGxE, SPAGxEmix+) and the broader retrospective analysis framework with saddlepoint approximation. It integrates **external allele frequency information** to enhance the statistical power of genome-wide gene-environment interaction (G×E) studies, while maintaining fast computation and accurate type I error control.  
+WtGxE is an extension of the **SPAGxE** family (including SPAGxE, SPAGxE+, SPAGxEmix+, etc.) and builds upon the **retrospective analysis framework combined with saddlepoint approximation (SPA)** originally proposed by **Yuzhuo Ma** in his master’s thesis (2021) and later formalized in the SPAGxE paper (Ma et al., *Nature Communications*, 2025).  
 
+While SPAGxE methods successfully apply the retrospective–SPA framework to genome-wide gene–environment interaction (G×E) studies, WtGxE goes a step further by **integrating external allele frequency (AF) information** from public resources (e.g., 1000 Genomes, gnomAD) to substantially boost statistical power, while preserving the fast computation and accurate type I error control inherent to the original framework.
+
+---
 
 ## Introduction to WtGxE  
 
-G×E studies aim to identify genetic variants that interact with environmental factors to influence complex traits (e.g., diseases). However, limited statistical power (due to small effect sizes, rare variants, or imbalanced trait distributions) and challenges in handling extreme phenotypes hinder discovery.  
+G×E studies aim to identify genetic variants whose effects on complex traits are modified by environmental factors. However, statistical power is often limited due to small effect sizes, rare variants, imbalanced phenotypic distributions, and case–control ascertainment.  
 
-WtGxE addresses these limitations by building on the retrospective analysis framework and saddlepoint approximation (SPA):  
-- It leverages **publicly available external allele frequency data** (e.g., from reference panels like 1000 Genomes) to refine variant-specific weights, boosting the detection of G×E associations.  
-- It retains the “fast and accurate” advantages of SPA, enabling scalable analysis of genome-wide data without sacrificing type I error control.  
+The **retrospective analysis framework** (Ma, 2021; Ma et al., 2025) treats genotype as random and conditions on phenotype and covariates, making it robust to model misspecification and naturally applicable to diverse trait types (binary, time-to-event, ordinal). Combined with **saddlepoint approximation (SPA)**, it provides accurate p-values even under extreme phenotypic distributions.  
 
+**WtGxE** inherits these advantages and enhances them by:  
+- Incorporating **externally estimated allele frequencies** to improve the precision of score statistics, thereby increasing power to detect G×E associations.  
+- Retaining the computational scalability of the retrospective–SPA framework, enabling genome-wide analysis of large biobank-scale cohorts.
+
+---
 
 ## Core Methodological Ideas  
 
-WtGxE extends the SPAGxE pipeline with three key innovations:  
+WtGxE extends the SPAGxE pipeline with the following innovations:
 
 1. **Integration of External Allele Frequency**  
-   External allele frequency (from reference populations) is incorporated to adjust variant-specific weights. This improves the characterization of genetic effects, especially for rare variants or populations with unique allele frequency profiles.  
+   Publicly available AF estimates (e.g., from gnomAD, UK10K, or other large reference panels) are used to refine the variant-specific weights in the score test. This is especially beneficial for rare variants or when the study cohort has a limited sample size.
 
 2. **Retrospective Analysis Framework**  
-   Following SPAGxE, WtGxE uses a retrospective likelihood-based approach to model G×E associations. This framework efficiently handles large-scale genomic data and complex trait distributions (e.g., binary, continuous, or time-to-event traits).  
+   Following the original framework (Ma, 2021; Ma et al., 2025), WtGxE models the genotype distribution conditional on phenotype, environment, and covariates. This retrospective perspective avoids fitting a full model for each variant and enables straightforward handling of complex trait types.
 
 3. **Saddlepoint Approximation (SPA)**  
-   SPA is applied to compute accurate p-values for G×E tests, even under extreme phenotypic distributions (e.g., highly skewed binary traits or small sample sizes). This ensures valid type I error control while maintaining computational efficiency.  
+   SPA is employed to accurately approximate the null distribution of the test statistic, ensuring valid type I error control even for low-frequency variants and unbalanced case–control ratios.
 
+---
 
 ## Main Features of WtGxE  
 
-- **Enhanced Power**: By integrating external allele frequency, WtGxE boosts power to detect G×E associations, particularly for rare variants or underpowered studies.  
-- **Fast & Accurate**: Leverages the retrospective framework and SPA for scalable, high-speed analysis with precise type I error control.  
-- **Flexible & Robust**: Compatible with diverse trait types (binary, continuous, survival) and study designs (case-control, cohort, family-based).  
-- **User-Friendly**: Implemented in efficient, easy-to-use code (with clear documentation and tutorials).  
+- **Enhanced Power**: By leveraging external AF, WtGxE achieves substantial power gains over SPAGxE and other existing G×E methods, particularly for rare variants and underpowered studies.  
+- **Fast & Accurate**: Inherits the computational efficiency of the retrospective–SPA framework, requiring only a single null model fit and a lightweight score test for each variant.  
+- **Flexible & Robust**: Applicable to binary, time-to-event, ordinal, and quantitative traits, and compatible with case–control, cohort, and family-based designs.  
+- **User-Friendly**: Implemented in efficient, well-documented code (available in this repository).
 
+---
 
 ## Citation  
 
-If you use WtGxE, please cite:  
+If you use WtGxE, please cite the following references:
 
-> **Ma, Y.**, [Co-authors], *WtGxE: efficiently leveraging external allele frequency to boost powers of genome-wide gene-environmental interaction studies*.  
-> **Manuscript in preparation (to be submitted)**.  
+- **WtGxE (this work):**  
+  **Ma, Y.** (first author), *WtGxE: efficiently leveraging external allele frequency to boost powers of genome-wide gene-environmental interaction studies*.  
+  **Manuscript in preparation (to be submitted).**  
+  *Please acknowledge Yu‑Zhuo Ma as the first author.*
 
-*Note*: Yu-Zhuo Ma is the **first author** of this work. Please acknowledge this contribution when using or extending WtGxE.  
+- **SPAGxE (foundational framework):**  
+  Ma, Y., Zhao, Y., Zhang, J.-F., & Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. *Nature Communications*, 16, 3064.  
+  [DOI: 10.1038/s41467-025-57887-3](https://doi.org/10.1038/s41467-025-57887-3)
 
+- **WtCoxG (related method using external AF for time-to-event GWAS):**  
+  Li, Y., Ma, Y., Xu, H., et al. (2025). Applying weighted Cox regression to genome-wide association studies of time-to-event phenotypes. *Nature Computational Science*, 5, 1064–1079.  
+  [DOI: 10.1038/s43588-025-00864-z](https://doi.org/10.1038/s43588-025-00864-z)
+
+---
 
 ## License & Copyright  
 
-All code and materials in this repository are © [Your Name/Institution]. All rights reserved.  
+All code and materials in this repository are © **Yuzhuo Ma** and collaborators.  
 
-WtGxE is licensed under the [MIT License](LICENSE) (or your preferred license). Redistribution and use (with or without modification) are permitted, provided the copyright notice and this permission notice are included.  
+WtGxE is distributed under the [MIT License](LICENSE). Redistribution and use, with or without modification, are permitted provided that the copyright notice and this permission notice are preserved.  
 
-For permissions beyond the scope of this license, please contact [Your Email].  
+**Important**: The WtGxE method and its associated manuscript are the intellectual property of **Ma et al.** Any unauthorized use or pre-publication disclosure without proper attribution may violate academic norms. If you wish to extend or incorporate WtGxE into your own work, please contact the authors for coordination.
 
+---
 
 ## Contact  
 
-For questions, collaborations, or feedback, please:  
+For questions, collaborations, or feedback:  
 - Open an issue in this repository.  
-- Email [Your Email] (e.g., yuzhuoma97@github.io).
+- Email: [your.email@example.com] (e.g., yuzhuoma97@github.io)
