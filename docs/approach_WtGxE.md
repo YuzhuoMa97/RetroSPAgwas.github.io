@@ -36,7 +36,7 @@ The retrospective analysis framework treats genotype as random and conditions on
 
 **WtGxE** inherits these advantages and enhances them by:  
 - Incorporating **externally estimated allele frequencies** to improve the precision of score statistics, thereby increasing power to detect G×E associations.  
-- Retaining the computational scalability of the retrospective–SPA framework, enabling genome-wide analysis of large biobank-scale cohorts.
+- Retaining the computational scalability of the retrospective–SPA framework ([Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)), enabling genome-wide analysis of large biobank-scale cohorts.
 
 ---
 
