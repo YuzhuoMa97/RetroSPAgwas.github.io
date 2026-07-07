@@ -59,7 +59,7 @@ WtGxE extends the SPAGxE pipeline with the following innovations:
 
 - **Enhanced Power**: By leveraging external AF, WtGxE achieves substantial power gains over existing G×E methods.  
 - **Fast & Accurate**: Inherits the computational efficiency of the retrospective–SPA framework ([Yuzhuo Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)), requiring only a single null model fit and a lightweight score test for each variant.  
-- **Flexible & Robust**: Applicable to binary, time-to-event, ordinal, and quantitative traits, and compatible with case–control, cohort, and family-based designs.  
+- **Flexible & Robust**: Applicable to binary with imbalanced case–control ratios and adjusting for sample relatedness.  
 - **User-Friendly**: Implemented in efficient, well-documented code (available in this repository).
 
 ---
