@@ -69,7 +69,7 @@ WtGxE extends the SPAGxE pipeline with the following innovations:
 If you use WtGxE, please cite the following references:
 
 - **WtGxE (this work):**  
-  **Ma, Y. et al**, *WtGxE: efficiently leveraging external allele frequency to boost powers of genome-wide gene-environmental interaction studies*.  
+  **Ma, Y. et al.**, *WtGxE: efficiently leveraging external allele frequency to boost powers of genome-wide gene-environmental interaction studies*.  
   **Manuscript in preparation (to be submitted).**  
 
 
