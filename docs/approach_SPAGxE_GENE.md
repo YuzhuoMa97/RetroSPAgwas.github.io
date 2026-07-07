@@ -72,7 +72,7 @@ SPAGxE‑GENE extends the SPAGxE pipeline with the following innovations:
 If you use SPAGxE‑GENE, please cite the following references:
 
 - **SPAGxE‑GENE (this work):**  
-  **Ma, Y. et al.**, *SPAGxE‑GENE: extending the retrospective SPA G×E framework to gene‑based set tests for rare‑variant gene‑environment interaction analysis*.  
+  **Ma, Y. et al.**, *SPAGxE‑GENE: efficient and accurate gene‑based set tests for rare‑variant gene‑environment interaction analysis*.  
   **Manuscript in preparation (to be submitted).**  
 
 - **SPAGxE (foundational framework):**  
