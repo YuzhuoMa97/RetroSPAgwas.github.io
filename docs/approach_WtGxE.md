@@ -48,7 +48,7 @@ WtGxE extends the SPAGxE pipeline with the following innovations:
    Publicly available AF estimates (e.g., from gnomAD, UK10K, or other large reference panels) are used to refine the variant-specific weights in the score test. This is especially beneficial for rare variants or when the study cohort has a limited sample size.
 
 2. **Retrospective Analysis Framework**  
-   Following the original framework (Ma, 2021; Ma et al., 2025), WtGxE models the genotype distribution conditional on phenotype, environment, and covariates. This retrospective perspective avoids fitting a full model for each variant and enables straightforward handling of complex trait types.
+   Following the original framework (Ma, 2022; Ma et al., 2025), WtGxE models the genotype distribution conditional on phenotype, environment, and covariates. This retrospective perspective avoids fitting a full model for each variant and enables straightforward handling of complex trait types.
 
 3. **Saddlepoint Approximation (SPA)**  
    SPA is employed to accurately approximate the null distribution of the test statistic, ensuring valid type I error control even for low-frequency variants and unbalanced case–control ratios.
@@ -57,8 +57,8 @@ WtGxE extends the SPAGxE pipeline with the following innovations:
 
 ## Main Features of WtGxE  
 
-- **Enhanced Power**: By leveraging external AF, WtGxE achieves substantial power gains over SPAGxE and other existing G×E methods, particularly for rare variants and underpowered studies.  
-- **Fast & Accurate**: Inherits the computational efficiency of the retrospective–SPA framework, requiring only a single null model fit and a lightweight score test for each variant.  
+- **Enhanced Power**: By leveraging external AF, WtGxE achieves substantial power gains over existing G×E methods.  
+- **Fast & Accurate**: Inherits the computational efficiency of the retrospective–SPA framework ([Yuzhuo Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)), requiring only a single null model fit and a lightweight score test for each variant.  
 - **Flexible & Robust**: Applicable to binary, time-to-event, ordinal, and quantitative traits, and compatible with case–control, cohort, and family-based designs.  
 - **User-Friendly**: Implemented in efficient, well-documented code (available in this repository).
 
@@ -69,9 +69,9 @@ WtGxE extends the SPAGxE pipeline with the following innovations:
 If you use WtGxE, please cite the following references:
 
 - **WtGxE (this work):**  
-  **Ma, Y.** (first author), *WtGxE: efficiently leveraging external allele frequency to boost powers of genome-wide gene-environmental interaction studies*.  
+  **Ma, Y. et al**, *WtGxE: efficiently leveraging external allele frequency to boost powers of genome-wide gene-environmental interaction studies*.  
   **Manuscript in preparation (to be submitted).**  
-  *Please acknowledge Yu‑Zhuo Ma as the first author.*
+
 
 - **SPAGxE (foundational framework):**  
   Ma, Y., Zhao, Y., Zhang, J.-F., & Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. *Nature Communications*, 16, 3064.  
@@ -95,7 +95,7 @@ If you wish to use SPAGxE or WtGxE in your research, collaborate, or extend the 
 
 Unauthorized use or pre‑publication disclosure without proper attribution may violate academic norms and intellectual property rights.  
 
-*Note: All future use of both SPAGxE and WtGxE is governed by this more restrictive policy to protect the intellectual contributions of the first author.*
+*Note: All future use of both SPAGxE and WtGxE is governed by this more restrictive policy to protect the original intellectual contributions of the first author.*
 
 ---
 
