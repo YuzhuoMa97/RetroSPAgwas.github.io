@@ -22,7 +22,7 @@ has_toc: false
 
 # WtGxE  
 
-WtGxE is an extension of the **SPAGxE** family (including SPAGxE, SPAGxE+, SPAGxEmix+, etc.) and builds upon the **retrospective analysis framework combined with saddlepoint approximation (SPA)** originally proposed by Yuzhuo Ma in his master’s thesis (2022) and later formalized in the SPAGxE paper (Ma et al., *Nature Communications*, 2025).  
+WtGxE is an extension of the **SPAGxE** family (including SPAGxE, SPAGxE+, SPAGxEmix+, etc.) and builds upon the **retrospective analysis framework combined with saddlepoint approximation (SPA)** originally proposed by Yuzhuo Ma in his [master’s thesis (2022)] (https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS) (**DOI:10.27272/d.cnki.gshdu.2022.002946**) and later formalized in the SPAGxE paper (Ma et al., *Nature Communications*, 2025).  
 
 While SPAGxE methods successfully apply the retrospective–SPA framework to genome-wide gene–environment interaction (G×E) studies, WtGxE goes a step further by **integrating external allele frequency (AF) information** from public resources (e.g., 1000 Genomes, gnomAD) to substantially boost statistical power, while preserving the fast computation and accurate type I error control inherent to the original framework.
 
@@ -32,7 +32,7 @@ While SPAGxE methods successfully apply the retrospective–SPA framework to gen
 
 G×E studies aim to identify genetic variants whose effects on complex traits are modified by environmental factors. However, statistical power is often limited due to small effect sizes, rare variants, imbalanced phenotypic distributions, and case–control ascertainment.  
 
-The **retrospective analysis framework** (Ma, 2022) treats genotype as random and conditions on phenotype and covariates, making it robust to model misspecification and naturally applicable to diverse trait types (binary, time-to-event, ordinal). Combined with **saddlepoint approximation (SPA)**, it provides accurate p-values even under extreme phenotypic distributions.  
+The **retrospective analysis framework** ([Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)) treats genotype as random and conditions on phenotype and covariates, making it robust to model misspecification and naturally applicable to diverse trait types (binary, time-to-event, ordinal). Combined with **saddlepoint approximation (SPA)**, it provides accurate p-values even under extreme phenotypic distributions.  
 
 **WtGxE** inherits these advantages and enhances them by:  
 - Incorporating **externally estimated allele frequencies** to improve the precision of score statistics, thereby increasing power to detect G×E associations.  
