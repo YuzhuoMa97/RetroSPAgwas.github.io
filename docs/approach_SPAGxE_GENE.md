@@ -91,7 +91,7 @@ All code, documentation, and materials related to **SPAGxE** (including SPAGxE, 
 **Neither SPAGxE, WtGxE, nor SPAGxE‑GENE, nor any part of their implementations, may be used, copied, modified, or distributed without explicit written permission from the first author (Yuzhuo Ma).**  
 
 If you wish to use SPAGxE, WtGxE, or SPAGxE‑GENE in your research, collaborate, or extend the methods, please contact:  
-- **Email:** yuzhuoma@amss.ac.cn  
+- Email: yuzhuoma@amss.ac.cn  
 - Or open an issue in this repository to initiate a discussion.  
 
 Unauthorized use or pre‑publication disclosure without proper attribution may violate academic norms and intellectual property rights.  
