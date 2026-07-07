@@ -85,11 +85,17 @@ If you use WtGxE, please cite the following references:
 
 ## License & Copyright  
 
-All code and materials in this repository are © **Yuzhuo Ma** and collaborators.  
+All code, documentation, and materials related to **SPAGxE** (including SPAGxE, SPAGxE+, SPAGxEmix+, etc.) and **WtGxE** are **Copyright © 2025 Yuzhuo Ma and collaborators**. All rights reserved.  
 
-WtGxE is distributed under the [MIT License](LICENSE). Redistribution and use, with or without modification, are permitted provided that the copyright notice and this permission notice are preserved.  
+**Neither SPAGxE nor WtGxE, nor any part of their implementations, may be used, copied, modified, or distributed without explicit written permission from the first author (Yuzhuo Ma).**  
 
-**Important**: The WtGxE method and its associated manuscript are the intellectual property of **Ma et al.** Any unauthorized use or pre-publication disclosure without proper attribution may violate academic norms. If you wish to extend or incorporate WtGxE into your own work, please contact the authors for coordination.
+If you wish to use SPAGxE or WtGxE in your research, collaborate, or extend the methods, please contact:  
+- **Email:** yuzhuoma@amss.ac.cn  
+- Or open an issue in this repository to initiate a discussion.  
+
+Unauthorized use or pre‑publication disclosure without proper attribution may violate academic norms and intellectual property rights.  
+
+*Note: All future use of both SPAGxE and WtGxE is governed by this more restrictive policy to protect the intellectual contributions of the first author.*
 
 ---
 
@@ -97,4 +103,4 @@ WtGxE is distributed under the [MIT License](LICENSE). Redistribution and use, w
 
 For questions, collaborations, or feedback:  
 - Open an issue in this repository.  
-- Email: [your.email@example.com] (e.g., yuzhuoma97@github.io)
+- Email: yuzhuoma@amss.ac.cn
