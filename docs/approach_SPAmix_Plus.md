@@ -30,7 +30,7 @@ SPAmix+ is designed as a scalable, unified toolbox for genome-wide association s
 
 ## Relationship with SPAmix
 
-SPAmix+ and SPAmix are distinct works. SPAmix+ extends SPAmix from admixed-population association analysis to a broader setting that simultaneously addresses **admixture, diversity, and relatedness**.
+SPAmix+ and SPAmix are distinct works. SPAmix+ extends SPAmix from admixed-population association analysis to a broader setting that simultaneously addresses **admixture and relatedness**.
 
 ## Citation
 
@@ -38,12 +38,11 @@ If you use SPAmix+, please cite:
 
 - **SPAmix+ (this work):**  
   **Ma, Y. et al.**, *SPAmix+: a scalable, unified toolbox for genome-wide association studies in admixed and diverse populations with relatedness*.  
-  **Manuscript in preparation (to be submitted).**
 
 - **SPAmix (foundational framework):**  
   Ma, Y., Xu, H., Li, Y. et al. (2025). SPAmix: a scalable, accurate, and universal analysis framework for large-scale genetic association studies in admixed populations. *Genome Biology*, 26, 356.  
   [DOI: 10.1186/s13059-025-03827-9](https://doi.org/10.1186/s13059-025-03827-9)
 
 - **Retrospective-SPA original thesis idea:**  
-  马雨茁. 经验鞍点近似方法及其在全基因组关联分析中的应用研究. 山东大学, 2022 (MA thesis).  
+  Ma, Y. (2022).  
   [DOI: 10.27272/d.cnki.gshdu.2022.002946](https://doi.org/10.27272/d.cnki.gshdu.2022.002946)
