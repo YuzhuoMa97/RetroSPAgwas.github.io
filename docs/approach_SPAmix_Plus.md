@@ -44,5 +44,5 @@ If you use SPAmix+, please cite:
   [DOI: 10.1186/s13059-025-03827-9](https://doi.org/10.1186/s13059-025-03827-9)
 
 - **Retrospective-SPA original thesis idea:**  
-  Ma, Y. (2022).  
+  Ma, Y. (2022). Empirical Saddlepoint Approximation and Its Application to Genome-Wide Association Studies.
   [DOI: 10.27272/d.cnki.gshdu.2022.002946](https://doi.org/10.27272/d.cnki.gshdu.2022.002946)
