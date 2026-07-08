@@ -57,7 +57,7 @@ SPAmix-GENE follows this strategy for admixed-population GWAS and keeps the key 
 If you use SPAmix-GENE, please cite:
 
 - **SPAmix-GENE (this work):**  
-  **Ma, Y. et al.**, *SPAmix-GENE: extending retrospective-SPA GWAS to gene-based rare-variant association analysis in admixed populations*.  
+  **Ma, Y. et al.**, *SPAmix-GENE: efficient and accurate GWAS framework for gene-based rare-variant association analysis in admixed populations*.  
   **Manuscript in preparation (to be submitted).**
 
 - **SPAmix (foundational framework):**  
