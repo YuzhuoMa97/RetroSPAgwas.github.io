@@ -85,13 +85,17 @@ If you use WtGxE, please cite the following references:
 
 ## License & Copyright  
 
-All code, documentation, and materials related to **SPAGxE** (including SPAGxE, SPAGxE+, SPAGxEmix+, etc.) and **WtGxE** are **Copyright © 2025 Yuzhuo Ma and collaborators**. All rights reserved.  
+## License & Copyright  
+
+All code, documentation, and materials in this repository related to **SPAGxE** (including SPAGxE, SPAGxE+, SPAGxEmix+, etc.) and **WtGxE** are **Copyright © 2025 Yuzhuo Ma and collaborators**. All rights reserved.  
+
+**Important**: The retrospective-SPA framework applied to G×E studies, which forms the conceptual foundation of SPAGxE and WtGxE, was originally proposed by Yuzhuo Ma in his master’s thesis (2022, DOI:10.27272/d.cnki.gshdu.2022.002946). Unauthorized use or misappropriation of this intellectual contribution may violate academic norms.
 
 **Neither SPAGxE nor WtGxE, nor any part of their implementations, may be used, copied, modified, or distributed without explicit written permission from the first author (Yuzhuo Ma).**  
 
 If you wish to use SPAGxE or WtGxE in your research, collaborate, or extend the methods, please contact:  
 - **Email:** yuzhuoma@amss.ac.cn  
-- Or open an issue in this repository to initiate a discussion.  
+- Or open an issue in this repository to initiate a discussion.
 
 Unauthorized use or pre‑publication disclosure without proper attribution may violate academic norms and intellectual property rights.  
 
