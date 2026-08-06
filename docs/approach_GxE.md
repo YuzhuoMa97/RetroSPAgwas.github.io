@@ -227,7 +227,7 @@ You are **NOT permitted** to:
 - Reproduce, copy, or partially copy any part of this code;
 - Modify, adapt, translate, or create derivative works from this code;
 - Distribute, redistribute, publish, or make this code available to third parties;
-- **Incorporate this code, in whole or in part, into any other software package, library, or tool (whether open-source or proprietary);**
+- **Incorporate this code or algorithm, in whole or in part, into any other software package, library, or tool (whether open-source or proprietary);**
 - Use this code for any commercial or non-commercial purpose without prior written permission.
 
 The retrospective-SPA framework applied to G×E studies was originally proposed by 
