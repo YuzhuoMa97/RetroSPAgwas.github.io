@@ -221,7 +221,14 @@ and **WtGxE** are provided for **viewing only**.
 This repository is not authorized to be included, in whole or in part, into any 
 open-source or proprietary software package, library, or tool without explicit 
 written permission from the copyright holder. Any such inclusion without prior 
-consent constitutes copyright infringement.
+consent constitutes copyright infringement and **may subject the infringer to 
+legal liabilities**, including but not limited to:
+- DMCA takedown actions and removal of the infringing repository/package from GitHub;
+- Civil liabilities for copyright infringement (including damages and injunctive relief);
+- Potential criminal liabilities under applicable copyright laws (e.g., the Criminal 
+  Law of the People's Republic of China, Article 217) when infringement is committed 
+  for profit-making purposes with serious circumstances;
+- Academic misconduct proceedings against individuals or institutions involved.
 
 You are **NOT permitted** to:
 - Reproduce, copy, or partially copy any part of this code;
@@ -235,5 +242,5 @@ Yuzhuo Ma in his master's thesis (2022, DOI:10.27272/d.cnki.gshdu.2022.002946) a
 formalized in Ma et al., *Nature Communications* (2025, DOI:10.1038/s41467-025-57887-3). 
 Any implementation of this methodological idea must properly cite the original work.
 
-To request permission for any use, contact: **yuzhuoma@amss.ac.cn**
+**To request permission for any use, contact: yuzhuoma@amss.ac.cn**
 
