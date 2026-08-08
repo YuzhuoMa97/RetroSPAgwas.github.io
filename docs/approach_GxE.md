@@ -209,37 +209,35 @@ Argument ```traits``` is to specify the type of phenotype data. Currently, ```SP
 | Other trait (e.g. longitudinal trait)       | "Resid" |
 
 
-# Copyright Notice — All Rights Reserved
+# License & Copyright
 
 **Copyright © 2025 Yuzhuo Ma and collaborators. All rights reserved.**
 
-**No license is granted.** The software, code, documentation, and materials in this 
-repository related to **SPAGxE** (including SPAGxE, SPAGxE+, SPAGxEmix+, etc.) 
-and **WtGxE** are provided for **viewing only**.
+This repository (including code, documentation, and materials related to SPAGxE, SPAGxE+, SPAGxEmix+, WtGxE, and SPAGxE‑GENE) is shared for learning and research purposes.
 
-**⚠️ IMPORTANT: Unauthorized integration into other packages is strictly prohibited.**  
-This repository is not authorized to be included, in whole or in part, into any 
-open-source or proprietary software package, library, or tool without explicit 
-written permission from the copyright holder. Any such inclusion without prior 
-consent constitutes copyright infringement and **may subject the infringer to 
-legal liabilities**, including but not limited to:
-- DMCA takedown actions and removal of the infringing repository/package from GitHub;
-- Civil liabilities for copyright infringement (including damages and injunctive relief);
-- Potential criminal liabilities under applicable copyright laws when infringement is committed 
-  for profit-making purposes with serious circumstances;
-- Academic misconduct proceedings against individuals or institutions involved.
+## You are permitted to:
+- Download and read the code.
+- Modify it privately for your own non‑commercial research or personal study.
+- Run the modified code locally for your own analyses.
 
-You are **NOT permitted** to:
-- Reproduce, copy, or partially copy any part of this code;
-- Modify, adapt, translate, or create derivative works from this code;
-- Distribute, redistribute, publish, or make this code available to third parties;
-- **Incorporate this code or algorithm, in whole or in part, into any other software package, library, or tool (whether open-source or proprietary);**
-- Use this code for any commercial or non-commercial purpose without prior written permission.
+## You are NOT permitted to (without explicit written permission):
+1. **Integrate this code, in whole or in part, into any other software package, library, or tool** – whether open‑source or proprietary. This includes:
+   - Bundling the code into an R/Python/Julia package;
+   - Including it as a dependency in another project;
+   - Distributing a modified or "polished" version as a separate package;
+   - Any form of re‑packaging, regardless of how much the code has been modified or adapted.
+2. Publicly redistribute the code (verbatim or modified) through any channel.
+3. Use the code for commercial purposes.
+4. Remove or alter this copyright notice.
 
-The retrospective-SPA framework applied to G×E studies was originally proposed by 
-Yuzhuo Ma in his master's thesis (2022, DOI:10.27272/d.cnki.gshdu.2022.002946) and 
-formalized in Ma et al., *Nature Communications* (2025, DOI:10.1038/s41467-025-57887-3). 
-Any implementation of this methodological idea must properly cite the original work.
+## Attribution
+If you use or adapt the methodological ideas (especially the retrospective‑SPA framework for G×E studies), please cite:
+- Master's thesis (2022): DOI:10.27272/d.cnki.gshdu.2022.002946
+- Ma et al., *Nature Communications* (2025): DOI:10.1038/s41467‑025‑57887‑3
 
-**To request permission for any use, please contact: yuzhuoma@amss.ac.cn**
+## Contact
+For any questions or collaborative projects, please contact yuzhuoma@amss.ac.cn.
+
+---
+
 
