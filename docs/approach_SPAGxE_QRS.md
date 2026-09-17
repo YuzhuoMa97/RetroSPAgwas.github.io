@@ -57,7 +57,8 @@ All four methods — SPAGxE‑QRS, SPAGxEmix‑QRS, SPAGxE‑QRS+, and SPAGxEmix
   Ma, Y. et al. *Efficient quantile regression gene-environment interaction analysis for admixed and multi-ancestry cohorts* (to be updated).
 
 - **Foundational framework:**  
-  Ma, Y. et al. *A scalable and accurate framework for large-scale genome-wide gene-environment interaction analysis and its application to time-to-event and ordinal categorical traits* (to be updated).
+  Ma, Y., Zhao, Y., Zhang, J.-F., & Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. *Nature Communications*, 16, 3064.  
+  [DOI: 10.1038/s41467-025-57887-3](https://doi.org/10.1038/s41467-025-57887-3)
 
 - **Retrospective‑SPA original thesis idea:**  
   Ma, Y. (2022). Empirical Saddlepoint Approximation and Its Application to Genome‑Wide Association Studies.  
