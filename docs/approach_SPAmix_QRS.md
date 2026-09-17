@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SPAmix‑QRS
-nav_order: 3
+nav_order: 4
 description: "SPAmix‑QRS for quantile regression GWAS with individual‑specific allele frequencies and local ancestry in admixed and multi‑ancestry cohorts."
 parent: Genome-wide association studies
 has_children: false
