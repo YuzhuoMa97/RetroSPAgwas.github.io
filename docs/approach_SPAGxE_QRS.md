@@ -10,7 +10,7 @@ has_toc: false
 
 <head>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    <script type="x-mathjax-config">
+    <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
             skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
@@ -22,7 +22,7 @@ has_toc: false
 
 # SPAGxE‑QRS
 
-SPAGxE‑QRS is a quantile‑regression G×E method proposed in **"Quantile regression gene-environment interaction GWAS for admixed and multi-ancestry cohorts"** (this article). It extends **SPAGxE<sub>CCT</sub>** from mean‑/link‑based retrospective score tests to **quantile regression score test (QRS)**. It builds directly on my **retrospective saddlepoint approximation (retrospective‑SPA) idea** first described in my master's thesis ([Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS), DOI: [10.27272/d.cnki.gshdu.2022.002946](https://doi.org/10.27272/d.cnki.gshdu.2022.002946)).
+SPAGxE‑QRS is a quantile‑regression G×E method proposed in **"Efficient quantile regression gene-environment interaction analysis for admixed and multi-ancestry cohorts"** (this article). It extends **SPAGxE<sub>CCT</sub>** from mean‑/link‑based retrospective score tests to **quantile regression score test (QRS)**. It builds directly on my **retrospective saddlepoint approximation (retrospective‑SPA) idea** first described in my master's thesis ([Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS), DOI: [10.27272/d.cnki.gshdu.2022.002946](https://doi.org/10.27272/d.cnki.gshdu.2022.002946)).
 
 ## Introduction of SPAGxE‑QRS
 
@@ -54,7 +54,7 @@ SPAGxE‑QRS is a direct, independent extension of SPAGxE<sub>CCT</sub>. While S
 These three methods — SPAGxE‑QRS, SPAGxEmix‑QRS, and SPAGxE‑QRS+ — are described in one article:
 
 - **This article:**  
-  Ma, Y. et al. *Quantile regression gene-environment interaction GWAS for admixed and multi-ancestry cohorts* (to be updated).
+  Ma, Y. et al. *Efficient quantile regression gene-environment interaction analysis for admixed and multi-ancestry cohorts* (to be updated).
 
 - **SPAGxE‑QRS (this work, Section X):**  
   Ma, Y. et al. SPAGxE‑QRS: quantile regression G×E analysis for quantitative traits in single‑population unrelated cohorts.
