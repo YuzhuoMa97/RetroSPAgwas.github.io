@@ -31,7 +31,7 @@ SPAmix‑QRS+ is designed as a unified quantile‑regression GWAS toolbox for ad
 
 ## Relationship with SPAmix and SPAmix+
 
-SPAmix‑QRS+ is the most comprehensive member of the SPAmix family. It combines the quantile‑regression innovation of SPAmix‑QRS (the **quantile regression score test, QRS**) with the relatedness‑adjustment capability of SPAmix+, resulting in the only method that simultaneously handles admixture, local ancestry, family relatedness, and quantile‑specific effects. This work is an independent extension of my own methodological lineage, not adapted from any existing quantile‑regression GWAS.
+SPAmix‑QRS+ is the most comprehensive member of the SPAmix family. It combines the quantile‑regression innovation of SPAmix‑QRS (the **quantile regression score test, QRS**) with the relatedness‑adjustment capability of SPAmix+, resulting in the only method that simultaneously handles admixture, local ancestry, family relatedness, and quantile‑specific effects. This work is an independent extension of SPAmix+.
 
 ## Citation
 
