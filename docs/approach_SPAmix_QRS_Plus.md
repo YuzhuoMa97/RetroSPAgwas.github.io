@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SPAmix‑QRS+
-nav_order: 4
+nav_order: 5
 description: "SPAmix‑QRS+ for quantile regression GWAS with individual‑specific allele frequencies, relatedness, and local ancestry in admixed and diverse populations."
 parent: Genome-wide association studies
 has_children: false
@@ -26,12 +26,12 @@ SPAmix‑QRS+ is designed as a unified quantile‑regression GWAS toolbox for ad
 |:------:|:-------------------------------:|:--------------------------:|:------------------------------:|:-------------------:|
 | SPAmix | YES | YES | NO | NO (mean‑based) |
 | SPAmix+ | YES | YES | YES | NO (mean‑based) |
-| **SPAmix‑QRS** | **YES** | **YES** | **NO** | **YES** |
-| **SPAmix‑QRS+** | **YES** | **YES** | **YES** | **YES** |
+| **SPAmix‑QRS** | **YES** | **YES** | **NO** | **YES (QRS)** |
+| **SPAmix‑QRS+** | **YES** | **YES** | **YES** | **YES (QRS)** |
 
 ## Relationship with SPAmix and SPAmix+
 
-SPAmix‑QRS+ is the most comprehensive member of the SPAmix family. It combines the quantile‑regression innovation of SPAmix‑QRS with the relatedness‑adjustment capability of SPAmix+, resulting in the only method that simultaneously handles admixture, local ancestry, family relatedness, and quantile‑specific effects.
+SPAmix‑QRS+ is the most comprehensive member of the SPAmix family. It combines the quantile‑regression innovation of SPAmix‑QRS (the **quantile regression score test, QRS**) with the relatedness‑adjustment capability of SPAmix+, resulting in the only method that simultaneously handles admixture, local ancestry, family relatedness, and quantile‑specific effects. This work is an independent extension of my own methodological lineage, not adapted from any existing quantile‑regression GWAS.
 
 ## Citation
 
