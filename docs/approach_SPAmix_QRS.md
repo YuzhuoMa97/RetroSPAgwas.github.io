@@ -28,8 +28,7 @@ SPAmix‑QRS is designed for quantile‑specific association testing in admixed 
 
 ## Relationship with SPAmix
 
-SPAmix‑QRS is a direct, independent extension of SPAmix. While SPAmix focuses on mean‑/link‑based association tests, SPAmix‑QRS introduces the **quantile regression score test (QRS)** to detect effects across the entire phenotypic distribution. It retains SPAmix’s core innovations (ISAF, retrospective SPA) and adds local‑ancestry‑aware quantile testing. No part of this work is derived from other quantile‑regression GWAS implementations.
-
+SPAmix‑QRS is a direct, independent extension of SPAmix. While SPAmix focuses on mean‑/link‑based association tests, SPAmix‑QRS introduces the **quantile regression score test (QRS)** to detect effects across the entire phenotypic distribution. It retains SPAmix’s core innovations (ISAF, retrospective SPA) and adds local‑ancestry‑aware quantile testing. 
 ## Citation
 
 If you use SPAmix‑QRS, please cite:
