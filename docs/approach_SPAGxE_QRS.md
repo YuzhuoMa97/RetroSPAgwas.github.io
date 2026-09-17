@@ -2,7 +2,7 @@
 layout: default
 title: SPAGxE‑QRS
 nav_order: 9
-description: "SPAGxE‑QRS: quantile regression G×E analysis for single-population unrelated cohorts."
+description: "SPAGxE‑QRS: quantile regression G×E analysis for quantitative traits in single-population unrelated cohorts."
 parent: Genome-wide gene-environment interaction (GxE) studies
 has_children: false
 has_toc: false
@@ -26,9 +26,9 @@ SPAGxE‑QRS is a quantile‑regression G×E method proposed in **"Quantile regr
 
 ## Introduction of SPAGxE‑QRS
 
-SPAGxE‑QRS is applicable to a wide range of complex traits with intricate structures, including **time‑to‑event, ordinal categorical, binary, quantitative, longitudinal, and other complex traits**. It is designed for **single‑population cohorts without sample relatedness**, and serves as the baseline member of the QRS family in this article. The framework involves two main steps:
+SPAGxE‑QRS is applicable to **quantitative traits** in **single‑population cohorts without sample relatedness**, and serves as the baseline member of the QRS family in this article. The framework involves two main steps:
 
-- Step 1: SPAGxE‑QRS fits a covariates‑only model to calculate model residuals, following the same procedure as SPAGxE<sub>CCT</sub>. These covariates include, but are not limited to, confounding factors such as age, sex, SNP‑derived principal components (PCs), and environmental factors. The residuals are then replaced by **quantile regression score test residuals** computed at a specified quantile $\tau$.
+- Step 1: SPAGxE‑QRS fits a covariates‑only model to calculate model residuals. These covariates include, but are not limited to, confounding factors such as age, sex, SNP‑derived principal components (PCs), and environmental factors. The residuals are then replaced by **quantile regression score test residuals** computed at a specified quantile $\tau$.
 
 - Step 2: SPAGxE‑QRS identifies genetic variants with marginal G×E effects at the given quantile. It first tests marginal genetic effects using score statistics. If the marginal genetic effect is not significant, $S_{G\times E}$ is used as the test statistic; if significant, it is updated to genotype‑adjusted test statistics. To balance computational efficiency and accuracy, SPAGxE‑QRS employs a hybrid strategy combining normal distribution approximation and saddlepoint approximation (SPA), as used in SPAGxE<sub>CCT</sub>, and uses Cauchy combination (CCT) to combine p‑values across quantiles. All test statistics are derived from the **quantile regression score test (QRS)**.
 
@@ -36,7 +36,7 @@ SPAGxE‑QRS is applicable to a wide range of complex traits with intricate stru
 
 - SPAGxE‑QRS is the **single‑population, unrelated‑cohort** member of the QRS family.
 - It controls for unbalanced phenotypic distributions through QRS and SPA calibration.
-- It is applicable to quantitative, binary, time‑to‑event, ordinal, and longitudinal traits.
+- It is specifically designed for **quantitative traits**.
 
 ## Method comparison
 
@@ -57,7 +57,7 @@ These three methods — SPAGxE‑QRS, SPAGxEmix‑QRS, and SPAGxE‑QRS+ — are
   Ma, Y. et al. *Quantile regression gene-environment interaction GWAS for admixed and multi-ancestry cohorts* (to be updated).
 
 - **SPAGxE‑QRS (this work, Section X):**  
-  Ma, Y. et al. SPAGxE‑QRS: quantile regression G×E analysis for single‑population unrelated cohorts.
+  Ma, Y. et al. SPAGxE‑QRS: quantile regression G×E analysis for quantitative traits in single‑population unrelated cohorts.
 
 - **Foundational framework:**  
   Ma, Y. et al. *A scalable and accurate framework for large-scale genome-wide gene-environment interaction analysis and its application to time-to-event and ordinal categorical traits* (to be updated).
