@@ -1,0 +1,101 @@
+---
+layout: "default"
+title: "C++ tutorial scripts"
+parent: "C++ download and first run"
+nav_order: 3
+permalink: "/docs/spagxe_cpp/tutorial_scripts.html"
+has_children: false
+has_toc: true
+grand_parent: "SPAGxE C++ manual"
+---
+
+Documentation source: [ce9c2473649e](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/README.md). [Current development checks](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html).
+
+**Source and validation status.** The text below mirrors the published pre-fix source. Local Windows/Linux validation passed after input/build repairs; those repairs still await a public push and matching CI. [Read the required repairs and current evidence](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html).
+
+# Annotated standalone C++ examples {#annotated-standalone-c-examples}
+
+The six focused tutorials and the complete feature walkthrough use the same
+SPAGxE executable and the same numerical policy. They do not invoke R or Python.
+Start with the [official user guide](/RetroSPAgwas.github.io/docs/spagxe_cpp/full_tutorial.html).
+
+| Scripts (SH and CMD) | Purpose |
+|---|---|
+| [01_spagxe.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/01_spagxe.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/01_spagxe.cmd) | SPAGxE: PLINK BED, native quantitative/binary/survival/ordinal null models |
+| [02_spagxe_plus.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/02_spagxe_plus.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/02_spagxe_plus.cmd) | SPAGxE+: PGEN and sparse GRM, four trait families |
+| [03_spagxemix.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/03_spagxemix.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/03_spagxemix.cmd) | SPAGxEmix: BGEN and PCs, individual allele frequencies |
+| [04_spagxemix_local.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/04_spagxemix_local.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/04_spagxemix_local.cmd) | SPAGxEmix_local: text G/H, count binary and known-H BGEN |
+| [05_global_local_cct.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/05_global_local_cct.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/05_global_local_cct.cmd) | Global/local CCT and explicit ancestry grouping |
+| [06_local_packing.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/06_local_packing.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/06_local_packing.cmd) | Native C++ count packing and packed-input analysis |
+| [07_feature_walkthrough.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/07_feature_walkthrough.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/07_feature_walkthrough.cmd) | All 33 runnable guide groups and all 53 canonical CLI parameters |
+
+## Working directory and executable {#working-directory-and-executable}
+
+For a source checkout, first build inside `cpp/`; the executable is
+`build/bin/SPAGxE` on POSIX or `build/bin/SPAGxE.exe` on Windows. For the Windows
+binary Release, use `cpp/SPAGxE.exe` without a compiler. The six focused scripts default to the source-build executable. The binary
+Release's root launcher sets their executable path automatically. The optional
+07 walkthrough locates either layout. `SPAGXE_BIN` (SH) or `SPAGXE_EXE` (CMD)
+can override the selected path.
+Do not copy the executable away from the accompanying examples and licenses.
+
+## Six focused tutorials {#six-focused-tutorials}
+
+From a built source checkout, inside `cpp/` on POSIX:
+
+```sh
+bash examples/tutorials/run_all.sh
+```
+
+From a built source checkout, inside `cpp/` on Windows:
+
+```powershell
+.\examples\tutorials\run_all.cmd
+```
+
+For a Windows binary Release, start at the extracted bundle root instead:
+
+```powershell
+.\run_examples.cmd
+```
+
+Both routes write under `cpp/results/tutorials`. The root launcher belongs
+to the binary Release, and does not belong to the source checkout. Use a fresh output location when repeating
+packing: `--pack-local` refuses existing output triplets.
+
+## Complete feature walkthrough {#complete-feature-walkthrough}
+
+This optional, separate tutorial executes the same commands as the marked
+UG01 through UG33 groups in the guide, in document order. It is not part of
+`run_all`, so a quick first run remains small. Default output is
+`cpp/results/official_walkthrough`. Use a new or empty directory for each run.
+
+```sh
+# From cpp/. The optional first argument selects a fresh output directory.
+bash examples/tutorials/07_feature_walkthrough.sh results/my_walkthrough
+```
+
+```powershell
+# From cpp/. Windows uses built-in PowerShell for file-list preparation.
+.\examples\tutorials\07_feature_walkthrough.cmd -OutputDirectory results/my_walkthrough
+```
+
+The Windows CMD launcher calls the adjacent
+[PowerShell script](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/07_feature_walkthrough.ps1). The POSIX script uses standard
+`awk` and `printf` for four small selection lists; all analysis, AF export, INT,
+CCT and local count packing are native C++ operations.
+
+The walkthrough includes PLINK BED/PGEN, BGEN with and without embedded IDs,
+VCF/BCF, all four methods, all native trait families, input/QC filters, compressed
+output and residual reuse, local conversion, CCT weights, and resource controls.
+It stops on a failed command. Check result status codes before interpreting P.
+
+## Numerical interpretation {#numerical-interpretation}
+
+No statistical profile selection is required. All four methods use the paper's
+weights and guarded partial-normal SPA. Central terms use matched Gaussian
+moments; inaccurate partial candidates fall back to full-CGF evaluation.
+Environment coding is retained as supplied. Branch-B SPA need not be invariant
+to shifting E's zero point. Environmental main effects enter the null model.
+Tiny examples relax QC to illustrate edge-case handling; choose justified QC
+thresholds for real data. Read the guide's output/status and numerical sections.

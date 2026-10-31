@@ -7,6 +7,40 @@ has_children: true
 has_toc: true
 ---
 
+<!-- SPAGXE_CPP_WEB_BEGIN -->
+## Standalone C++ software
+
+The official standalone **SPAGxE 1.2.0** C++ edition is available as a development
+source in the same [SPAGxECCT repository](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop).
+It provides SPAGxE, SPAGxE+, SPAGxEmix and SPAGxEmix_local. The original R edition,
+its method descriptions and examples remain below.
+
+The [complete C++ manual](/RetroSPAgwas.github.io/docs/spagxe_cpp/index.html) keeps the new installation and teaching material
+in one place, with separate pages for the four methods, local formats, all current
+options and worked examples. Start with [download and first run](/RetroSPAgwas.github.io/docs/spagxe_cpp/start.html), then
+follow the [complete tutorial](/RetroSPAgwas.github.io/docs/spagxe_cpp/full_tutorial.html). Read [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the
+tested source revision and current platform/CI limits; do not assume a release
+binary or tag exists merely because the source branch is public.
+
+| Method | C++ tutorial |
+|---|---|
+| SPAGxE | [Shared AF, unrelated subjects](/RetroSPAgwas.github.io/docs/spagxe_cpp/spagxe.html) |
+| SPAGxE+ | [Shared AF and sparse GRM](/RetroSPAgwas.github.io/docs/spagxe_cpp/spagxe_plus.html) |
+| SPAGxEmix | [Individual AF and ancestry PCs](/RetroSPAgwas.github.io/docs/spagxe_cpp/spagxemix.html) |
+| SPAGxEmix_local | [Known-H ancestry-specific G/H](/RetroSPAgwas.github.io/docs/spagxe_cpp/spagxemix_local.html) |
+
+<a id="standalone-cpp-installation"></a>
+The former C++ installation section is now the [dedicated installation page](/RetroSPAgwas.github.io/docs/spagxe_cpp/installation.html).
+R and C++ have separate installation routes; installing the R package does not install
+the executable. This is the sole official standalone C++ distribution designated
+and maintained by Yuzhuo Ma. Contact: [yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).
+
+Local repaired Windows/Linux builds have passed testing. The published development
+snapshot still requires the documented input/build repairs and a matching CI rerun;
+follow the [current validation status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) before installing.
+<!-- SPAGXE_CPP_WEB_END -->
+
+
 # Genome-wide gene-environment interaction (GxE) studies
 
 [```SPAGxECCT```](https://github.com/YuzhuoMa97/SPAGxECCT) package gives generic GxE analytical frameworks to analyze a wide variaty of phenotypes. 

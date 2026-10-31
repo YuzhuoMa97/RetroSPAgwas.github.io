@@ -8,6 +8,26 @@ has_children: false
 has_toc: false
 ---
 
+<!-- SPAGXE_CPP_WEB_BEGIN -->
+## Standalone C++: SPAGxEmix_local
+
+The official SPAGxE 1.2.0 C++ edition has a separate [complete manual](/RetroSPAgwas.github.io/docs/spagxe_cpp/index.html).
+For this method, follow the [native C++ example](/RetroSPAgwas.github.io/docs/spagxe_cpp/spagxemix_local.html), including the input
+files, command, outputs and interpretation. Begin with [installation](/RetroSPAgwas.github.io/docs/spagxe_cpp/installation.html)
+and read the [current development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html). The full [worked tutorial](/RetroSPAgwas.github.io/docs/spagxe_cpp/full_tutorial.html)
+covers the remaining supported formats, phenotype models, QC, utilities and CCT.
+
+The software is designated and maintained as the sole official standalone C++
+distribution by Yuzhuo Ma. Contact [yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).
+The original method text and R examples are retained below. R installation does
+not install the independent C++ executable.
+
+Local repaired Windows/Linux builds have passed testing. The published development
+snapshot still requires the documented input/build repairs and a matching CI rerun;
+follow the [current validation status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) before installing.
+<!-- SPAGXE_CPP_WEB_END -->
+
+
 <head>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     <script type="text/x-mathjax-config">
