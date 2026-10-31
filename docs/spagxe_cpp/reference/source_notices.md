@@ -17,7 +17,7 @@ reviewed source from the notice restoration prepared for the software distributi
 
 # Incorporated source and dependency notices {#incorporated-source-and-dependency-notices}
 
-SPAGxE algorithms and new standalone changes: Yuzhuo Ma, yuzhuoma@amss.ac.cn.
+SPAGxE algorithms and new standalone changes: yuzhuoma@amss.ac.cn.
 The method's published authorship is retained in CITATION_CPP.cff.
 
 New SPAGxE work includes the paper-defined interaction policy, complete-CGF
