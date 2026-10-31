@@ -20,16 +20,6 @@ reviewed source from the notice restoration prepared for the software distributi
 SPAGxE algorithms and new standalone changes: Yuzhuo Ma, yuzhuoma@amss.ac.cn.
 The method's published authorship is retained in CITATION_CPP.cff.
 
-The C++ application incorporates and modifies code from the GPL-3.0-or-later
-GRAB release 2.0.0a7:
-https://github.com/GeneticAnalysisinBiobanks/GRAB/releases/tag/v2.0.0a7 .
-Incorporated work includes genotype readers, sample matching, sparse-GRM
-handling, marker threading, numerical routines, null models, the initial
-interaction adapter, parts of the Makefile and test infrastructure.
-Its source attribution and GPL licensing are retained. The standalone module
-names and published-paper policy do not imply an independent rewrite of all
-infrastructure.
-
 New SPAGxE work includes the paper-defined interaction policy, complete-CGF
 workflow, AF/input/numerical corrections, local G/H analysis and packing,
 standalone interfaces, examples and validation. Historical R files in this
