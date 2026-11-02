@@ -9,37 +9,41 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-**Maintenance candidate.** This page accompanies local SPAGxE 1.2.0 maintenance source that has not yet been pushed or tagged. The [public baseline](https://github.com/YuzhuoMa97/SPAGxECCT/commit/c7c11590efbd10504115cd0ad8dbb9c6ca2634e1) passed hosted Windows and Ubuntu checks; its macOS build failed. Those hosted results do not validate this new candidate. Read the [candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the current evidence and download boundaries.
+**Development source.** SPAGxE 1.2.0 is published on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for d90fb4c](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904) passed Windows and Ubuntu; macOS numerical unit checks failed and the platform remains unvalidated. The C++ release tag and runtime assets are not yet published. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the tested revision and download instructions. Later source commits require their own checks.
 
 # Development source, maintenance and platform checks {#development-source-repairs-and-platform-checks}
 
-This manual documents a local maintenance candidate of **SPAGxE 1.2.0**.
-The candidate is not yet a public development commit or a tagged Release.
-Its own build, numerical, format and tutorial acceptance must be read from the
-[candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html).
+The **SPAGxE 1.2.0** C++ source is public on the
+[develop branch](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop).
+The reviewed source revision is
+[d90fb4c45849757c816c5d1ba5d191911443e83c](https://github.com/YuzhuoMa97/SPAGxECCT/commit/d90fb4c45849757c816c5d1ba5d191911443e83c).
+This manual is deployed from the separate documentation repository; updating
+the software repository does not deploy these pages automatically.
 
-## Public source baseline {#what-the-downloaded-source-did}
+## Public source and hosted checks {#what-the-downloaded-source-did}
 
-The public source baseline is the revision inspected at the start of this work.
-It already contains the CRLF-aware BIM reader and Windows static-link repairs.
-Its hosted Windows and Ubuntu jobs passed; its macOS build/unit step failed.
-These dated baseline results do not establish that the new maintenance source
-has passed hosted CI.
+The [hosted run for this revision](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904)
+passed its Windows and Ubuntu jobs. The macOS build completed, but five of its
+53 numerical unit checks failed. The overall workflow is not green and
+macOS remains unvalidated. Inspect the actual
+commit and each job rather than treating a successful documentation deployment
+as a successful software build. Later source commits require their own checks.
 
-## Local candidate validation {#local-validation-of-the-repaired-source}
+## Local implementation validation {#local-validation-of-the-repaired-source}
 
-Implementation changes keep the published-method numerical policy and require
-fresh builds, numerical units, reader/method regressions and paired outputs
-against the accepted executable. The [maintenance notes](/RetroSPAgwas.github.io/docs/spagxe_cpp/maintenance.html)
-explain the contracts; the [validation page](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html)
-records measured results and unfinished checks. Finite tests do not prove
-universal tail calibration, every-machine portability or a biobank-scale speed advantage.
+The [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html)
+separates the local builds, numerical units, method/reader regressions,
+paired outputs and runtime tutorial checks from hosted CI. The
+[maintenance notes](/RetroSPAgwas.github.io/docs/spagxe_cpp/maintenance.html)
+explain the numerical contracts. Finite tests do not prove universal tail
+calibration, every-machine portability or a biobank-scale speed advantage.
 
 ## Select the revision to install {#use-the-corrected-development-revision}
 
-The commands below inspect the public development branch. This new candidate
-will appear there only after its maintainer reviews and pushes it. Record the
-actual commit returned by Git, then inspect that exact commit's Actions.
+The commands below inspect the public development branch. Record the actual
+commit returned by Git, then inspect that exact commit's Actions. Before a
+fixed C++ release is published, do not assume the default main branch or its
+automatic archive already contains the development C++ edition.
 
 ```sh
 git clone --branch develop --single-branch https://github.com/YuzhuoMa97/SPAGxECCT.git
@@ -49,9 +53,16 @@ git rev-parse HEAD
 
 ## Binary downloads and supported scope {#source-notices}
 
-No C++ release tag or binary Release assets were public at the baseline review.
-A local archive or CI artifact is not a maintainer-published Release. Use
-the [installation guide](/RetroSPAgwas.github.io/docs/spagxe_cpp/installation.html)
-and [release scope](/RetroSPAgwas.github.io/docs/spagxe_cpp/release_scope.html);
-only advertise platform binaries after matching their source, docs and checksums.
+At the 2 November 2026 review, no C++ release tag or runtime Release assets
+were public. Local archives and CI artifacts are not published Release
+downloads. The planned Windows/Linux packages must be matched to their final
+source, documentation and checksums before publication.
+
+Use the [installation guide](/RetroSPAgwas.github.io/docs/spagxe_cpp/installation.html)
+for source builds and the runtime package instructions that apply after
+the assets are uploaded. Default prepared x86-64 binaries require Haswell/AVX2;
+the Linux binary also requires compatible system libraries. macOS has no
+validated runtime package.
+
 The historical R installation has a separate interface and dependency chain.
+It remains available alongside the independent C++ edition.

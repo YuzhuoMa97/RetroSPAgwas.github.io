@@ -8,7 +8,7 @@ has_children: true
 has_toc: true
 ---
 
-**Maintenance candidate.** This page accompanies local SPAGxE 1.2.0 maintenance source that has not yet been pushed or tagged. The [public baseline](https://github.com/YuzhuoMa97/SPAGxECCT/commit/c7c11590efbd10504115cd0ad8dbb9c6ca2634e1) passed hosted Windows and Ubuntu checks; its macOS build failed. Those hosted results do not validate this new candidate. Read the [candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the current evidence and download boundaries.
+**Development source.** SPAGxE 1.2.0 is published on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for d90fb4c](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904) passed Windows and Ubuntu; macOS numerical unit checks failed and the platform remains unvalidated. The C++ release tag and runtime assets are not yet published. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the tested revision and download instructions. Later source commits require their own checks.
 
 # SPAGxE C++ manual {#spagxe-c-manual}
 
@@ -17,10 +17,10 @@ This is the sole official standalone C++ distribution designated and maintained 
 **Yuzhuo Ma**, the method designer and author of the original SPAGxE software.
 Questions, installation help and bug reports: [yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).
 
-This manual accompanies a local maintenance candidate of **SPAGxE 1.2.0**.
-It preserves the four-method statistical policy and executable version while
-improving implementation structure. Candidate source, documentation and runtime
-archives must be reviewed together before publication.
+This manual documents the published development source of **SPAGxE 1.2.0**.
+The four methods share one statistical policy and standalone executable.
+Windows and Ubuntu checks passed for the reviewed source revision. A fixed
+C++ release tag and matching runtime downloads are still pending.
 The original R package remains a separate interface for compatibility and reproducibility;
 installing it does not install this independent executable.
 

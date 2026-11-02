@@ -9,16 +9,15 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-**Maintenance candidate.** This page accompanies local SPAGxE 1.2.0 maintenance source that has not yet been pushed or tagged. The [public baseline](https://github.com/YuzhuoMa97/SPAGxECCT/commit/c7c11590efbd10504115cd0ad8dbb9c6ca2634e1) passed hosted Windows and Ubuntu checks; its macOS build failed. Those hosted results do not validate this new candidate. Read the [candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the current evidence and download boundaries.
-
+**Development source.** SPAGxE 1.2.0 is published on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for d90fb4c](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904) passed Windows and Ubuntu; macOS numerical unit checks failed and the platform remains unvalidated. The C++ release tag and runtime assets are not yet published. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the tested revision and download instructions. Later source commits require their own checks.
 
 <a id="current-repaired-candidate"></a>
 
 # Validation records and interpretation {#validation-records-and-interpretation}
 
 This maintenance candidate changes production implementation structure while
-preserving the documented statistical policy. The public source baseline is
-recorded separately from the not-yet-pushed local maintenance source.
+preserving the documented statistical policy. The historical source baseline, local validation and subsequently published
+maintenance commit are recorded separately.
 Read [release scope](/RetroSPAgwas.github.io/docs/spagxe_cpp/release_scope.html) and
 [maintenance notes](/RetroSPAgwas.github.io/docs/spagxe_cpp/maintenance.html).
 
@@ -42,8 +41,11 @@ different questions.
 
 ## Remaining limits {#remaining-limits}
 
-macOS remains unvalidated. The current maintenance source has not yet been
-pushed or checked by hosted CI. Binary compatibility depends on OS, CPU and
+Published develop commit d90fb4c45849757c816c5d1ba5d191911443e83c was
+checked by [hosted CI](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904):
+Windows and Ubuntu passed, while the macOS build/unit job failed.
+macOS remains unvalidated. These results apply to that exact commit and do
+not certify later changes. Binary compatibility depends on OS, CPU and
 runtime libraries; no finite test set guarantees every input, extreme tail,
 historical default P value or biobank-scale speed claim.
 
@@ -51,17 +53,29 @@ Preserved R code keeps its original dependency chain. The original full-CGF
 R baseline and the accelerated default need not have identical P values in
 every case. Historical results are not relabeled as new tests.
 
+## Portable reference calculations {#portable-reference-calculations}
+
+Five checks previously relied on long double having extra precision or
+range, or on a cancellation-prone linear probability. Their independent
+oracles now use exact integer conditional-HWE enumeration with 80/120-digit
+Decimal checks, or 50-digit multiprecision calculations. The generation
+script and HWE fixtures are included in cpp/tests/. Original tolerances
+and all 53 log-probability cases remain. No analysis formula was changed.
+The revised complete unit target passed locally on Windows; actual macOS
+CI must be rerun. Platform diagnostics print the native floating-point
+precision so assumptions are visible in future test logs.
+
 ## Current acceptance summary {#current-acceptance-summary}
 
-The record below is generated from this local candidate. Historical evidence retains its own date and scope; a previous hosted job is not a new candidate run.
+This record distinguishes local numerical validation from hosted checks of the published source. Each check retains its tested revision and scope.
 
-<details><summary>Read the candidate acceptance JSON</summary>
+<details><summary>Read the acceptance JSON</summary>
 
 <pre><code>{
   &quot;software&quot;: &quot;SPAGxE&quot;,
   &quot;version&quot;: &quot;1.2.0&quot;,
-  &quot;date&quot;: &quot;2026-11-01&quot;,
-  &quot;scope&quot;: &quot;Local maintenance candidate; hosted CI and final tag/assets pending&quot;,
+  &quot;date&quot;: &quot;2026-11-02&quot;,
+  &quot;scope&quot;: &quot;Published develop source; Windows/Ubuntu hosted CI passed; macOS failed; final C++ tag/assets pending&quot;,
   &quot;public_baseline_commit&quot;: &quot;c7c11590efbd10504115cd0ad8dbb9c6ca2634e1&quot;,
   &quot;statistical_policy&quot;: &quot;paper weights; guarded partial-normal CGF&quot;,
   &quot;methods&quot;: [
@@ -97,7 +111,7 @@ The record below is generated from this local candidate. Historical evidence ret
   },
   &quot;Linux_locally_validated&quot;: true,
   &quot;macOS_validated&quot;: false,
-  &quot;maintenance_candidate_hosted_CI_executed&quot;: false,
+  &quot;maintenance_candidate_hosted_CI_executed&quot;: true,
   &quot;public_CXX_release_published&quot;: false,
   &quot;universal_calibration_proven&quot;: false,
   &quot;biobank_speed_advantage_proven&quot;: false,
@@ -223,6 +237,27 @@ The record below is generated from this local candidate. Historical evidence ret
       }
     ],
     &quot;binary_sha256&quot;: &quot;c1bedb883d85f8b5aa9e072fade6f63df4e61e8e44c18548cc3ed42974f60b6c&quot;
+  },
+  &quot;historical_local_validation_date&quot;: &quot;2026-11-01&quot;,
+  &quot;reviewed_public_commit&quot;: &quot;d90fb4c45849757c816c5d1ba5d191911443e83c&quot;,
+  &quot;hosted_CI&quot;: {
+    &quot;commit&quot;: &quot;d90fb4c45849757c816c5d1ba5d191911443e83c&quot;,
+    &quot;run&quot;: &quot;https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904&quot;,
+    &quot;Windows&quot;: &quot;success&quot;,
+    &quot;Ubuntu&quot;: &quot;success&quot;,
+    &quot;macOS&quot;: &quot;failure&quot;,
+    &quot;overall&quot;: &quot;failure&quot;
+  },
+  &quot;website_deployed_commit&quot;: &quot;ca8e1d39e1b01732e2c4dd8015f6dc886862725a&quot;,
+  &quot;post_publication_documentation_patch_changes_mathematics&quot;: false,
+  &quot;portable_test_reference_update&quot;: {
+    &quot;analysis_code_changed&quot;: false,
+    &quot;original_accuracy_criteria_retained&quot;: true,
+    &quot;test_cases_skipped&quot;: false,
+    &quot;Windows_local_make_test_passed&quot;: true,
+    &quot;log_probability_cases&quot;: 53,
+    &quot;new_hosted_CI_executed&quot;: false,
+    &quot;actual_MacOS_rerun_passed&quot;: false
   }
 }</code></pre>
 
