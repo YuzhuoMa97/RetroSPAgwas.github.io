@@ -9,7 +9,7 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-**Development source, checked 2 November 2026.** SPAGxE 1.2.0 is available on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for 2a14885](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41438512290) passed on Windows, Ubuntu and macOS, including source builds, numerical units, regressions and source/extracted-bundle tutorials. The C++ release tag and runtime assets are not yet published; macOS currently uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the exact revision, scope and installation routes. Later commits require their own checks.
+SPAGxE 1.2.0 source is available on [main](https://github.com/YuzhuoMa97/SPAGxECCT/tree/main). [The checked main revision](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41449646442) passed Windows, Ubuntu and macOS builds, numerical checks, regressions and tutorials. C++ Release downloads are not yet published; macOS uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [source status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for scope and installation routes. Later commits require their own checks.
 
 # SPAGxE C++ 1.2.0 {#spagxe-c-120}
 
@@ -33,7 +33,8 @@ The historical R package remains available for reproducibility and compatibility
 Published-paper coauthorship and incorporated-source authorship and licenses
 remain as recorded in CITATION_CPP.cff, OWNERSHIP.md and THIRD_PARTY_NOTICES.md.
 
-SPAGxEmixPlus is planned for a future release and is not included in the current C++ distribution.
+SPAGxEmixPlus and SPAGxEmixLocalPlus are planned for upcoming updates.
+Neither method is released or included in this C++ version.
 
 Prepare known-H ancestry-specific input with the
 [local input guide](/RetroSPAgwas.github.io/docs/spagxe_cpp/local_preparation.html). The native packer writes
@@ -159,5 +160,3 @@ Clean-rebuild after changing compiler, alignment, SIMD or link flags.
 See [validation](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [release status](/RetroSPAgwas.github.io/docs/spagxe_cpp/release_scope.html).
 The executable uses the GPL license in LICENSE; incorporated components retain
 their notices in [THIRD_PARTY_NOTICES.md](/RetroSPAgwas.github.io/docs/spagxe_cpp/source_notices.html).
-
-Read the [maintenance notes](/RetroSPAgwas.github.io/docs/spagxe_cpp/maintenance.html) for the implementation contracts and validation required for this revision.

@@ -9,7 +9,7 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-**Development source, checked 2 November 2026.** SPAGxE 1.2.0 is available on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for 2a14885](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41438512290) passed on Windows, Ubuntu and macOS, including source builds, numerical units, regressions and source/extracted-bundle tutorials. The C++ release tag and runtime assets are not yet published; macOS currently uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the exact revision, scope and installation routes. Later commits require their own checks.
+SPAGxE 1.2.0 source is available on [main](https://github.com/YuzhuoMa97/SPAGxECCT/tree/main). [The checked main revision](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41449646442) passed Windows, Ubuntu and macOS builds, numerical checks, regressions and tutorials. C++ Release downloads are not yet published; macOS uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [source status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for scope and installation routes. Later commits require their own checks.
 
 <a id="development-verification-31-october-2026"></a>
 <a id="model-and-distribution-boundaries"></a>
@@ -37,7 +37,8 @@ BED/PGEN/BGEN/VCF/BCF, native linear/logistic/Breslow Cox/ordinal null models,
 explicit CCT weights, AF diagnostics, local text/count/BGEN input and native
 hard-count packing. See [feature coverage](/RetroSPAgwas.github.io/docs/spagxe_cpp/features.html).
 
-SPAGxEmixPlus is planned for a future release and is not included. Current
+SPAGxEmixPlus and SPAGxEmixLocalPlus are planned for upcoming updates.
+Neither method is released or included in this C++ version. Current
 mix/local modes reject GRM input. The homogeneous GRM workflow corrects score
 variance and is not a general GLMM null fitter. Local inputs require known H;
 the program does not infer ancestry or implement arbitrary uncertain-H joint

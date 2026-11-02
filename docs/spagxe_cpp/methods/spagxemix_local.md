@@ -9,7 +9,7 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-**Development source, checked 2 November 2026.** SPAGxE 1.2.0 is available on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for 2a14885](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41438512290) passed on Windows, Ubuntu and macOS, including source builds, numerical units, regressions and source/extracted-bundle tutorials. The C++ release tag and runtime assets are not yet published; macOS currently uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the exact revision, scope and installation routes. Later commits require their own checks.
+SPAGxE 1.2.0 source is available on [main](https://github.com/YuzhuoMa97/SPAGxECCT/tree/main). [The checked main revision](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41449646442) passed Windows, Ubuntu and macOS builds, numerical checks, regressions and tutorials. C++ Release downloads are not yet published; macOS uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [source status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for scope and installation routes. Later commits require their own checks.
 
 # SPAGxEmix_local C++ example {#spagxemix_local-c-example}
 
@@ -57,3 +57,6 @@ residual reuse, other genotype formats, selection/QC, local packing, CCT, AF exp
 output compression and resource settings. The [CLI reference](/RetroSPAgwas.github.io/docs/spagxe_cpp/cli.html) defines each option.
 
 Read [local input preparation](/RetroSPAgwas.github.io/docs/spagxe_cpp/local_preparation.html), [count packing](/RetroSPAgwas.github.io/docs/spagxe_cpp/local_packing.html) and [known-H BGEN](/RetroSPAgwas.github.io/docs/spagxe_cpp/local_bgen.html) before converting real ancestry-specific data.
+
+SPAGxEmixPlus and SPAGxEmixLocalPlus are planned for upcoming updates.
+Neither method is released or included in this C++ version.

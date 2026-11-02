@@ -9,7 +9,7 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-**Development source, checked 2 November 2026.** SPAGxE 1.2.0 is available on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for 2a14885](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41438512290) passed on Windows, Ubuntu and macOS, including source builds, numerical units, regressions and source/extracted-bundle tutorials. The C++ release tag and runtime assets are not yet published; macOS currently uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the exact revision, scope and installation routes. Later commits require their own checks.
+SPAGxE 1.2.0 source is available on [main](https://github.com/YuzhuoMa97/SPAGxECCT/tree/main). [The checked main revision](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41449646442) passed Windows, Ubuntu and macOS builds, numerical checks, regressions and tutorials. C++ Release downloads are not yet published; macOS uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [source status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for scope and installation routes. Later commits require their own checks.
 
 # Official SPAGxE C++ user guide {#official-spagxe-c-user-guide}
 
@@ -19,8 +19,8 @@ distribution designated and maintained by **Yuzhuo Ma**, the method designer
 and author of the original SPAGxE software. Questions, installation help and
 bug reports: **[yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn)**.
 
-SPAGxEmixPlus is planned for a future release and is not included in the
-current C++ distribution. Incorporated components retain their authorship,
+SPAGxEmixPlus and SPAGxEmixLocalPlus are planned for upcoming updates.
+Neither method is released or included in this C++ version. Incorporated components retain their authorship,
 licenses and notices. The original R package remains available for historical
 reproducibility and compatibility; installing it does not install this C++
 executable.
@@ -90,14 +90,15 @@ triplets; do not repeatedly run it against an already populated prefix.
 ### Build the complete source {#build-the-complete-source}
 
 Download the selected source archive and extract it, or clone the repository.
-Use the approved tag once it exists. During development, select `develop`
-explicitly; before the C++ update is merged, `main` can still contain only the
-historical R package. See the [development/release procedure](/RetroSPAgwas.github.io/docs/spagxe_cpp/distribution.html).
+The `main` branch contains the C++ source alongside the historical R package.
+Use the approved release tag once it is published; `develop` remains the
+ongoing development branch. Record the commit when using a moving branch.
+See the [development/release procedure](/RetroSPAgwas.github.io/docs/spagxe_cpp/distribution.html).
 
-For example, after the maintainer has pushed `develop`:
+To build the current source from `main`:
 
 ```sh
-git clone --branch develop https://github.com/YuzhuoMa97/SPAGxECCT.git
+git clone --branch main https://github.com/YuzhuoMa97/SPAGxECCT.git
 cd SPAGxECCT
 git rev-parse HEAD
 ```
@@ -146,8 +147,8 @@ OUT=results/official_walkthrough
 ```
 
 The full runnable walkthrough is also provided as
-[SH](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/07_feature_walkthrough.sh) and
-[CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/07_feature_walkthrough.cmd). Windows binary
+[SH](https://github.com/YuzhuoMa97/SPAGxECCT/blob/main/cpp/examples/tutorials/07_feature_walkthrough.sh) and
+[CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/main/cpp/examples/tutorials/07_feature_walkthrough.cmd). Windows binary
 users can use the CMD script without Bash, Python or R. The SH recipes below
 use standard shell utilities only to prepare small selection lists.
 

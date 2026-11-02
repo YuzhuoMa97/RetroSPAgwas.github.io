@@ -8,7 +8,7 @@ has_children: true
 has_toc: true
 ---
 
-**Development source, checked 2 November 2026.** SPAGxE 1.2.0 is available on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for 2a14885](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41438512290) passed on Windows, Ubuntu and macOS, including source builds, numerical units, regressions and source/extracted-bundle tutorials. The C++ release tag and runtime assets are not yet published; macOS currently uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the exact revision, scope and installation routes. Later commits require their own checks.
+SPAGxE 1.2.0 source is available on [main](https://github.com/YuzhuoMa97/SPAGxECCT/tree/main). [The checked main revision](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41449646442) passed Windows, Ubuntu and macOS builds, numerical checks, regressions and tutorials. C++ Release downloads are not yet published; macOS uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [source status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for scope and installation routes. Later commits require their own checks.
 
 # SPAGxE C++ manual {#spagxe-c-manual}
 
@@ -17,7 +17,7 @@ This is the sole official standalone C++ distribution designated and maintained 
 **Yuzhuo Ma**, the method designer and author of the original SPAGxE software.
 Questions, installation help and bug reports: [yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).
 
-This manual documents the published development source of **SPAGxE 1.2.0**.
+This manual documents the public C++ source of **SPAGxE 1.2.0**.
 The four methods share one statistical policy and standalone executable.
 Windows, Ubuntu and macOS hosted checks passed for the reviewed source
 revision. A fixed C++ release tag and matching runtime downloads are still
@@ -48,7 +48,8 @@ evaluation protects unsuitable approximations; the diagnostics do not provide a 
 P-value error bound. The native workflows cover additive counts/dosages. Read the
 [feature boundaries](/RetroSPAgwas.github.io/docs/spagxe_cpp/features.html) before transferring a historical R model or formula.
 
-SPAGxEmixPlus is planned for a future release and is not included in the current C++ distribution.
+SPAGxEmixPlus and SPAGxEmixLocalPlus are planned for upcoming updates.
+Neither method is released or included in this C++ version.
 Required [incorporated-source notices](/RetroSPAgwas.github.io/docs/spagxe_cpp/source_notices.html), authorship and licenses remain in force.
 
 ## Maintenance and validation {#maintenance-and-validation}

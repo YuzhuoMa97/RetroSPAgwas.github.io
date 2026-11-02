@@ -9,7 +9,7 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-**Development source, checked 2 November 2026.** SPAGxE 1.2.0 is available on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for 2a14885](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41438512290) passed on Windows, Ubuntu and macOS, including source builds, numerical units, regressions and source/extracted-bundle tutorials. The C++ release tag and runtime assets are not yet published; macOS currently uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the exact revision, scope and installation routes. Later commits require their own checks.
+SPAGxE 1.2.0 source is available on [main](https://github.com/YuzhuoMa97/SPAGxECCT/tree/main). [The checked main revision](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41449646442) passed Windows, Ubuntu and macOS builds, numerical checks, regressions and tutorials. C++ Release downloads are not yet published; macOS uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [source status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for scope and installation routes. Later commits require their own checks.
 
 # Installation and first run {#installation-and-first-run}
 
@@ -76,19 +76,17 @@ Clone or download the repository/tag source ZIP. Read root README_CPP.md,
 then build inside cpp/. Keep the complete cpp/ tree, including third_party/,
 Makefile, VERSION, examples and tests; src/ alone is insufficient.
 
-Before the first C++ release, select the published `develop` branch explicitly;
-the default `main` branch may still contain only the historical R package.
-The commands below require the maintainer to have pushed that C++ branch.
-After the release is available, replace `--branch develop` with
-`--branch cpp-v1.2.0` to obtain the fixed release source. For development
-comparisons, record the full tested commit rather than relying on a moving
-branch. Code -> Download ZIP likewise uses the selected branch or tag.
+The `main` branch includes the standalone C++ source alongside the historical
+R package. Use `main` for the current source and `develop` for ongoing
+development. Once `cpp-v1.2.0` is published, use that tag for a fixed release
+source snapshot. Record the full tested commit when using a moving branch.
+Code -> Download ZIP likewise uses the selected branch or tag.
 See the [development and release procedure](/RetroSPAgwas.github.io/docs/spagxe_cpp/distribution.html).
 
 With C++17 GCC/Clang, a C compiler, GNU Make and Bash:
 
 ~~~sh
-git clone --branch develop --single-branch https://github.com/YuzhuoMa97/SPAGxECCT.git
+git clone --branch main --single-branch https://github.com/YuzhuoMa97/SPAGxECCT.git
 cd SPAGxECCT/cpp
 mkdir -p tmp results
 export TMPDIR="$PWD/tmp"
