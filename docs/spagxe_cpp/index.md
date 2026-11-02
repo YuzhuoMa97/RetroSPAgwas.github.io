@@ -8,7 +8,7 @@ has_children: true
 has_toc: true
 ---
 
-**Development source.** SPAGxE 1.2.0 is published on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for d90fb4c](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904) passed Windows and Ubuntu; macOS numerical unit checks failed and the platform remains unvalidated. The C++ release tag and runtime assets are not yet published. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the tested revision and download instructions. Later source commits require their own checks.
+**Development source, checked 2 November 2026.** SPAGxE 1.2.0 is available on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for 2a14885](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41438512290) passed on Windows, Ubuntu and macOS, including source builds, numerical units, regressions and source/extracted-bundle tutorials. The C++ release tag and runtime assets are not yet published; macOS currently uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the exact revision, scope and installation routes. Later commits require their own checks.
 
 # SPAGxE C++ manual {#spagxe-c-manual}
 
@@ -19,8 +19,9 @@ Questions, installation help and bug reports: [yuzhuoma@amss.ac.cn](mailto:yuzhu
 
 This manual documents the published development source of **SPAGxE 1.2.0**.
 The four methods share one statistical policy and standalone executable.
-Windows and Ubuntu checks passed for the reviewed source revision. A fixed
-C++ release tag and matching runtime downloads are still pending.
+Windows, Ubuntu and macOS hosted checks passed for the reviewed source
+revision. A fixed C++ release tag and matching runtime downloads are still
+pending. macOS users compile the source; no macOS precompiled package is supplied.
 The original R package remains a separate interface for compatibility and reproducibility;
 installing it does not install this independent executable.
 

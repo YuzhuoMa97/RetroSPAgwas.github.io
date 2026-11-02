@@ -9,65 +9,91 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-**Development source.** SPAGxE 1.2.0 is published on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for d90fb4c](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904) passed Windows and Ubuntu; macOS numerical unit checks failed and the platform remains unvalidated. The C++ release tag and runtime assets are not yet published. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the tested revision and download instructions. Later source commits require their own checks.
+**Development source, checked 2 November 2026.** SPAGxE 1.2.0 is available on [develop](https://github.com/YuzhuoMa97/SPAGxECCT/tree/develop). [Hosted checks for 2a14885](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41438512290) passed on Windows, Ubuntu and macOS, including source builds, numerical units, regressions and source/extracted-bundle tutorials. The C++ release tag and runtime assets are not yet published; macOS currently uses a source build. See the [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the exact revision, scope and installation routes. Later commits require their own checks.
 
+<a id="current-candidate"></a>
 <a id="current-repaired-candidate"></a>
+<a id="remaining-limits"></a>
 
 # Validation records and interpretation {#validation-records-and-interpretation}
 
-This maintenance candidate changes production implementation structure while
-preserving the documented statistical policy. The historical source baseline, local validation and subsequently published
-maintenance commit are recorded separately.
-Read [release scope](/RetroSPAgwas.github.io/docs/spagxe_cpp/release_scope.html) and
+SPAGxE uses the documented paper-oriented statistical policy with guarded
+partial-normal CGF acceleration. The checked public commit and historical
+local implementation comparisons are recorded separately. Read
+[release scope](/RetroSPAgwas.github.io/docs/spagxe_cpp/release_scope.html) and
 [maintenance notes](/RetroSPAgwas.github.io/docs/spagxe_cpp/maintenance.html).
 
-## Current candidate {#current-candidate}
+## Latest checked public source {#latest-checked-public-source}
 
-- Fresh Windows build and numerical units passed.
-- Seventeen regression suites passed. An initial private driver path-escaping
-  defect affected two reference invocations; only those two were rerun after
-  fixing the driver, with the original diagnostics retained.
-- Previous/current full walkthroughs produced 85 byte-identical files and
-  145,985 identical numeric fields.
-- Focused scanner, sample mapping, file-resource, null-model specification,
-  outlier and CGF checks supplement the full application regressions.
-- Linux results are recorded explicitly in ACCEPTANCE.json when complete.
+Develop commit `2a14885bd9ebc1bcf51910db852a38e212793225` passed the
+[2 November 2026 hosted workflow](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41438512290).
+All Windows, Ubuntu and macOS jobs completed their source build, numerical
+unit, reader/regression and source/extracted-runtime tutorial checks.
+The output comparison checks completed successfully. Check Actions for
+later commits instead of assuming that this record covers them.
 
-Developer scripts regenerate their summaries under cpp/results/. Reference
-tests may use Python or R; analysis and bundled tutorials do not require them.
-Matching old/current implementations is reproducibility evidence. Independent
-scalar/R/high-precision checks and population-level calibration answer
-different questions.
-
-## Remaining limits {#remaining-limits}
-
-Published develop commit d90fb4c45849757c816c5d1ba5d191911443e83c was
-checked by [hosted CI](https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904):
-Windows and Ubuntu passed, while the macOS build/unit job failed.
-macOS remains unvalidated. These results apply to that exact commit and do
-not certify later changes. Binary compatibility depends on OS, CPU and
-runtime libraries; no finite test set guarantees every input, extreme tail,
-historical default P value or biobank-scale speed claim.
-
-Preserved R code keeps its original dependency chain. The original full-CGF
-R baseline and the accelerated default need not have identical P values in
-every case. Historical results are not relabeled as new tests.
+This verifies the tested source and CI runner routes. It does not publish a
+macOS binary or guarantee compatibility with all OS/CPU/compiler versions.
+At this review there was no C++ Release with public runtime attachments;
+users can build the complete develop source. A later Release must identify
+its own source commit, platform packages and checksums.
 
 ## Portable reference calculations {#portable-reference-calculations}
 
-Five checks previously relied on long double having extra precision or
-range, or on a cancellation-prone linear probability. Their independent
-oracles now use exact integer conditional-HWE enumeration with 80/120-digit
-Decimal checks, or 50-digit multiprecision calculations. The generation
-script and HWE fixtures are included in cpp/tests/. Original tolerances
-and all 53 log-probability cases remain. No analysis formula was changed.
-The revised complete unit target passed locally on Windows; actual macOS
-CI must be rerun. Platform diagnostics print the native floating-point
-precision so assumptions are visible in future test logs.
+Earlier macOS failures exposed test references that assumed extra native
+long-double precision/range or used cancellation-prone linear probabilities.
+The corrected oracles use exact conditional-HWE fixtures, multiprecision
+calculations and independent reference identities. The original accuracy
+criteria remain. Production analysis formulas were not changed.
+
+The final log-probability suite has 54 cases: the original 53 and one focused
+normal-reference underflow-band regression. The CGF suite retains all 28
+cases and the original identity grid. There are no newly added skips or
+tolerance relaxations. Existing guards for 13 wider-long-double CGF
+measurements remain; these measurements do not run on hosts without the
+required native precision/range. The successful hosted run is not presented
+as evidence that they ran on such hosts.
+
+Native floating-point diagnostics remain visible in test output. Generation
+scripts and HWE fixtures are included in cpp/tests/. A portable oracle
+correction is distinct from a change to the statistical model.
+
+## Earlier local implementation checks {#earlier-local-implementation-checks}
+
+- Fresh Windows build and numerical units passed.
+- Seventeen local regression suites passed. Two reference invocations were
+  rerun after correcting a private driver path-escaping error; their original
+  diagnostics were retained.
+- Previous/current full walkthroughs produced 85 byte-identical files and
+  145,985 identical numeric fields.
+- Scanner, sample-mapping, file-resource, null-model, outlier and CGF checks
+  supplement those application regressions.
+- Linux local build, numerical units, regression routes, complete walkthrough
+  and installed-prefix execution passed, as recorded in ACCEPTANCE.json.
+
+These are earlier local records, not counts newly extracted from the latest
+hosted run. Earlier public CI results are retained in the machine-readable
+history instead of replacing them with the newer successful result.
+
+Developer scripts regenerate summaries under cpp/results/. Reference tests
+may use Python or R; analysis and bundled tutorials do not require them.
+Matching implementations is reproducibility evidence. Independent reference
+checks and population-level calibration answer different questions.
+
+## Scope and remaining limits {#scope-and-remaining-limits}
+
+Binary compatibility depends on OS, CPU and runtime libraries. No finite test
+set guarantees every input, extreme tail, historical default P value or
+biobank-scale speed claim. The partial-normal diagnostic threshold is not a
+uniform bound on P-value error.
+
+Preserved R code keeps its original dependency chain. The original full-CGF
+R baseline and accelerated default need not give identical P values in every
+case. Historical results are not relabeled as newly executed tests.
 
 ## Current acceptance summary {#current-acceptance-summary}
 
-This record distinguishes local numerical validation from hosted checks of the published source. Each check retains its tested revision and scope.
+This record separates the checked public source from earlier local comparisons and historical hosted results.
 
 <details><summary>Read the acceptance JSON</summary>
 
@@ -75,7 +101,7 @@ This record distinguishes local numerical validation from hosted checks of the p
   &quot;software&quot;: &quot;SPAGxE&quot;,
   &quot;version&quot;: &quot;1.2.0&quot;,
   &quot;date&quot;: &quot;2026-11-02&quot;,
-  &quot;scope&quot;: &quot;Published develop source; Windows/Ubuntu hosted CI passed; macOS failed; final C++ tag/assets pending&quot;,
+  &quot;scope&quot;: &quot;Published develop source; Windows/Ubuntu/macOS hosted CI passed for the pinned commit; final C++ tag/assets pending&quot;,
   &quot;public_baseline_commit&quot;: &quot;c7c11590efbd10504115cd0ad8dbb9c6ca2634e1&quot;,
   &quot;statistical_policy&quot;: &quot;paper weights; guarded partial-normal CGF&quot;,
   &quot;methods&quot;: [
@@ -110,7 +136,7 @@ This record distinguishes local numerical validation from hosted checks of the p
     &quot;null_spec_cases&quot;: 80
   },
   &quot;Linux_locally_validated&quot;: true,
-  &quot;macOS_validated&quot;: false,
+  &quot;macOS_validated&quot;: true,
   &quot;maintenance_candidate_hosted_CI_executed&quot;: true,
   &quot;public_CXX_release_published&quot;: false,
   &quot;universal_calibration_proven&quot;: false,
@@ -239,25 +265,47 @@ This record distinguishes local numerical validation from hosted checks of the p
     &quot;binary_sha256&quot;: &quot;c1bedb883d85f8b5aa9e072fade6f63df4e61e8e44c18548cc3ed42974f60b6c&quot;
   },
   &quot;historical_local_validation_date&quot;: &quot;2026-11-01&quot;,
-  &quot;reviewed_public_commit&quot;: &quot;d90fb4c45849757c816c5d1ba5d191911443e83c&quot;,
+  &quot;reviewed_public_commit&quot;: &quot;2a14885bd9ebc1bcf51910db852a38e212793225&quot;,
   &quot;hosted_CI&quot;: {
-    &quot;commit&quot;: &quot;d90fb4c45849757c816c5d1ba5d191911443e83c&quot;,
-    &quot;run&quot;: &quot;https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904&quot;,
+    &quot;commit&quot;: &quot;2a14885bd9ebc1bcf51910db852a38e212793225&quot;,
+    &quot;run&quot;: &quot;https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41438512290&quot;,
     &quot;Windows&quot;: &quot;success&quot;,
     &quot;Ubuntu&quot;: &quot;success&quot;,
-    &quot;macOS&quot;: &quot;failure&quot;,
-    &quot;overall&quot;: &quot;failure&quot;
+    &quot;macOS&quot;: &quot;success&quot;,
+    &quot;overall&quot;: &quot;success&quot;
   },
-  &quot;website_deployed_commit&quot;: &quot;ca8e1d39e1b01732e2c4dd8015f6dc886862725a&quot;,
+  &quot;website_deployed_commit&quot;: &quot;d389e486035d94c1aceb6acc23acf52a6a10f505&quot;,
   &quot;post_publication_documentation_patch_changes_mathematics&quot;: false,
   &quot;portable_test_reference_update&quot;: {
     &quot;analysis_code_changed&quot;: false,
     &quot;original_accuracy_criteria_retained&quot;: true,
-    &quot;test_cases_skipped&quot;: false,
-    &quot;Windows_local_make_test_passed&quot;: true,
-    &quot;log_probability_cases&quot;: 53,
-    &quot;new_hosted_CI_executed&quot;: false,
-    &quot;actual_MacOS_rerun_passed&quot;: false
+    &quot;new_test_cases_skipped&quot;: false,
+    &quot;new_tolerance_relaxation&quot;: false,
+    &quot;Windows_local_affected_unit_targets_passed&quot;: true,
+    &quot;log_probability_cases&quot;: 54,
+    &quot;CGF_cases&quot;: 28,
+    &quot;new_hosted_CI_executed&quot;: true,
+    &quot;actual_MacOS_rerun_passed&quot;: true,
+    &quot;existing_wide_long_double_measurement_guards&quot;: 13,
+    &quot;existing_guards_changed&quot;: false,
+    &quot;all_wide_measurements_claimed_to_run_on_binary64&quot;: false
+  },
+  &quot;historical_hosted_CI&quot;: [
+    {
+      &quot;commit&quot;: &quot;d90fb4c45849757c816c5d1ba5d191911443e83c&quot;,
+      &quot;run&quot;: &quot;https://github.com/YuzhuoMa97/SPAGxECCT/actions/runs/41416750904&quot;,
+      &quot;Windows&quot;: &quot;success&quot;,
+      &quot;Ubuntu&quot;: &quot;success&quot;,
+      &quot;macOS&quot;: &quot;failure&quot;,
+      &quot;overall&quot;: &quot;failure&quot;
+    }
+  ],
+  &quot;macOS_validation_scope&quot;: &quot;Source build, numerical unit target, reader/regression and source/extracted-runtime tutorial checks on the macos-latest CI job for the recorded commit; no macOS precompiled Release&quot;,
+  &quot;documentation_status_update&quot;: {
+    &quot;base_commit&quot;: &quot;2a14885bd9ebc1bcf51910db852a38e212793225&quot;,
+    &quot;analysis_code_changed&quot;: false,
+    &quot;new_documentation_commit_CI_required&quot;: true,
+    &quot;historical_local_counts_reused_as_new_hosted_counts&quot;: false
   }
 }</code></pre>
 
