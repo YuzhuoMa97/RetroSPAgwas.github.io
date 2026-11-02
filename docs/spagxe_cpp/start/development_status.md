@@ -9,51 +9,37 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-# Development source, repairs and platform checks {#development-source-repairs-and-platform-checks}
+**Maintenance candidate.** This page accompanies local SPAGxE 1.2.0 maintenance source that has not yet been pushed or tagged. The [public baseline](https://github.com/YuzhuoMa97/SPAGxECCT/commit/c7c11590efbd10504115cd0ad8dbb9c6ca2634e1) passed hosted Windows and Ubuntu checks; its macOS build failed. Those hosted results do not validate this new candidate. Read the [candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the current evidence and download boundaries.
 
-This handbook mirrors software version **SPAGxE 1.2.0** from the public development
-commit [`ce9c2473649e`](https://github.com/YuzhuoMa97/SPAGxECCT/commit/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa).
-The source text on the mirrored pages describes that published **pre-fix** snapshot.
-The local repair and validation results below were completed on 31 October 2026.
-The repairs have not yet been pushed to the public branch; its failed CI run is
-not changed by a successful local test.
+# Development source, maintenance and platform checks {#development-source-repairs-and-platform-checks}
 
-## What the downloaded source did {#what-the-downloaded-source-did}
+This manual documents a local maintenance candidate of **SPAGxE 1.2.0**.
+The candidate is not yet a public development commit or a tagged Release.
+Its own build, numerical, format and tutorial acceptance must be read from the
+[candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html).
 
-The downloaded Linux source compiled and passed its numerical unit tests.
-Its integration tests then exposed an input parsing error: a CRLF-terminated
-PLINK BIM line could leave a trailing carriage return in the REF allele.
-Successful compilation alone was therefore insufficient to approve that snapshot.
+## Public source baseline {#what-the-downloaded-source-did}
 
-Two local repairs were prepared: trim line terminators correctly when reading
-BIM records, and use the intended static-link policy for the Windows build.
-They change input handling and build linkage, not the SPAGxE statistical formulas.
-The static-link repair passed local Windows testing; the exact cause of the
-earlier remote Windows failure still requires the matching remote job to be rerun.
+The public source baseline is the revision inspected at the start of this work.
+It already contains the CRLF-aware BIM reader and Windows static-link repairs.
+Its hosted Windows and Ubuntu jobs passed; its macOS build/unit step failed.
+These dated baseline results do not establish that the new maintenance source
+has passed hosted CI.
 
-## Local validation of the repaired source {#local-validation-of-the-repaired-source}
+## Local candidate validation {#local-validation-of-the-repaired-source}
 
-| Scope | Actual result |
-|---|---|
-| Linux environment | Ubuntu 24.04.5 under WSL2, x86-64, GCC 13.3 |
-| Linux acceptance | 22 stages passed, including the 14 CI regression programs, 51 checks and 52,416 rows |
-| Linux examples | Six focused tutorials and the complete 33-group walkthrough passed |
-| Linux distribution/install | Built and extracted the complete bundle; all 45 comparable tutorial outputs matched; installation check passed |
-| Windows repaired build | 17 regression suites and the complete-bundle 45-output comparison passed |
-| Windows/Linux comparison | 43 tables and 139,709 numeric fields compared; maximum absolute difference 1.4210854715202004e-14 |
-| Published GitHub CI | The inspected public commit's jobs still failed; local repairs await a new push and new matching CI run |
-| macOS | Not validated by these local Windows/Linux runs |
+Implementation changes keep the published-method numerical policy and require
+fresh builds, numerical units, reader/method regressions and paired outputs
+against the accepted executable. The [maintenance notes](/RetroSPAgwas.github.io/docs/spagxe_cpp/maintenance.html)
+explain the contracts; the [validation page](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html)
+records measured results and unfinished checks. Finite tests do not prove
+universal tail calibration, every-machine portability or a biobank-scale speed advantage.
 
-These are measured build, input, example and regression results for the repaired
-source in the stated environments. They do not prove universal tail calibration,
-every-machine portability or a biobank-scale performance advantage.
+## Select the revision to install {#use-the-corrected-development-revision}
 
-## Use the corrected development revision {#use-the-corrected-development-revision}
-
-Before starting a new analysis, obtain the development revision containing the
-maintainer's BIM parsing and Windows build repairs, and check its actual CI results.
-The inspected `ce9c2473649e` snapshot does not contain those unpublished repairs.
-Do not treat it as an already corrected release merely because the branch is public.
+The commands below inspect the public development branch. This new candidate
+will appear there only after its maintainer reviews and pushes it. Record the
+actual commit returned by Git, then inspect that exact commit's Actions.
 
 ```sh
 git clone --branch develop --single-branch https://github.com/YuzhuoMa97/SPAGxECCT.git
@@ -61,32 +47,11 @@ cd SPAGxECCT
 git rev-parse HEAD
 ```
 
-Record the displayed full SHA, confirm that it includes the repairs, and then
-follow [installation](/RetroSPAgwas.github.io/docs/spagxe_cpp/installation.html).
-After the maintainer pushes the repaired source, rerun the matching remote
-[GitHub Actions](https://github.com/YuzhuoMa97/SPAGxECCT/actions?query=branch%3Adevelop).
-A queued, skipped or failed job is not platform validation. The default main
-branch or a historical R tag may still lack the C++ tree.
+## Binary downloads and supported scope {#source-notices}
 
-Download the complete source, including bundled dependencies and examples.
-The supplied x86-64 build policy requires Haswell/AVX2. A source archive is not
-a precompiled executable. A Windows release asset, once published, must be paired
-with its matching checksum and corresponding repaired source.
-
-## Source notices {#source-notices}
-
-The inspected public snapshot omits a consolidated `THIRD_PARTY_NOTICES.md`.
-Its [bundled component sources](https://github.com/YuzhuoMa97/SPAGxECCT/tree/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/third_party)
-retain individual source headers and license files. The local software repair
-delivery restores the consolidated attribution record. It remains to be pushed
-with the repaired source; this website does not assert that it already exists
-in the inspected public commit.
-
-The [consolidated attribution record](/RetroSPAgwas.github.io/docs/spagxe_cpp/source_notices.html)
-is also supplied with this handbook. Required authorship, licenses and notices
-must accompany the corresponding distributed source and executable.
-
-See [release scope](/RetroSPAgwas.github.io/docs/spagxe_cpp/release_scope.html) for method
-boundaries and [the dated historical validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html)
-for earlier acceptance. The table above is the current local development review;
-the older record must not be mistaken for a test of the edited public commit.
+No C++ release tag or binary Release assets were public at the baseline review.
+A local archive or CI artifact is not a maintainer-published Release. Use
+the [installation guide](/RetroSPAgwas.github.io/docs/spagxe_cpp/installation.html)
+and [release scope](/RetroSPAgwas.github.io/docs/spagxe_cpp/release_scope.html);
+only advertise platform binaries after matching their source, docs and checksums.
+The historical R installation has a separate interface and dependency chain.

@@ -9,9 +9,7 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-Documentation source: [ce9c2473649e](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/README.md). [Current development checks](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html).
-
-**Source and validation status.** The text below mirrors the published pre-fix source. Local Windows/Linux validation passed after input/build repairs; those repairs still await a public push and matching CI. [Read the required repairs and current evidence](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html).
+**Maintenance candidate.** This page accompanies local SPAGxE 1.2.0 maintenance source that has not yet been pushed or tagged. The [public baseline](https://github.com/YuzhuoMa97/SPAGxECCT/commit/c7c11590efbd10504115cd0ad8dbb9c6ca2634e1) passed hosted Windows and Ubuntu checks; its macOS build failed. Those hosted results do not validate this new candidate. Read the [candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the current evidence and download boundaries.
 
 # Annotated standalone C++ examples {#annotated-standalone-c-examples}
 
@@ -21,13 +19,13 @@ Start with the [official user guide](/RetroSPAgwas.github.io/docs/spagxe_cpp/ful
 
 | Scripts (SH and CMD) | Purpose |
 |---|---|
-| [01_spagxe.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/01_spagxe.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/01_spagxe.cmd) | SPAGxE: PLINK BED, native quantitative/binary/survival/ordinal null models |
-| [02_spagxe_plus.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/02_spagxe_plus.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/02_spagxe_plus.cmd) | SPAGxE+: PGEN and sparse GRM, four trait families |
-| [03_spagxemix.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/03_spagxemix.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/03_spagxemix.cmd) | SPAGxEmix: BGEN and PCs, individual allele frequencies |
-| [04_spagxemix_local.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/04_spagxemix_local.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/04_spagxemix_local.cmd) | SPAGxEmix_local: text G/H, count binary and known-H BGEN |
-| [05_global_local_cct.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/05_global_local_cct.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/05_global_local_cct.cmd) | Global/local CCT and explicit ancestry grouping |
-| [06_local_packing.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/06_local_packing.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/06_local_packing.cmd) | Native C++ count packing and packed-input analysis |
-| [07_feature_walkthrough.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/07_feature_walkthrough.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/07_feature_walkthrough.cmd) | All 33 runnable guide groups and all 53 canonical CLI parameters |
+| [01_spagxe.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/01_spagxe.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/01_spagxe.cmd) | SPAGxE: PLINK BED, native quantitative/binary/survival/ordinal null models |
+| [02_spagxe_plus.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/02_spagxe_plus.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/02_spagxe_plus.cmd) | SPAGxE+: PGEN and sparse GRM, four trait families |
+| [03_spagxemix.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/03_spagxemix.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/03_spagxemix.cmd) | SPAGxEmix: BGEN and PCs, individual allele frequencies |
+| [04_spagxemix_local.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/04_spagxemix_local.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/04_spagxemix_local.cmd) | SPAGxEmix_local: text G/H, count binary and known-H BGEN |
+| [05_global_local_cct.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/05_global_local_cct.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/05_global_local_cct.cmd) | Global/local CCT and explicit ancestry grouping |
+| [06_local_packing.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/06_local_packing.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/06_local_packing.cmd) | Native C++ count packing and packed-input analysis |
+| [07_feature_walkthrough.sh](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/07_feature_walkthrough.sh) / [CMD](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/07_feature_walkthrough.cmd) | All 33 runnable guide groups and all 53 canonical CLI parameters |
 
 ## Working directory and executable {#working-directory-and-executable}
 
@@ -81,7 +79,7 @@ bash examples/tutorials/07_feature_walkthrough.sh results/my_walkthrough
 ```
 
 The Windows CMD launcher calls the adjacent
-[PowerShell script](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/cpp/examples/tutorials/07_feature_walkthrough.ps1). The POSIX script uses standard
+[PowerShell script](https://github.com/YuzhuoMa97/SPAGxECCT/blob/develop/cpp/examples/tutorials/07_feature_walkthrough.ps1). The POSIX script uses standard
 `awk` and `printf` for four small selection lists; all analysis, AF export, INT,
 CCT and local count packing are native C++ operations.
 

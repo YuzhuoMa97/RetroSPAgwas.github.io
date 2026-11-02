@@ -9,9 +9,7 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-Documentation source: [ce9c2473649e](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/docs/IMPLEMENTATION_CHOICE.md). [Current development checks](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html).
-
-**Source and validation status.** The text below mirrors the published pre-fix source. Local Windows/Linux validation passed after input/build repairs; those repairs still await a public push and matching CI. [Read the required repairs and current evidence](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html).
+**Maintenance candidate.** This page accompanies local SPAGxE 1.2.0 maintenance source that has not yet been pushed or tagged. The [public baseline](https://github.com/YuzhuoMa97/SPAGxECCT/commit/c7c11590efbd10504115cd0ad8dbb9c6ca2634e1) passed hosted Windows and Ubuntu checks; its macOS build failed. Those hosted results do not validate this new candidate. Read the [candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the current evidence and download boundaries.
 
 # Implementation choices for the official C++ release {#implementation-choices-for-the-official-c-release}
 
@@ -69,3 +67,5 @@ The single documented statistical policy is deliberate; see
 [feature coverage](/RetroSPAgwas.github.io/docs/spagxe_cpp/features.html). Historical reference comparisons and
 current executable regressions are different evidence layers. Matched-domain
 agreement is not an assertion of all-default, all-input equality.
+
+Read the [maintenance notes](/RetroSPAgwas.github.io/docs/spagxe_cpp/maintenance.html) for the implementation contracts and validation required for this revision.

@@ -9,19 +9,14 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-This consolidated attribution record accompanies the incorporated C++ implementation.
-It is supplied with this handbook because the reviewed development snapshot omitted its
-consolidated notice file. It does not assert that the file already exists in that commit.
-The [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html#source-notices) distinguishes the
-reviewed source from the notice restoration prepared for the software distribution.
+**Maintenance candidate.** This page accompanies local SPAGxE 1.2.0 maintenance source that has not yet been pushed or tagged. The [public baseline](https://github.com/YuzhuoMa97/SPAGxECCT/commit/c7c11590efbd10504115cd0ad8dbb9c6ca2634e1) passed hosted Windows and Ubuntu checks; its macOS build failed. Those hosted results do not validate this new candidate. Read the [candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the current evidence and download boundaries.
 
 # Incorporated source and dependency notices {#incorporated-source-and-dependency-notices}
 
-SPAGxE algorithms and new standalone changes: yuzhuoma@amss.ac.cn.
+SPAGxE algorithms and new standalone changes: Yuzhuo Ma, yuzhuoma@amss.ac.cn.
 The method's published authorship is retained in CITATION_CPP.cff.
 
-New SPAGxE work includes the paper-defined interaction policy, complete-CGF
-workflow, AF/input/numerical corrections, local G/H analysis and packing,
+New SPAGxE work includes the paper-defined interaction policy, guarded partial-normal SPA with full-CGF diagnostics, AF/input/numerical corrections, local G/H analysis and packing,
 standalone interfaces, examples and validation. Historical R files in this
 repository keep their existing contents and license scope.
 
@@ -37,7 +32,7 @@ repository keep their existing contents and license scope.
 | zstd | cpp/third_party/zstd-1.5.7 | Included BSD/GPL choices |
 | SQLite | cpp/third_party/sqlite-3.53.2 | Public domain dedication |
 
-The public examples/1kg dataset is retained from the same upstream snapshot.
+Bundled sample inputs are provided for format and tutorial validation.
 Other bundled association examples are synthetic SPAGxE data.
 No private external-project source, manuscripts or real study datasets are
 included in the new standalone distribution.
@@ -45,3 +40,37 @@ included in the new standalone distribution.
 Windows source builds additionally use POSIX-regex libraries supplied by the
 selected MinGW toolchain. A custom source build may have runtime requirements
 different from the tested, statically linked Windows release bundle.
+
+## Authorship and ownership {#authorship-and-ownership}
+
+# SPAGxE authorship and ownership {#spagxe-authorship-and-ownership}
+
+The SPAGxE method family is described in the published SPAGxE paper. The software maintainer is
+Yuzhuo Ma, yuzhuoma@amss.ac.cn.
+
+Copyright in the new standalone SPAGxE changes and project materials is asserted
+for Yuzhuo Ma, 2026, subject to the licenses of incorporated components.
+
+The historical R sources and root license remain in their original scope.
+DESCRIPTION declares GPL (>=3), while the historical root LICENSE contains
+additional research/non-commercial restrictions. This release preserves those
+historical texts; it does not silently resolve that discrepancy.
+
+The standalone C++ application is distributed under cpp/LICENSE, with its
+retained source and dependency notices. THIRD_PARTY_NOTICES.md records the
+component licenses and the scope of bundled example inputs.
+Renaming files or functions does not change those origins or license terms.
+
+
+## Author-designated official C++ channel {#author-designated-official-c-channel}
+
+Yuzhuo Ma designates this repository and its maintainer-published C++ releases
+as the sole official standalone C++ distribution of the SPAGxE method family.
+Yuzhuo Ma is the method designer and author/maintainer of the original SPAGxE
+software. Questions about methods, implementation, installation or results
+may be sent to yuzhuoma@amss.ac.cn.
+
+This designation identifies the maintainer's release channel. It does not
+claim exclusive authorship of incorporated infrastructure, alter third-party
+license rights, or state that every other implementation is incorrect.
+The paper's coauthorship and the historical R package remain acknowledged.

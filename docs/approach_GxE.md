@@ -35,9 +35,7 @@ R and C++ have separate installation routes; installing the R package does not i
 the executable. This is the sole official standalone C++ distribution designated
 and maintained by Yuzhuo Ma. Contact: [yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).
 
-Local repaired Windows/Linux builds have passed testing. The published development
-snapshot still requires the documented input/build repairs and a matching CI rerun;
-follow the [current validation status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) before installing.
+**Maintenance candidate.** This page accompanies local SPAGxE 1.2.0 maintenance source that has not yet been pushed or tagged. The [public baseline](https://github.com/YuzhuoMa97/SPAGxECCT/commit/c7c11590efbd10504115cd0ad8dbb9c6ca2634e1) passed hosted Windows and Ubuntu checks; its macOS build failed. Those hosted results do not validate this new candidate. Read the [candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the current evidence and download boundaries.
 <!-- SPAGXE_CPP_WEB_END -->
 
 

@@ -8,6 +8,8 @@ has_children: true
 has_toc: true
 ---
 
+**Maintenance candidate.** This page accompanies local SPAGxE 1.2.0 maintenance source that has not yet been pushed or tagged. The [public baseline](https://github.com/YuzhuoMa97/SPAGxECCT/commit/c7c11590efbd10504115cd0ad8dbb9c6ca2634e1) passed hosted Windows and Ubuntu checks; its macOS build failed. Those hosted results do not validate this new candidate. Read the [candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the current evidence and download boundaries.
+
 # SPAGxE C++ manual {#spagxe-c-manual}
 
 The native C++ program provides SPAGxE, SPAGxE+, SPAGxEmix and SPAGxEmix_local.
@@ -15,9 +17,10 @@ This is the sole official standalone C++ distribution designated and maintained 
 **Yuzhuo Ma**, the method designer and author of the original SPAGxE software.
 Questions, installation help and bug reports: [yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).
 
-The current documentation snapshot follows software version **1.2.0**, public development
-commit [`ce9c2473649e`](https://github.com/YuzhuoMa97/SPAGxECCT/commit/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa).
-Local repaired builds have passed native Windows and Linux testing. The inspected public commit still needs the input/build repairs pushed and its failed CI rerun. Read [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) before choosing the revision to install.
+This manual accompanies a local maintenance candidate of **SPAGxE 1.2.0**.
+It preserves the four-method statistical policy and executable version while
+improving implementation structure. Candidate source, documentation and runtime
+archives must be reviewed together before publication.
 The original R package remains a separate interface for compatibility and reproducibility;
 installing it does not install this independent executable.
 
@@ -46,3 +49,7 @@ P-value error bound. The native workflows cover additive counts/dosages. Read th
 
 SPAGxEmixPlus is planned for a future release and is not included in the current C++ distribution.
 Required [incorporated-source notices](/RetroSPAgwas.github.io/docs/spagxe_cpp/source_notices.html), authorship and licenses remain in force.
+
+## Maintenance and validation {#maintenance-and-validation}
+
+Read the [maintenance notes](/RetroSPAgwas.github.io/docs/spagxe_cpp/maintenance.html), [validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [release scope](/RetroSPAgwas.github.io/docs/spagxe_cpp/release_scope.html) before installing or publishing this revision.

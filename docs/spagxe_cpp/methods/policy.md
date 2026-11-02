@@ -9,9 +9,7 @@ has_toc: true
 grand_parent: "SPAGxE C++ manual"
 ---
 
-Documentation source: [ce9c2473649e](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/docs/METHOD_POLICY.md). [Current development checks](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html).
-
-**Source and validation status.** The text below mirrors the published pre-fix source. Local Windows/Linux validation passed after input/build repairs; those repairs still await a public push and matching CI. [Read the required repairs and current evidence](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html).
+**Maintenance candidate.** This page accompanies local SPAGxE 1.2.0 maintenance source that has not yet been pushed or tagged. The [public baseline](https://github.com/YuzhuoMa97/SPAGxECCT/commit/c7c11590efbd10504115cd0ad8dbb9c6ca2634e1) passed hosted Windows and Ubuntu checks; its macOS build failed. Those hosted results do not validate this new candidate. Read the [candidate validation record](/RetroSPAgwas.github.io/docs/spagxe_cpp/validation.html) and [development status](/RetroSPAgwas.github.io/docs/spagxe_cpp/development_status.html) for the current evidence and download boundaries.
 
 # Statistical policy and comparison scope {#statistical-policy-and-comparison-scope}
 
@@ -85,5 +83,5 @@ arbitrary uncertain-H/joint ancestry-genotype posteriors.
 
 Example agreement and source-archive checks are not universal GWAS-tail
 calibration or a measured large-biobank speed comparison.
-See [release scope](/RetroSPAgwas.github.io/docs/spagxe_cpp/release_scope.html), [ownership](https://github.com/YuzhuoMa97/SPAGxECCT/blob/ce9c2473649e0be2a8b70dd2f6186a03b25d21aa/OWNERSHIP.md) and
+See [release scope](/RetroSPAgwas.github.io/docs/spagxe_cpp/release_scope.html), [ownership](/RetroSPAgwas.github.io/docs/spagxe_cpp/source_notices.html#authorship-and-ownership) and
 [third-party notices](/RetroSPAgwas.github.io/docs/spagxe_cpp/source_notices.html).
