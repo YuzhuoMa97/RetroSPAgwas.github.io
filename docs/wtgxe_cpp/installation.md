@@ -65,8 +65,9 @@ g++ -std=c++17 -O2 -Iinclude -Ivendor -Ithird_party/eigen src/cli/main.cpp src/w
 ```
 
 In PowerShell, use `-o wtgxe.exe`, followed by `./wtgxe.exe --version` and
-`./wtgxe.exe --help`. In the worked example, replace `./wtgxe` with the actual
-executable path produced by your build. Keep the working directory at the
+`./wtgxe.exe --help`. The worked example uses the CMake-installed path
+`./install/bin/wtgxe` (or `./install/bin/wtgxe.exe` on Windows). After a direct
+compiler build, replace that path with `./wtgxe` (or `./wtgxe.exe`). Keep the working directory at the
 WtGxE source root so its example paths resolve correctly.
 
 ## Optional package checks

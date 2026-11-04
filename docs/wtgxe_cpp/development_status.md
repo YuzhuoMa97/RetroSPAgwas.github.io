@@ -27,9 +27,8 @@ consistent command-line interface.
    results, including unavailable-marker reasons.
 
 The source package contains the CLI, library interface, bundled Eigen headers,
-example inputs, and developer checks. The analysis executable runs independently
-of R and Python. The package includes developer checks and a complete two-step example with
-four target variants. See the [installation guide](installation.html) for
+developer checks, and a complete two-step example with four target variants.
+The analysis executable runs independently of R and Python. See the [installation guide](installation.html) for
 build and optional test commands.
 
 ## Research use

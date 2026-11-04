@@ -17,7 +17,8 @@ contribute to the analysis without requiring pedigree-role labels.
 
 Its goal is **greater GxE detection power with calibrated type one error
 rate**, through effective use of **case-enriched study data, finite external
-allele-frequency (AF) information, and related participants** to boost power. These resources provide complementary information for association discovery.
+allele-frequency (AF) information, and related participants**. These
+complementary information sources support association discovery in one workflow.
 
 The method builds on the retrospective analysis and saddlepoint approximation
 (SPA) line of work described in Yuzhuo Ma's
@@ -83,7 +84,7 @@ users to learn the interface before preparing their own study inputs.
 Please record the WtGxE software version used in an analysis and cite the
 relevant methodological background:
 
-- Ma, Y. et al., WtGxE: efficiently leveraging external allele frequency and weighted logistic regression to boost powers of genome-wide gene-environmental interaction studies.  
+- **WtGxE:** Ma, Y., et al. *WtGxE: efficiently leveraging external allele frequency and weighted logistic regression to improve power in genome-wide gene-environment interaction studies.*
 - Yuzhuo Ma. Master's thesis (2022). [DOI:10.27272/d.cnki.gshdu.2022.002946](https://doi.org/10.27272/d.cnki.gshdu.2022.002946).
 - Ma, Y., Zhao, Y., Zhang, J.-F., and Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. *Nature Communications*, 16, 3064. [DOI:10.1038/s41467-025-57887-3](https://doi.org/10.1038/s41467-025-57887-3).
 - Li, Y., Ma, Y., Xu, H., et al. (2025). Applying weighted Cox regression to genome-wide association studies of time-to-event phenotypes. *Nature Computational Science*, 5, 1064-1079. [DOI:10.1038/s43588-025-00864-z](https://doi.org/10.1038/s43588-025-00864-z).
