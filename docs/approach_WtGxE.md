@@ -8,13 +8,16 @@ has_children: false
 has_toc: true
 ---
 
-# WtGxE binary gene-environment interaction analysis
+# WtGxE for binary gene-environment interaction analysis
 
-WtGxE is a standalone C++ framework for gene-environment interaction (GxE)
-analysis of binary traits in a single population. Its goal is **greater power
-to detect GxE associations with calibrated type one error rate**, by making
-effective use of three sources of information: **case-enriched study samples,
-finite external allele frequencies, and related participants**.
+WtGxE is a standalone C++ program for genome-wide gene-environment interaction
+(GxE) analysis of binary traits. It **adjusts for genetic relatedness** through
+a sparse genetic relationship matrix (GRM), allowing related participants to
+contribute to the analysis without requiring pedigree-role labels.
+
+Its goal is **greater GxE detection power with calibrated type one error
+rate**, through effective use of **case-enriched study data, finite external
+allele-frequency (AF) information, and related participants** to boost power. These resources provide complementary information for association discovery.
 
 The method builds on the retrospective analysis and saddlepoint approximation
 (SPA) line of work described in Yuzhuo Ma's
@@ -25,11 +28,11 @@ reference AF and sparse-GRM relatedness input in one C++ workflow.
 
 ## Three information channels for GxE discovery
 
-|Information source|How WtGxE uses it|Why it can help power|
+|Information source|WtGxE capability|Contribution to GxE discovery|
 |---|---|---|
-|Case-enriched study data|Sampling information and weights represent the study's case-control ascertainment|Makes use of the information in a case-enriched design while relating the selected study to its target population|
-|Finite external allele frequencies|A matched reference panel supplies additional population allele-frequency information, with its finite sample size retained|Adds information beyond the study-only AF estimate; power gains have been demonstrated in selected evaluated settings|
-|Related participants|A sparse genetic relationship matrix accounts for genetic correlation without requiring pedigree-role labels|Allows phenotyped related participants to contribute instead of restricting the analysis to an unrelated subset|
+|Related participants|Adjusts for genetic relatedness using a sparse GRM|Retains phenotyped participants who would be excluded by an unrelated-only analysis, while accounting for their correlation|
+|Case-enriched study data|Accounts for case-control ascertainment using sampling information|Uses the information in the selected study while relating it to its target population|
+|Finite external AF|Incorporates additional population AF information and its reference sample size|Can improve power beyond study-only AF; gains have been demonstrated in selected evaluated settings|
 
 **Case oversampling does not require more cases than controls.** It means that
 the sampled case fraction is higher than population prevalence. A study with
@@ -52,7 +55,7 @@ explicit analysis status. The external-AF workflow also includes heldout
 background calibration to address study-reference AF discrepancies.
 Power comparisons are interpreted together with matching null simulations.
 
-The same input interface supports Unrelated and Related study samples and
+The same input interface supports unrelated and related study samples and
 offers study-only or finite-reference-AF analysis. Users provide a binary
 phenotype, an environmental measurement, selected covariates and sampling
 information; relatedness is supplied through a sparse GRM. Detailed file
@@ -80,6 +83,7 @@ users to learn the interface before preparing their own study inputs.
 Please record the WtGxE software version used in an analysis and cite the
 relevant methodological background:
 
+- Ma, Y. et al., WtGxE: efficiently leveraging external allele frequency and weighted logistic regression to boost powers of genome-wide gene-environmental interaction studies.  
 - Yuzhuo Ma. Master's thesis (2022). [DOI:10.27272/d.cnki.gshdu.2022.002946](https://doi.org/10.27272/d.cnki.gshdu.2022.002946).
 - Ma, Y., Zhao, Y., Zhang, J.-F., and Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. *Nature Communications*, 16, 3064. [DOI:10.1038/s41467-025-57887-3](https://doi.org/10.1038/s41467-025-57887-3).
 - Li, Y., Ma, Y., Xu, H., et al. (2025). Applying weighted Cox regression to genome-wide association studies of time-to-event phenotypes. *Nature Computational Science*, 5, 1064-1079. [DOI:10.1038/s43588-025-00864-z](https://doi.org/10.1038/s43588-025-00864-z).
@@ -92,4 +96,4 @@ replace those license terms.
 ## Contact
 
 For software access, installation, scientific questions or collaboration,
-contact [yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).
+please contact [yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).

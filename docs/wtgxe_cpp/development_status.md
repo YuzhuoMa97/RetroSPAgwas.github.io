@@ -10,10 +10,10 @@ has_toc: true
 
 # Software overview
 
-WtGxE **0.7.4.1-dev-af-batch** provides a standalone C++ workflow for
-single-population binary GxE analysis. Retrospective SPA, sampling information,
-sparse relatedness input, and optional finite reference allele frequencies
-are available in one program.
+WtGxE **0.7.4.1-dev-af-batch** provides a standalone C++ workflow for binary
+GxE analysis with adjustment for genetic relatedness. Sampling-aware analysis,
+optional finite external AF, and retrospective SPA are available through a
+consistent command-line interface.
 
 ## Analysis workflow
 
@@ -28,8 +28,9 @@ are available in one program.
 
 The source package contains the CLI, library interface, bundled Eigen headers,
 example inputs, and developer checks. The analysis executable runs independently
-of R and Python. The retained local engineering qualification includes nine
-CTest entries and an executed two-step, four-target synthetic example.
+of R and Python. The package includes developer checks and a complete two-step example with
+four target variants. See the [installation guide](installation.html) for
+build and optional test commands.
 
 ## Research use
 

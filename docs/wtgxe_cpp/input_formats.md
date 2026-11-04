@@ -31,8 +31,8 @@ an intercept and the E main effect. Additional columns are selected with
 `--prevalence K` is population prevalence, not the selected-sample case
 fraction. Alternatively, supply weights and declare
 `--sampling-design individual-case-control`. Use weights that are constant
-within cases and constant within controls, reflecting the study's own-Y
-case-control sampling. Choose prevalence or a weight column, rather than both.
+within cases and constant within controls, reflecting case-control sampling based on the analyzed
+binary phenotype. Choose prevalence or a weight column, rather than both.
 Case oversampling means that cases are enriched relative to population
 prevalence; it also occurs in balanced or control-rich case-control studies.
 
@@ -67,23 +67,25 @@ analyze separate groups when needed.
 
 ## Result files
 
-For phenotype `Y`, the main scan writes:
+For phenotype `Y`, every target scan writes the main result and summary:
 
 ```text
 PREFIX.Y.WtGxE
 PREFIX.Y.WtGxE.summary.json
-PREFIX.Y.WtGxE.af_batch_background.json
 ```
 
-The last file records the active AF-background configuration. The main table
-retains marker metadata, analyzed counts, main and interaction P-value fields,
+A background-calibrated external-AF scan additionally writes
+`PREFIX.Y.WtGxE.af_batch_background.json`. This file records the active
+AF-background configuration; it is absent from study-only scans.
+
+The main table retains marker metadata, analyzed counts, main and interaction P-value fields,
 test statuses, and `REASON`. All `LOG10P` fields mean **minus log10 of P**.
 For an environment named `E`, read `LOG10P_GxE` and `SPA_STATUS_GxE` for the
 interaction test. The field suffix is Gx followed by the selected environment name.
 
 `BETA_GxE`, `SE_GxE`, and `LOG10P_Wald_GxE` are reserved output columns and can be
-NA even when the interaction test is available. In the fast branch, `BETA_G`
-and `SE_G` can also remain NA while the main-effect P value is available.
+NA even when the interaction test is available. The `BETA_G` and `SE_G`
+fields can also remain NA while the main-effect P value is available.
 Use the P-value/status fields, not reserved coefficient columns, to establish
 test availability. Retain unavailable rows and reasons; a missing result is
 not a P value of one.

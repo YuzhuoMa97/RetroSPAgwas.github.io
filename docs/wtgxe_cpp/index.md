@@ -10,10 +10,9 @@ permalink: /docs/wtgxe_cpp/index.html
 # WtGxE C++ usage manual
 
 WtGxE provides a standalone C++ workflow for binary GxE analysis, aiming to
-increase detection power while maintaining calibrated type one error rate.
-It combines information from case-enriched study samples, optional finite
-reference allele frequencies, and related participants represented by a sparse
-GRM. See the [method overview](../approach_WtGxE.html) for the role of each
+increase detection power with calibrated type one error rate. It adjusts for
+genetic relatedness using a sparse GRM and combines study sampling information
+with optional finite external allele frequencies. See the [method overview](../approach_WtGxE.html) for the role of each
 information channel; this manual explains how to prepare inputs and run the
 software.
 
@@ -31,6 +30,9 @@ The [source repository](https://github.com/YuzhuoMa97/WtGxE)
 contains the independent package and bundled example inputs; repository access
 is required. The public [input-data download](../assets/wtgxe/WtGxE-example-inputs.zip)
 provides the artificial data used in this manual.
+
+The worked example follows the default CMake installation paths and provides
+complete shell and Windows PowerShell commands.
 
 For external AF, prepare an independent background summary first, then use it
 in a separate target scan. For a study-only analysis, omit both the reference-AF
