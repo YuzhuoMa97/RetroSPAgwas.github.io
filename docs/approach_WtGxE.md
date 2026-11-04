@@ -2,168 +2,94 @@
 layout: default
 title: WtGxE
 nav_order: 7
-description: "Efficiently leveraging external allele frequency to boost powers of genome-wide gene-environmental interaction studies."
+description: "Sampling-aware binary GxE analysis that combines study, finite reference-AF and sparse-relatedness information."
 parent: Genome-wide gene-environment interaction (GxE) studies
 has_children: false
-has_toc: false
+has_toc: true
 ---
 
-<head>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            inlineMath: [['$','$']]
-            }
-        });
-    </script>
-</head>
-
-# WtGxE  
-
-WtGxE is an extension of the **SPAGxE** family (including SPAGxE, SPAGxE+, SPAGxEmix+, etc.) and builds upon the **retrospective analysis framework combined with saddlepoint approximation (SPA)** originally proposed by Yuzhuo Ma in his [master’s thesis (2022)](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS) (**DOI:10.27272/d.cnki.gshdu.2022.002946**) and later formalized in the SPAGxE paper ([Ma et al., *Nature Communications*, 2025](https://doi.org/10.1038/s41467-025-57887-3)).  
-
-While SPAGxE methods successfully apply the retrospective–SPA framework [(Ma, 2022)](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS), **DOI:10.27272/d.cnki.gshdu.2022.002946**) to genome-wide gene–environment interaction (G×E) studies, WtGxE goes a step further by **integrating external allele frequency (AF) information** from public resources (e.g., 1000 Genomes, gnomAD) to substantially boost statistical power, while preserving the fast computation and accurate type I error control inherent to the original framework.
-
----
-
-## Introduction to WtGxE  
-
-G×E studies aim to identify genetic variants whose effects on complex traits are modified by environmental factors. However, statistical power is often limited due to small effect sizes, rare variants, imbalanced phenotypic distributions, and case–control ascertainment.  
-
-The retrospective analysis framework treats genotype as random and conditions on phenotype and covariates, making it robust to model misspecification and naturally applicable to diverse traits. Combined with **saddlepoint approximation (SPA)**, it provides accurate p-values even under extreme phenotypic distributions.  
-
-**WtGxE** inherits these advantages and enhances them by:  
-- Incorporating **externally estimated allele frequencies** to improve the precision of score statistics, thereby increasing power to detect G×E associations.  
-- Retaining the computational scalability of the retrospective–SPA framework ([Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)), enabling genome-wide analysis of large biobank-scale cohorts.
-
----
-
-## Core Methodological Ideas  
-
-WtGxE extends the SPAGxE pipeline with the following innovations:
-
-1. **Integration of External Allele Frequency**  
-   Publicly available AF estimates (e.g., from gnomAD, UK10K, or other large reference panels) are used to refine the variant-specific weights in the score test. This is especially beneficial for rare variants or when the study cohort has a limited sample size.
-
-2. **Retrospective Analysis Framework**  
-   Following the original framework of retrospective–SPA ([Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)) and SPAGxE ([Ma et al., 2025](https://doi.org/10.1038/s41467-025-57887-3)), WtGxE models the genotype distribution conditional on phenotype, environment, and covariates. This retrospective perspective avoids fitting a full model for each variant and enables straightforward handling of complex trait types.
-
-3. **Saddlepoint Approximation (SPA)**  
-   SPA is employed to accurately approximate the null distribution of the test statistic, ensuring valid type I error control even for low-frequency variants and unbalanced case–control ratios.
-
----
-
-## Main Features of WtGxE  
-
-- **Enhanced Power**: By leveraging external AF, WtGxE achieves substantial power gains over existing G×E methods.  
-- **Fast & Accurate**: Inherits the computational efficiency of the retrospective–SPA framework ([Yuzhuo Ma, 2022](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)), requiring only a single null model fit and a lightweight score test for each variant.  
-- **Flexible & Robust**: Applicable to binary with imbalanced case–control ratios and adjusting for sample relatedness.  
-- **User-Friendly**: Implemented in efficient, well-documented code (available in this repository).
-
----
-
-## Citation  
-
-If you use WtGxE, please cite the following references:
-
-- **WtGxE (this work):**  
-  **Ma, Y. et al.**, *WtGxE: efficiently leveraging external allele frequency and weighted logistic regression to boost powers of genome-wide gene-environmental interaction studies*.  
-  **Manuscript in preparation (to be submitted).**  
-
-
-- **SPAGxE (foundational framework):**  
-  Ma, Y., Zhao, Y., Zhang, J.-F., & Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. *Nature Communications*, 16, 3064.  
-  [DOI: 10.1038/s41467-025-57887-3](https://doi.org/10.1038/s41467-025-57887-3)
-
-- **WtCoxG (related method using external AF for time-to-event GWAS):**  
-  Li, Y., Ma, Y., Xu, H., et al. (2025). Applying weighted Cox regression to genome-wide association studies of time-to-event phenotypes. *Nature Computational Science*, 5, 1064–1079.  
-  [DOI: 10.1038/s43588-025-00864-z](https://doi.org/10.1038/s43588-025-00864-z)
-
----
-
-## License & Copyright  
-
-All code, documentation, and materials in this repository related to **SPAGxE** (including SPAGxE, SPAGxE+, SPAGxEmix+, etc.) and **WtGxE** are **Copyright © 2025 Yuzhuo Ma and collaborators**. All rights reserved.  
-
-**Note**: The retrospective-SPA framework applied to G×E studies, which forms the conceptual foundation of SPAGxE and WtGxE, was originally proposed by Yuzhuo Ma in his [master’s thesis (2022, DOI:10.27272/d.cnki.gshdu.2022.002946)](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS) . Unauthorized use or misappropriation of this intellectual contribution may violate academic norms.
-
-**Neither SPAGxE nor WtGxE, nor any part of their implementations, may be used, copied, modified, or distributed without explicit written permission from the first author (Yuzhuo Ma).**  
-
-If you wish to use SPAGxE or WtGxE in your research, collaborate, or extend the methods, please contact:  
-- **Email:** yuzhuoma@amss.ac.cn  
-- Or open an issue in this repository to initiate a discussion.
-
-Unauthorized use or pre‑publication disclosure without proper attribution may violate academic norms and intellectual property rights.  
-
-*Note: All future use of both SPAGxE and WtGxE is governed by this more restrictive policy to protect the original intellectual contributions of the first author.*
-
----
-
-## Contact  
-
-For questions, collaborations, or feedback:  
-- Open an issue in this repository.  
-- Email: yuzhuoma@amss.ac.cn
-
-
-# WtGxE C++ software: efficiently leveraging external allele frequency and weighted logistic regression to boost powers of genome-wide gene-environmental interaction studies.
+# WtGxE binary gene-environment interaction analysis
 
 WtGxE is a standalone C++ framework for gene-environment interaction (GxE)
-analysis of binary traits in accounting for relatedness. It brings **retrospective
-saddlepoint approximation (SPA)**, sampling-aware analysis, sparse genetic
-relationship matrices (GRMs), and finite external allele frequencies into one
-command-line workflow.
+analysis of binary traits in a single population. Its goal is **greater power
+to detect GxE associations with calibrated type one error rate**, by making
+effective use of three sources of information: **case-enriched study samples,
+finite external allele frequencies, and related participants**.
 
-WtGxE builds on the retrospective-SPA GxE framework described in
-[Ma et al., Nature Communications (2025)](https://doi.org/10.1038/s41467-025-57887-3),
-extending its use to sampling-aware binary-trait studies.
+The method builds on the retrospective analysis and saddlepoint approximation
+(SPA) line of work described in Yuzhuo Ma's
+[master's thesis (2022; DOI:10.27272/d.cnki.gshdu.2022.002946)](https://doi.org/10.27272/d.cnki.gshdu.2022.002946)
+and [Ma et al., Nature Communications (2025)](https://doi.org/10.1038/s41467-025-57887-3).
+WtGxE brings this framework together with sampling-aware analysis, finite
+reference AF and sparse-GRM relatedness input in one C++ workflow.
 
-The framework addresses a practical challenge: making effective use of
-case-enriched genetic studies while retaining information from related
-participants and matched reference allele frequencies to boost power in GxE studies. It supports both
-Unrelated and Related study samples through the same input interface, without
-requiring pedigree-role labels.
+## Three information channels for GxE discovery
 
-## What WtGxE C++ software provides
+|Information source|How WtGxE uses it|Why it can help power|
+|---|---|---|
+|Case-enriched study data|Sampling information and weights represent the study's case-control ascertainment|Makes use of the information in a case-enriched design while relating the selected study to its target population|
+|Finite external allele frequencies|A matched reference panel supplies additional population allele-frequency information, with its finite sample size retained|Adds information beyond the study-only AF estimate; power gains have been demonstrated in selected evaluated settings|
+|Related participants|A sparse genetic relationship matrix accounts for genetic correlation without requiring pedigree-role labels|Allows phenotyped related participants to contribute instead of restricting the analysis to an unrelated subset|
 
-- **Binary GxE analysis:** test a genetic variant's interaction with a measured
-  environmental factor while adjusting for selected covariates.
-- **Sampling-aware inference:** use population prevalence or supplied sampling
-  weights to represent case enrichment. This can improve power in evaluated
-  case-enriched settings, including designs with balanced case-control counts.
-- **Sparse relatedness input:** supply a sparse GRM to retain related participants
-  in the analysis.
-- **Finite external AF:** incorporate reference allele-frequency information,
-  with gains in power demonstrated in selected evaluated settings.
-- **AF background calibration:** prepare heldout background summaries to address
-  study-reference AF discrepancies within the documented workflow.
-- **Retrospective SPA and clear output:** obtain interaction P values together
-  with QC information, analysis status, and reproducible input manifests.
+**Case oversampling does not require more cases than controls.** It means that
+the sampled case fraction is higher than population prevalence. A study with
+5,000 cases and 5,000 controls can therefore be case-enriched, as can a study
+with more controls than cases.
 
-![WtGxE input preparation and analysis](assets/wtgxe/WtGxE_usage.svg)
+These channels contribute different information. Reference participants add AF
+information rather than additional study phenotypes. Relatedness adjustment
+accounts for correlation rather than treating relatives as independent
+replicates. Their combination is intended to improve the effective use of
+the available genetic study and reference resources.
 
-## Install and run
+![WtGxE information channels and analysis goal](assets/wtgxe/WtGxE_usage.svg)
 
-The [WtGxE source repository](https://github.com/YuzhuoMa97/WtGxE)
-contains the C++ package, bundled Eigen headers, installation instructions, and
-example inputs. Repository access is required to retrieve the source.
+## Power with calibrated inference
 
-1. Follow the [installation guide](wtgxe_cpp/installation.html).
+Power is useful only when null associations are properly calibrated. WtGxE
+therefore couples its sampling-aware workflow with retrospective SPA and
+explicit analysis status. The external-AF workflow also includes heldout
+background calibration to address study-reference AF discrepancies.
+Power comparisons are interpreted together with matching null simulations.
+
+The same input interface supports Unrelated and Related study samples and
+offers study-only or finite-reference-AF analysis. Users provide a binary
+phenotype, an environmental measurement, selected covariates and sampling
+information; relatedness is supplied through a sparse GRM. Detailed file
+requirements are provided in the usage manual.
+
+## C++ software and worked example
+
+The [WtGxE source repository](https://github.com/YuzhuoMa97/WtGxE) contains the
+independent C++ package, bundled Eigen headers, documentation and artificial
+example data. Repository access is required to retrieve the source.
+The executable runs independently of an R or Python analysis session.
+
+1. Follow the [installation guide](wtgxe_cpp/installation.html) for CMake or a direct C++17 build.
 2. Download the [synthetic example inputs](assets/wtgxe/WtGxE-example-inputs.zip).
-3. Run the [two-step worked example](wtgxe_cpp/quickstart.html): prepare background
-   AF summaries, then analyze the target variants.
-4. Consult the [input and output guide](wtgxe_cpp/input_formats.html) when adapting
-   the workflow to a study.
+3. Run the [two-step worked example](wtgxe_cpp/quickstart.html): prepare background AF summaries, then analyze target variants.
+4. Consult [input and output formats](wtgxe_cpp/input_formats.html) to adapt the workflow to a study.
 
-The [C++ manual](wtgxe_cpp/index.html) brings these steps together. A study-only
-analysis is also available without external AF. The executable runs independently
-of an R or Python analysis session.
+The [C++ manual](wtgxe_cpp/index.html) brings the installation, background
+preparation and analysis steps together. The example uses 400 artificial
+participants, heldout background variants and four target variants, allowing
+users to learn the interface before preparing their own study inputs.
 
-For the C++ software, the repository
-[LICENSE](https://github.com/YuzhuoMa97/WtGxE/blob/main/LICENSE) and
-incorporated-source notices govern redistribution.
+## Academic background and software citation
 
-For software access, installation, or scientific enquiries, contact
-[yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).
+Please record the WtGxE software version used in an analysis and cite the
+relevant methodological background:
+
+- Yuzhuo Ma. Master's thesis (2022). [DOI:10.27272/d.cnki.gshdu.2022.002946](https://doi.org/10.27272/d.cnki.gshdu.2022.002946).
+- Ma, Y., Zhao, Y., Zhang, J.-F., and Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. *Nature Communications*, 16, 3064. [DOI:10.1038/s41467-025-57887-3](https://doi.org/10.1038/s41467-025-57887-3).
+- Li, Y., Ma, Y., Xu, H., et al. (2025). Applying weighted Cox regression to genome-wide association studies of time-to-event phenotypes. *Nature Computational Science*, 5, 1064-1079. [DOI:10.1038/s43588-025-00864-z](https://doi.org/10.1038/s43588-025-00864-z).
+
+Software redistribution is governed by the repository
+[LICENSE](https://github.com/YuzhuoMa97/WtGxE/blob/main/LICENSE) and applicable
+incorporated-source notices. Academic attribution and contact details do not
+replace those license terms.
+
+## Contact
+
+For software access, installation, scientific questions or collaboration,
+contact [yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).

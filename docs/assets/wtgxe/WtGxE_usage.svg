@@ -1,10 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="470" viewBox="0 0 1100 470" role="img" aria-label="WtGxE background preparation followed by target analysis">
-<rect width="1100" height="470" fill="#f6f8fb"/><g font-family="Arial,sans-serif" fill="#17314d">
-<text x="48" y="49" font-size="26" font-weight="bold">WtGxE: prepare inputs, then analyze target variants</text>
-<rect x="45" y="90" width="290" height="150" rx="14" fill="#e0edf7"/><text x="65" y="125" font-size="20" font-weight="bold">Shared study inputs</text>
-<text x="65" y="161" font-size="18">Binary Y, E and covariates</text><text x="65" y="192" font-size="18">Sampling information + sparse GRM</text><text x="65" y="223" font-size="18">PLINK hardcalls + reference AF</text>
-<path d="M335 165H390" stroke="#40789c" stroke-width="4"/><path d="M382 157l12 8-12 8" fill="#40789c"/>
-<rect x="400" y="90" width="295" height="150" rx="14" fill="#dff1e9"/><text x="420" y="125" font-size="20" font-weight="bold">1. Background preparation</text><text x="420" y="161" font-size="18">Heldout, independent variants</text><text x="420" y="192" font-size="18">Export AF summary + all-marker QC</text><text x="420" y="223" font-size="18">Check target IDs are disjoint</text>
-<path d="M695 165H750" stroke="#40789c" stroke-width="4"/><path d="M742 157l12 8-12 8" fill="#40789c"/>
-<rect x="760" y="90" width="295" height="150" rx="14" fill="#eee5f5"/><text x="780" y="125" font-size="20" font-weight="bold">2. Target analysis</text><text x="780" y="161" font-size="18">Target variants + prepared summary</text><text x="780" y="192" font-size="18">Interaction P values and statuses</text><text x="780" y="223" font-size="18">Retained NA + analysis manifests</text>
-<rect x="45" y="280" width="1010" height="130" rx="12" fill="white" stroke="#d4dce5"/><text x="65" y="316" font-size="19" font-weight="bold">Use the example to learn the interface</text><text x="65" y="350" font-size="18">400 synthetic participants; target and background inputs; no real participant data.</text><text x="65" y="382" font-size="18">Study inputs, background AF preparation and target scans in one C++ workflow.</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="555" viewBox="0 0 1100 555" role="img" aria-labelledby="title desc">
+<title id="title">WtGxE information channels and calibrated GxE discovery</title>
+<desc id="desc">Case-enriched study information, finite reference allele frequencies and related participants enter one binary GxE workflow. Power is interpreted with matching null calibration.</desc>
+<rect width="1100" height="555" fill="#f6f8fb"/>
+<g font-family="Arial,sans-serif" fill="#17314d">
+<text x="45" y="52" font-size="27" font-weight="bold">WtGxE: more information for binary GxE discovery</text>
+<rect x="45" y="96" width="310" height="166" rx="12" fill="#e0edf7"/>
+<text x="65" y="130" font-size="20" font-weight="bold">Case-enriched study</text>
+<text x="65" y="169" font-size="17">Phenotypes + sampling information</text>
+<text x="65" y="201" font-size="17">Sampling-aware analysis</text>
+<text x="65" y="233" font-size="17">Balanced or unequal case counts</text>
+<rect x="395" y="96" width="310" height="166" rx="12" fill="#dff1e9"/>
+<text x="415" y="130" font-size="20" font-weight="bold">Finite reference AF</text>
+<text x="415" y="169" font-size="17">Additional population information</text>
+<text x="415" y="201" font-size="17">Finite reference sample size</text>
+<text x="415" y="233" font-size="17">Matched background preparation</text>
+<rect x="745" y="96" width="310" height="166" rx="12" fill="#eee5f5"/>
+<text x="765" y="130" font-size="20" font-weight="bold">Related participants</text>
+<text x="765" y="169" font-size="17">Retain study participants</text>
+<text x="765" y="201" font-size="17">Account for genetic correlation</text>
+<text x="765" y="233" font-size="17">Sparse GRM input</text>
+</g>
+<g stroke="#40789c" stroke-width="3" fill="none"><path d="M200 263v35H550v28"/><path d="M550 263v63"/><path d="M900 263v35H550"/></g>
+<path d="M542 315l8 13 8-13" fill="#40789c"/>
+<rect x="45" y="338" width="1010" height="169" rx="12" fill="white" stroke="#d4dce5"/>
+<g font-family="Arial,sans-serif" fill="#17314d" text-anchor="middle">
+<text x="550" y="377" font-size="23" font-weight="bold">One C++ binary-trait GxE workflow</text>
+<text x="550" y="417" font-size="19">Retrospective SPA + AF background calibration</text>
+<text x="550" y="456" font-size="19">Power interpreted alongside matching null calibration</text>
+<text x="550" y="486" font-size="16">Study-only or finite-reference analysis; Unrelated and Related samples</text>
+</g></svg>

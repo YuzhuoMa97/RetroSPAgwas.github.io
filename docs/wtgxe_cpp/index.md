@@ -9,10 +9,13 @@ permalink: /docs/wtgxe_cpp/index.html
 
 # WtGxE C++ usage manual
 
-WtGxE brings sampling-aware, retrospective-SPA binary GxE analysis to a
-standalone C++ program. The same workflow accepts Unrelated samples or
-Related samples represented by a sparse GRM, with optional finite reference
-allele frequencies.
+WtGxE provides a standalone C++ workflow for binary GxE analysis, aiming to
+increase detection power while maintaining calibrated type one error rate.
+It combines information from case-enriched study samples, optional finite
+reference allele frequencies, and related participants represented by a sparse
+GRM. See the [method overview](../approach_WtGxE.html) for the role of each
+information channel; this manual explains how to prepare inputs and run the
+software.
 
 Current numerical version: **0.7.4.1-dev-af-batch**.
 

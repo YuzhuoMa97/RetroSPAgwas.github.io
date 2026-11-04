@@ -33,12 +33,13 @@ CTest entries and an executed two-step, four-target synthetic example.
 
 ## Research use
 
-The framework is designed to improve the use of case-enriched studies and
-incorporate finite reference AF where it supplies additional information.
-Related participants can be represented through the documented sparse-GRM
-input. Background-based AF discrepancy calibration is part of the external-AF
-workflow. Use the [input guide](input_formats.html) to prepare each study
-consistently.
+The scientific goal is greater GxE detection power with calibrated type one
+error rate. Sampling-aware analysis uses declared case-control ascertainment;
+finite reference AF can add population information; and sparse-GRM analysis
+keeps related participants available while accounting for their correlation.
+Background-based AF discrepancy calibration supports the external-AF workflow.
+Power comparisons should be read together with their matching null settings.
+Use the [input guide](input_formats.html) to prepare each study consistently.
 
 The [source repository](https://github.com/YuzhuoMa97/WtGxE)
 provides the package and its documentation; repository access is required.
