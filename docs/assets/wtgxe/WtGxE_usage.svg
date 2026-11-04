@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="470" viewBox="0 0 1100 470" role="img" aria-label="WtGxE background preparation followed by target analysis">
+<rect width="1100" height="470" fill="#f6f8fb"/><g font-family="Arial,sans-serif" fill="#17314d">
+<text x="48" y="49" font-size="26" font-weight="bold">WtGxE: prepare inputs, then analyze target variants</text>
+<rect x="45" y="90" width="290" height="150" rx="14" fill="#e0edf7"/><text x="65" y="125" font-size="20" font-weight="bold">Shared study inputs</text>
+<text x="65" y="161" font-size="18">Binary Y, E and covariates</text><text x="65" y="192" font-size="18">Sampling information + sparse GRM</text><text x="65" y="223" font-size="18">PLINK hardcalls + reference AF</text>
+<path d="M335 165H390" stroke="#40789c" stroke-width="4"/><path d="M382 157l12 8-12 8" fill="#40789c"/>
+<rect x="400" y="90" width="295" height="150" rx="14" fill="#dff1e9"/><text x="420" y="125" font-size="20" font-weight="bold">1. Background preparation</text><text x="420" y="161" font-size="18">Heldout, independent variants</text><text x="420" y="192" font-size="18">Export AF summary + all-marker QC</text><text x="420" y="223" font-size="18">Check target IDs are disjoint</text>
+<path d="M695 165H750" stroke="#40789c" stroke-width="4"/><path d="M742 157l12 8-12 8" fill="#40789c"/>
+<rect x="760" y="90" width="295" height="150" rx="14" fill="#eee5f5"/><text x="780" y="125" font-size="20" font-weight="bold">2. Target analysis</text><text x="780" y="161" font-size="18">Target variants + prepared summary</text><text x="780" y="192" font-size="18">Interaction P values and statuses</text><text x="780" y="223" font-size="18">Retained NA + analysis manifests</text>
+<rect x="45" y="280" width="1010" height="130" rx="12" fill="white" stroke="#d4dce5"/><text x="65" y="316" font-size="19" font-weight="bold">Use the example to learn the interface</text><text x="65" y="350" font-size="18">400 synthetic participants; target and background inputs; no real participant data.</text><text x="65" y="382" font-size="18">Study inputs, background AF preparation and target scans in one C++ workflow.</text></g></svg>

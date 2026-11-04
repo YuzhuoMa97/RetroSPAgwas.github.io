@@ -69,7 +69,7 @@ WtGxE extends the SPAGxE pipeline with the following innovations:
 If you use WtGxE, please cite the following references:
 
 - **WtGxE (this work):**  
-  **Ma, Y. et al.**, *WtGxE: efficiently leveraging external allele frequency to boost powers of genome-wide gene-environmental interaction studies*.  
+  **Ma, Y. et al.**, *WtGxE: efficiently leveraging external allele frequency and weighted logistic regression to boost powers of genome-wide gene-environmental interaction studies*.  
   **Manuscript in preparation (to be submitted).**  
 
 
@@ -106,3 +106,64 @@ Unauthorized use or pre‑publication disclosure without proper attribution may 
 For questions, collaborations, or feedback:  
 - Open an issue in this repository.  
 - Email: yuzhuoma@amss.ac.cn
+
+
+# WtGxE C++ software: efficiently leveraging external allele frequency and weighted logistic regression to boost powers of genome-wide gene-environmental interaction studies.
+
+WtGxE is a standalone C++ framework for gene-environment interaction (GxE)
+analysis of binary traits in accounting for relatedness. It brings **retrospective
+saddlepoint approximation (SPA)**, sampling-aware analysis, sparse genetic
+relationship matrices (GRMs), and finite external allele frequencies into one
+command-line workflow.
+
+WtGxE builds on the retrospective-SPA GxE framework described in
+[Ma et al., Nature Communications (2025)](https://doi.org/10.1038/s41467-025-57887-3),
+extending its use to sampling-aware binary-trait studies.
+
+The framework addresses a practical challenge: making effective use of
+case-enriched genetic studies while retaining information from related
+participants and matched reference allele frequencies to boost power in GxE studies. It supports both
+Unrelated and Related study samples through the same input interface, without
+requiring pedigree-role labels.
+
+## What WtGxE C++ software provides
+
+- **Binary GxE analysis:** test a genetic variant's interaction with a measured
+  environmental factor while adjusting for selected covariates.
+- **Sampling-aware inference:** use population prevalence or supplied sampling
+  weights to represent case enrichment. This can improve power in evaluated
+  case-enriched settings, including designs with balanced case-control counts.
+- **Sparse relatedness input:** supply a sparse GRM to retain related participants
+  in the analysis.
+- **Finite external AF:** incorporate reference allele-frequency information,
+  with gains in power demonstrated in selected evaluated settings.
+- **AF background calibration:** prepare heldout background summaries to address
+  study-reference AF discrepancies within the documented workflow.
+- **Retrospective SPA and clear output:** obtain interaction P values together
+  with QC information, analysis status, and reproducible input manifests.
+
+![WtGxE input preparation and analysis](assets/wtgxe/WtGxE_usage.svg)
+
+## Install and run
+
+The [WtGxE source repository](https://github.com/YuzhuoMa97/WtGxE)
+contains the C++ package, bundled Eigen headers, installation instructions, and
+example inputs. Repository access is required to retrieve the source.
+
+1. Follow the [installation guide](wtgxe_cpp/installation.html).
+2. Download the [synthetic example inputs](assets/wtgxe/WtGxE-example-inputs.zip).
+3. Run the [two-step worked example](wtgxe_cpp/quickstart.html): prepare background
+   AF summaries, then analyze the target variants.
+4. Consult the [input and output guide](wtgxe_cpp/input_formats.html) when adapting
+   the workflow to a study.
+
+The [C++ manual](wtgxe_cpp/index.html) brings these steps together. A study-only
+analysis is also available without external AF. The executable runs independently
+of an R or Python analysis session.
+
+For the C++ software, the repository
+[LICENSE](https://github.com/YuzhuoMa97/WtGxE/blob/main/LICENSE) and
+incorporated-source notices govern redistribution.
+
+For software access, installation, or scientific enquiries, contact
+[yuzhuoma@amss.ac.cn](mailto:yuzhuoma@amss.ac.cn).
