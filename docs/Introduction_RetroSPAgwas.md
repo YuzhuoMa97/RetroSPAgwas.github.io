@@ -25,19 +25,28 @@ has_toc: true
 
 ## Citation of retrospective SPA
 
-The strategy of applying SPA to retrospective score statistics was first presented in Yuzhuo Ma’s master’s research and documented in the following thesis:
+The strategy of applying SPA to retrospective score statistics was first presented in Yuzhuo Ma's master's research and documented in the following thesis:
 
 - [马雨茁.经验鞍点近似方法及其在全基因组关联分析中的应用研究.2022.山东大学,MA thesis.](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)
 
 - **DOI:10.27272/d.cnki.gshdu.2022.002946**
 
 Based on the idea from the authors of the above master's thesis, we have applied retrospective saddlepoint approximation to several methods including:
-- [```SPAmix```](https://github.com/YuzhuoMa97/SPAmix) (since 2021)
+
+- [```SPAmix```](https://github.com/YuzhuoMa97/SPAmix) (the original retrospective-SPA GWAS method, developed since 2021)
 - [```SPAmix+```](https://github.com/YuzhuoMa97/SPAmixPlus) (based on ```SPAmix``` since 2024)
-- [```SPAGxE```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```SPAmix``` since 2021)
-- [```SPAGxE+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```SPAmix``` since 2021)
-- [```SPAGxEmix```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```SPAmix``` since 2021)
-- [```SPAGxEmix+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```SPAmix``` since 2024). 
+- [```SPAmix-Gene```](approach_SPAmix_GENE.html) (based on ```SPAmix``` since 2024)
+- [```SPAmix-QRS```](https://github.com/YuzhuoMa97/SPAmix-QRS) (based on ```SPAmix``` since 2025)
+- [```SPAmix-QRS+```](https://github.com/YuzhuoMa97/SPAmix-QRSplus) (based on ```SPAmix``` since 2025)
+- [```WtCoxG```](https://doi.org/10.1038/s43588-025-00864-z) (based on ```retrospective-SPA``` since 2022). 
+- [```SPAGxE```](https://github.com/YuzhuoMa97/SPAGxECCT) (the original retrospective-SPA GxE method since 2021)
+- [```SPAGxE+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```retrospective-SPA``` since 2021)
+- [```SPAGxEmixCCT```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```retrospective-SPA``` since 2021)
+- [```SPAGxEmix+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```retrospective-SPA``` since 2024). 
+- [```WtGxE```](https://github.com/YuzhuoMa97/WtGxE) (based on ```retrospective-SPA``` since 2025). 
+- [```SPAGxEmix-QRS```](https://github.com/YuzhuoMa97/SPAmix-QRS) (based on ```SPAmix``` and ```SPAGxE``` since 2026)
+- [```SPAGxEmix-QRS+```](https://github.com/YuzhuoMa97/SPAmix-QRSplus) (based on ```SPAmix``` and ```SPAGxE``` since 2026)
+
 
 **If you use this retrospective–SPA strategy or its methods, please cite the relevant [SPAmix paper](https://doi.org/10.1186/s13059-025-03827-9) or [SPAGxE paper](https://doi.org/10.1038/s41467-025-57887-3), and acknowledge the original thesis when discussing the strategy’s origins. We welcome applications, methodological developments and collaboration.**
 

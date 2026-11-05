@@ -39,12 +39,8 @@ Based on the original retrospective-SPA idea from the authors of the above maste
 - [```SPAmix-QRS```](https://github.com/YuzhuoMa97/SPAmix-QRS) (based on ```SPAmix``` since 2025)
 - [```SPAmix-QRS+```](https://github.com/YuzhuoMa97/SPAmix-QRSplus) (based on ```SPAmix``` since 2025)
 - [```WtCoxG```](https://doi.org/10.1038/s43588-025-00864-z) (based on ```retrospective-SPA``` since 2022). 
+- [```LEAF```] (based on ```retrospective-SPA``` since 2025). 
 
-- [```SPAGxE```](https://github.com/YuzhuoMa97/SPAGxECCT) (the original retrospective-SPA GxE method since 2021)
-- [```SPAGxE+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```retrospective-SPA``` since 2021)
-- [```SPAGxEmixCCT```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```retrospective-SPA``` since 2021)
-- [```SPAGxEmix+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```retrospective-SPA``` since 2024). 
-- [```WtGxE```](https://github.com/YuzhuoMa97/WtGxE) (based on ```retrospective-SPA``` since 2025). 
 
 **If you use this retrospective–SPA strategy or its methods, please cite the relevant [SPAmix paper](https://doi.org/10.1186/s13059-025-03827-9) or [SPAGxE paper](https://doi.org/10.1038/s41467-025-57887-3), and acknowledge the original thesis when discussing the strategy’s origins. We welcome applications, methodological developments and collaboration.**
 
@@ -64,6 +60,6 @@ Two pivotal papers first applied retrospective-SPA to GWAS and GxE studies.
 
 - (2) **SPAGxE**: Ma, Y., Zhao, Y., Zhang, J.-F., and Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. Nature Communications, 16, 3064. [DOI:10.1038/s41467-025-57887-3](https://doi.org/10.1038/s41467-025-57887-3).
 
-The original strategy is the application of SPA to retrospective score statistics, first presented in Yuzhuo Ma’s master’s research and documented in the 2022 thesis. The papers above provide the published methodological references.
+The original strategy is the application of SPA to retrospective score statistics, first presented in Yuzhuo Ma's master's research and documented in the 2022 thesis. The papers above provide the published methodological references.
 
 **Suggestions or comments on retrospective saddlepoint approximation methods are also welcome.**
