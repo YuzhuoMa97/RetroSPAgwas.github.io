@@ -16,6 +16,8 @@ has_toc: true
 - (2) uses saddlepoint approximation (SPA) to accurately approximate the null distribution of score statistics conditional on phenotype and covariates.
 
 
+The original idea emphasized here is **combining retrospective score statistics with SPA**. We first introduced this strategy in Yuzhuo Ma’s master’s research, documented in his 2022 thesis; this is distinct from claiming that retrospective association analysis itself originated in this project. The retrospective–SPA combination should be credited as its own methodological contribution rather than simply as an extension of a prospective-SPA algorithm.
+
 ## Main features of GWAS methods based on retrospective SPA
 
 - Applicable to a wide range of trait types (binary, quantitative, time-to-event, ordinal, longitudinal, and other traits).
@@ -24,27 +26,27 @@ has_toc: true
 
 ## Citation of retrospective SPA
 
-Retrospective saddlepoint approximation (Retrospective SPA) methods were first proposed in the master's thesis:
+The strategy of applying SPA to retrospective score statistics was first presented in Yuzhuo Ma’s master’s research and documented in the following thesis:
 
 - [马雨茁.经验鞍点近似方法及其在全基因组关联分析中的应用研究.2022.山东大学,MA thesis.](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)
 
 - **DOI:10.27272/d.cnki.gshdu.2022.002946**
 
 Based on the original retrospective-SPA idea from the authors of the above master's thesis, we have applied retrospective saddlepoint approximation to several methods including but not limited to:
-- [```SPAmix```](https://github.com/YuzhuoMa97/SPAmix) (the original retrospective-SPA GWAS method since 2020, not extended by prospective GWAS methods)
+- [```SPAmix```](https://github.com/YuzhuoMa97/SPAmix) (the original retrospective-SPA GWAS method, developed since 2021)
 - [```SPAmix+```](https://github.com/YuzhuoMa97/SPAmixPlus) (based on ```SPAmix``` since 2024)
-- [```SPAmix-Gene```](https://github.com/YuzhuoMa97/SPAmix-Gene) (based on ```SPAmix``` since 2024)
+- [```SPAmix-Gene```](approach_SPAmix_GENE.html) (based on ```SPAmix``` since 2024)
 - [```SPAmix-QRS```](https://github.com/YuzhuoMa97/SPAmix-QRS) (based on ```SPAmix``` since 2025)
 - [```SPAmix-QRS+```](https://github.com/YuzhuoMa97/SPAmix-QRSplus) (based on ```SPAmix``` since 2025)
-- [```WtCoxG```](https://github.com/YingLi-pku/WtCoxG) (based on ```retrospective-SPA``` since 2022). 
-- [```LEAF```](https://github.com/YuzhuoMa97/LEAF) (based on ```retrospective-SPA``` since 2024). 
-- [```SPAGxE```](https://github.com/YuzhuoMa97/SPAGxECCT) (the original retrospective-SPA GxE method since since 2021)
+- [```WtCoxG```](https://doi.org/10.1038/s43588-025-00864-z) (based on ```retrospective-SPA``` since 2022). 
+
+- [```SPAGxE```](https://github.com/YuzhuoMa97/SPAGxECCT) (the original retrospective-SPA GxE method since 2021)
 - [```SPAGxE+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```retrospective-SPA``` since 2021)
 - [```SPAGxEmixCCT```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```retrospective-SPA``` since 2021)
 - [```SPAGxEmix+```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```retrospective-SPA``` since 2024). 
-- [```WtGxE```](https://github.com/YuzhuoMa97/SPAGxECCT) (based on ```retrospective-SPA``` since 2025). 
+- [```WtGxE```](https://github.com/YuzhuoMa97/WtGxE) (based on ```retrospective-SPA``` since 2025). 
 
-**If you utilized the retrospective saddlepoint approximation method in your proposed methods or tools, please acknowledge and respect the original ideas presented in the two works ([```SPAmix```](https://github.com/YuzhuoMa97/SPAmix) and [```SPAGxE```](https://github.com/YuzhuoMa97/SPAGxECCT)). Additionally, kindly cite the original papers ([```SPAmix```](https://github.com/YuzhuoMa97/SPAmix) and [```SPAGxE```](https://github.com/YuzhuoMa97/SPAGxECCT)) or the master's thesis:**
+**If you use this retrospective–SPA strategy or its methods, please cite the relevant [SPAmix paper](https://doi.org/10.1186/s13059-025-03827-9) or [SPAGxE paper](https://doi.org/10.1038/s41467-025-57887-3), and acknowledge the original thesis when discussing the strategy’s origins. We welcome applications, methodological developments and collaboration.**
 
 - **[马雨茁.经验鞍点近似方法及其在全基因组关联分析中的应用研究.2022.山东大学,MA thesis.](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS)**
 
@@ -58,10 +60,10 @@ Based on the original retrospective-SPA idea from the authors of the above maste
 
 Two pivotal papers first applied retrospective-SPA to GWAS and GxE studies.
 
-- (1) **SPAmix**: Ma, Y., Xu, H., Li, Y. et al. SPAmix: a scalable, accurate, and universal analysis framework for large-scale genetic association studies in admixed populations. Genome Biology 26, 356 (2025).
+- (1) **SPAmix**: Ma, Y., Xu, H., Li, Y. et al. SPAmix: a scalable, accurate, and universal analysis framework for large-scale genetic association studies in admixed populations. Genome Biology 26, 356 (2025). [DOI:10.1186/s13059-025-03827-9](https://doi.org/10.1186/s13059-025-03827-9).
 
-- (2) **SPAGxE**: Ma, Y., Zhao, Y., Zhang, J.-F., and Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. Nature Communications, 16, 3064. DOI:10.1038/s41467-025-57887-3.
+- (2) **SPAGxE**: Ma, Y., Zhao, Y., Zhang, J.-F., and Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. Nature Communications, 16, 3064. [DOI:10.1038/s41467-025-57887-3](https://doi.org/10.1038/s41467-025-57887-3).
 
- The retrospective saddlepoint approximation method being proposed in 2021 (**first proposed in 2021 and published in the master thesis of [马雨茁.经验鞍点近似方法及其在全基因组关联分析中的应用研究.2022.山东大学,MA thesis.doi:10.27272/d.cnki.gshdu.2022.002946.](https://kns.cnki.net/kcms2/article/abstract?v=jkwd3qsBIEKwkKkgMuimTLSEojAEBaWSJzCAd3uOCepX09aaYi1Vhn87HddxnsydAW9MGQHzgdF9Nw93IZ_DZCdJbGAX3C13DfGxpW58VBV273z1eVlg75Je1akPxIDc5iiSpz46iutS1tt9m3MJRg==&uniplatform=NZKPT&language=CHS), please consult the relevant authors and supervisors the reasons for the delay in publication.**
+The original strategy is the application of SPA to retrospective score statistics, first presented in Yuzhuo Ma’s master’s research and documented in the 2022 thesis. The papers above provide the published methodological references.
 
 **Suggestions or comments on retrospective saddlepoint approximation methods are also welcome.**

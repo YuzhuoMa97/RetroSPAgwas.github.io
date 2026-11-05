@@ -11,6 +11,8 @@ has_toc: false
 
 The retrospective saddlepoint approximation (SPA) methods are mainly designed to conduct **genome-wide association studies (GWAS)** in terms of both single-variant and set-based analysis. 
 
+The original strategy introduced in this project is **applying SPA to retrospective score statistics**. This retrospective–SPA combination was first presented in Yuzhuo Ma’s master’s research and documented in his [2022 thesis](docs/Introduction_RetroSPAgwas.html).
+
 ## Genome-wide association studies
 
 All retrospective-SPA-based GWAS approaches share the same analysis framework including the following two steps
@@ -24,7 +26,7 @@ All retrospective-SPA-based GWAS approaches share the same analysis framework in
 All retrospective-SPA-based GxE approaches share the same analysis framework including the following two steps:
 
 - Step 1: Fit a genotype-independent (covariates-only) model using trait, covariates, and GRM (if applied).
-- Step 2: Conduct single-variant or set-based tests to identify marker or marker-set (e.g. gene) significantly associated with the trait of interest.
+- Step 2: Conduct single-variant or set-based tests to identify markers or marker sets with gene-environment interaction effects.
 
 
 
@@ -42,6 +44,10 @@ All retrospective-SPA-based GxE approaches share the same analysis framework inc
 ### May 2022
 - **Event**: The master's thesis (DOI:10.27272/d.cnki.gshdu.2022.002946), which initially introduced the concept of retrospective SPA, was completed.
 
+
+## Published methods and software guides
+
+The [SPAmix paper](https://doi.org/10.1186/s13059-025-03827-9) and [SPAGxE paper](https://doi.org/10.1038/s41467-025-57887-3) are published. For method descriptions and worked examples, see [GWAS methods](docs/approach.html), [G×E methods](docs/approach_GxE.html), the [SPAGxE C++ manual](docs/spagxe_cpp/index.html) and the [WtGxE guide](docs/wtgxe_cpp/index.html).
 
 ![RetroSPA_timeline](https://raw.githubusercontent.com/YuzhuoMa97/RetroSPAgwas.github.io/main/docs/assets/images/RetroSPA_timeline.png)
 

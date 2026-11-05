@@ -38,7 +38,7 @@ If you use SPAmix‑QRS, please cite:
 
 - **SPAmix (foundational framework):**  
   Ma, Y., Xu, H., Li, Y. et al. (2025). SPAmix: a scalable, accurate, and universal analysis framework for large‑scale genetic association studies in admixed populations. *Genome Biology*, 26, 356.  
-  [DOI: 10.1186/s13059‑025‑03827‑9](https://doi.org/10.1186/s13059‑025‑03827‑9)
+  [DOI: 10.1186/s13059-025-03827-9](https://doi.org/10.1186/s13059-025-03827-9)
 
 - **Retrospective‑SPA original thesis idea:**  
   Ma, Y. (2022). Empirical Saddlepoint Approximation and Its Application to Genome‑Wide Association Studies.  

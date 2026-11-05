@@ -1,10 +1,10 @@
 title: RetroSPAgwas
-description: A starter template for a Jeykll site using the Just the Docs theme!
+description: Retrospective-SPA methods and software for GWAS and gene-environment interaction studies.
 theme: just-the-docs
 
 
-baseurl: RetroSPAgwas.github.io/ 
+baseurl: /RetroSPAgwas.github.io
 url: https://yuzhuoma97.github.io/
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  Project repositories: https://github.com/YuzhuoMa97
