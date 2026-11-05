@@ -54,5 +54,5 @@ SPAGxEmix+ comprises three main steps:
 
 ## Citation
 
-- to be submitted
+- to be updated
 

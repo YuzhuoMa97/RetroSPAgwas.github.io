@@ -266,7 +266,7 @@ This repository (including code, documentation, and materials related to SPAGxE,
 4. Remove or alter this copyright notice.
 
 ## Attribution
-If you use or adapt the methodological ideas (especially the retrospective‑SPA framework for G×E studies), please cite:
+If you use or adapt the methodological ideas (the retrospective‑SPA framework for G×E studies), please cite:
 - Master's thesis (2022): DOI:10.27272/d.cnki.gshdu.2022.002946
 - Ma et al., *Nature Communications* (2025): DOI:10.1038/s41467‑025‑57887‑3
 

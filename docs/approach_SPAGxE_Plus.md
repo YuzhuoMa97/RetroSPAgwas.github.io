@@ -212,5 +212,5 @@ head(binary.res)
 
 ## Citation
 
-- **A scalable and accurate framework for large-scale genome-wide gene-environment interaction analysis and its application to time-to-event and ordinal categorical traits** (to be updated).
+- **Ma, Y., Zhao, Y., Zhang, J.-F., and Bi, W. (2025). Efficient and accurate framework for genome-wide gene-environment interaction analysis in large-scale biobanks. Nature Communications, 16, 3064. DOI:10.1038/s41467-025-57887-3.
 

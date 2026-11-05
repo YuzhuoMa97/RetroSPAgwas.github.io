@@ -18,6 +18,6 @@ Robust handling of complex genetic architectures, such as population admixture (
 
 Integrated gene-environment interaction (G×E) testing under the retrospective framework, enabling accurate and scalable analysis across diverse study designs.
 
-This patented technology underpins a series of GWAS algorithms developed by the inventor, including SPAmix, SPAmix+, SPAGxE, SPAmix-QRS, SPAmix-QRS+, and their extensions. The patent establishes the legal priority and intellectual property ownership of the retrospective-SPA framework and its derivatives.
+This patented technology underpins a series of GWAS algorithms developed by the inventor, including SPAmix, SPAmix+, SPAmix-QRS, SPAmix-QRS+, SPAGxE, SPAGxE+, SPAGxEmix, SPAGxEmix+, WtGxE, and their extensions. The patent establishes the legal priority and intellectual property ownership of the retrospective-SPA framework and its derivatives.
 
 If you have any questions about restropective-SPA methods, please contact yuzhuoma@amss.ac.cn. Suggestions, comments, or collaboration based on the retrospective-SPA algorithm are also welcome.
